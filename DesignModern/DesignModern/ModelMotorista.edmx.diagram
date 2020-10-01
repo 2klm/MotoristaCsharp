@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="3f97ef2482064d2e8073d297492c2a1c" Name="Diagram1">
+        <EntityTypeShape EntityType="motorista_baseModel.client" Width="1.5" PointX="3" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="motorista_baseModel.commande" Width="1.5" PointX="5.25" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="motorista_baseModel.garage" Width="1.5" PointX="3" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="motorista_baseModel.marque" Width="1.5" PointX="3.75" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="motorista_baseModel.modele" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="motorista_baseModel.type_de_client" Width="1.5" PointX="0.75" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="motorista_baseModel.type_de_garage" Width="1.5" PointX="0.75" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="motorista_baseModel.type_de_voiture" Width="1.5" PointX="6" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="motorista_baseModel.voiture" Width="1.5" PointX="8.25" PointY="4" IsExpanded="true" />
+        <AssociationConnector Association="motorista_baseModel.FK_client_type_de_client" ManuallyRouted="false" />
+        <AssociationConnector Association="motorista_baseModel.FK_commande_client" ManuallyRouted="false" />
+        <AssociationConnector Association="motorista_baseModel.FK_commande_garage" ManuallyRouted="false" />
+        <AssociationConnector Association="motorista_baseModel.FK_garage_type_de_garage" ManuallyRouted="false" />
+        <AssociationConnector Association="motorista_baseModel.FK_voiture_garage" ManuallyRouted="false" />
+        <AssociationConnector Association="motorista_baseModel.FK_modele_marque" ManuallyRouted="false" />
+        <AssociationConnector Association="motorista_baseModel.FK_voiture_modele" ManuallyRouted="false" />
+        <AssociationConnector Association="motorista_baseModel.FK_voiture_type_de_voiture" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

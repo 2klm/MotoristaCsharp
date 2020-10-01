@@ -1,0 +1,624 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="motorista_baseModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="client">
+          <Key>
+            <PropertyRef Name="numC" />
+          </Key>
+          <Property Name="numC" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="numTypeClient" Type="int" Nullable="false" />
+          <Property Name="nomC" Type="varchar" MaxLength="255" />
+          <Property Name="prenomC" Type="varchar" MaxLength="255" />
+          <Property Name="adresseC" Type="varchar" MaxLength="255" />
+          <Property Name="cpC" Type="varchar" MaxLength="255" />
+          <Property Name="villeC" Type="varchar" MaxLength="255" />
+          <Property Name="paysC" Type="varchar" MaxLength="255" />
+          <Property Name="telC" Type="varchar" MaxLength="255" />
+          <Property Name="emailC" Type="varchar" MaxLength="255" />
+          <Property Name="loginC" Type="varchar" MaxLength="255" />
+          <Property Name="mdpC" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="commande">
+          <Key>
+            <PropertyRef Name="numCmd" />
+          </Key>
+          <Property Name="numCmd" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="numC" Type="int" Nullable="false" />
+          <Property Name="idGarage" Type="int" Nullable="false" />
+          <Property Name="dateLivraisonCmd" Type="date" />
+          <Property Name="dateCmd" Type="date" />
+          <Property Name="etatCmd" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="garage">
+          <Key>
+            <PropertyRef Name="idGarage" />
+          </Key>
+          <Property Name="idGarage" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idType" Type="int" Nullable="false" />
+          <Property Name="nomG" Type="varchar" MaxLength="255" />
+          <Property Name="adresseG" Type="varchar" MaxLength="255" />
+          <Property Name="cpG" Type="varchar" MaxLength="255" />
+          <Property Name="telG" Type="varchar" MaxLength="255" />
+          <Property Name="emailG" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="marque">
+          <Key>
+            <PropertyRef Name="idMarque" />
+          </Key>
+          <Property Name="idMarque" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nomMarque" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="modele">
+          <Key>
+            <PropertyRef Name="idModele" />
+          </Key>
+          <Property Name="idModele" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idMarque" Type="int" Nullable="false" />
+          <Property Name="nomModele" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="type_de_client">
+          <Key>
+            <PropertyRef Name="numTypeClient" />
+          </Key>
+          <Property Name="numTypeClient" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="typeClient" Type="varchar" MaxLength="128" />
+        </EntityType>
+        <EntityType Name="type_de_garage">
+          <Key>
+            <PropertyRef Name="idType" />
+          </Key>
+          <Property Name="idType" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="libelleType" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="type_de_voiture">
+          <Key>
+            <PropertyRef Name="idTypeV" />
+          </Key>
+          <Property Name="idTypeV" Type="int" Nullable="false" />
+          <Property Name="etatTypeV" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="voiture">
+          <Key>
+            <PropertyRef Name="idVoiture" />
+          </Key>
+          <Property Name="idVoiture" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idGarage" Type="int" Nullable="false" />
+          <Property Name="idTypeV" Type="int" Nullable="false" />
+          <Property Name="idModele" Type="int" Nullable="false" />
+          <Property Name="numSerieV" Type="bigint" />
+          <Property Name="nbPassagerV" Type="int" />
+          <Property Name="nbKmV" Type="int" />
+          <Property Name="puissanceV" Type="int" />
+          <Property Name="couleurV" Type="char" MaxLength="255" />
+          <Property Name="energieV" Type="varchar" MaxLength="255" />
+          <Property Name="prixVenteV" Type="bigint" />
+          <Property Name="boiteDeVitesseV" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <Association Name="FK_client_type_de_client">
+          <End Role="type_de_client" Type="Self.type_de_client" Multiplicity="1" />
+          <End Role="client" Type="Self.client" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="type_de_client">
+              <PropertyRef Name="numTypeClient" />
+            </Principal>
+            <Dependent Role="client">
+              <PropertyRef Name="numTypeClient" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_commande_client">
+          <End Role="client" Type="Self.client" Multiplicity="1" />
+          <End Role="commande" Type="Self.commande" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="client">
+              <PropertyRef Name="numC" />
+            </Principal>
+            <Dependent Role="commande">
+              <PropertyRef Name="numC" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_commande_garage">
+          <End Role="garage" Type="Self.garage" Multiplicity="1" />
+          <End Role="commande" Type="Self.commande" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="garage">
+              <PropertyRef Name="idGarage" />
+            </Principal>
+            <Dependent Role="commande">
+              <PropertyRef Name="idGarage" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_garage_type_de_garage">
+          <End Role="type_de_garage" Type="Self.type_de_garage" Multiplicity="1" />
+          <End Role="garage" Type="Self.garage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="type_de_garage">
+              <PropertyRef Name="idType" />
+            </Principal>
+            <Dependent Role="garage">
+              <PropertyRef Name="idType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_modele_marque">
+          <End Role="marque" Type="Self.marque" Multiplicity="1" />
+          <End Role="modele" Type="Self.modele" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="marque">
+              <PropertyRef Name="idMarque" />
+            </Principal>
+            <Dependent Role="modele">
+              <PropertyRef Name="idMarque" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_voiture_garage">
+          <End Role="garage" Type="Self.garage" Multiplicity="1" />
+          <End Role="voiture" Type="Self.voiture" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="garage">
+              <PropertyRef Name="idGarage" />
+            </Principal>
+            <Dependent Role="voiture">
+              <PropertyRef Name="idGarage" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_voiture_modele">
+          <End Role="modele" Type="Self.modele" Multiplicity="1" />
+          <End Role="voiture" Type="Self.voiture" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="modele">
+              <PropertyRef Name="idModele" />
+            </Principal>
+            <Dependent Role="voiture">
+              <PropertyRef Name="idModele" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_voiture_type_de_voiture">
+          <End Role="type_de_voiture" Type="Self.type_de_voiture" Multiplicity="1" />
+          <End Role="voiture" Type="Self.voiture" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="type_de_voiture">
+              <PropertyRef Name="idTypeV" />
+            </Principal>
+            <Dependent Role="voiture">
+              <PropertyRef Name="idTypeV" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="motorista_baseModelStoreContainer">
+          <EntitySet Name="client" EntityType="Self.client" Schema="2021-motorista_base" store:Type="Tables" />
+          <EntitySet Name="commande" EntityType="Self.commande" Schema="2021-motorista_base" store:Type="Tables" />
+          <EntitySet Name="garage" EntityType="Self.garage" Schema="2021-motorista_base" store:Type="Tables" />
+          <EntitySet Name="marque" EntityType="Self.marque" Schema="2021-motorista_base" store:Type="Tables" />
+          <EntitySet Name="modele" EntityType="Self.modele" Schema="2021-motorista_base" store:Type="Tables" />
+          <EntitySet Name="type_de_client" EntityType="Self.type_de_client" Schema="2021-motorista_base" store:Type="Tables" />
+          <EntitySet Name="type_de_garage" EntityType="Self.type_de_garage" Schema="2021-motorista_base" store:Type="Tables" />
+          <EntitySet Name="type_de_voiture" EntityType="Self.type_de_voiture" Schema="2021-motorista_base" store:Type="Tables" />
+          <EntitySet Name="voiture" EntityType="Self.voiture" Schema="2021-motorista_base" store:Type="Tables" />
+          <AssociationSet Name="FK_client_type_de_client" Association="Self.FK_client_type_de_client">
+            <End Role="type_de_client" EntitySet="type_de_client" />
+            <End Role="client" EntitySet="client" />
+          </AssociationSet>
+          <AssociationSet Name="FK_commande_client" Association="Self.FK_commande_client">
+            <End Role="client" EntitySet="client" />
+            <End Role="commande" EntitySet="commande" />
+          </AssociationSet>
+          <AssociationSet Name="FK_commande_garage" Association="Self.FK_commande_garage">
+            <End Role="garage" EntitySet="garage" />
+            <End Role="commande" EntitySet="commande" />
+          </AssociationSet>
+          <AssociationSet Name="FK_garage_type_de_garage" Association="Self.FK_garage_type_de_garage">
+            <End Role="type_de_garage" EntitySet="type_de_garage" />
+            <End Role="garage" EntitySet="garage" />
+          </AssociationSet>
+          <AssociationSet Name="FK_modele_marque" Association="Self.FK_modele_marque">
+            <End Role="marque" EntitySet="marque" />
+            <End Role="modele" EntitySet="modele" />
+          </AssociationSet>
+          <AssociationSet Name="FK_voiture_garage" Association="Self.FK_voiture_garage">
+            <End Role="garage" EntitySet="garage" />
+            <End Role="voiture" EntitySet="voiture" />
+          </AssociationSet>
+          <AssociationSet Name="FK_voiture_modele" Association="Self.FK_voiture_modele">
+            <End Role="modele" EntitySet="modele" />
+            <End Role="voiture" EntitySet="voiture" />
+          </AssociationSet>
+          <AssociationSet Name="FK_voiture_type_de_voiture" Association="Self.FK_voiture_type_de_voiture">
+            <End Role="type_de_voiture" EntitySet="type_de_voiture" />
+            <End Role="voiture" EntitySet="voiture" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="motorista_baseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="client">
+          <Key>
+            <PropertyRef Name="numC" />
+          </Key>
+          <Property Name="numC" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="numTypeClient" Type="Int32" Nullable="false" />
+          <Property Name="nomC" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="prenomC" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="adresseC" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="cpC" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="villeC" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="paysC" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="telC" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="emailC" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="loginC" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="mdpC" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="type_de_client" Relationship="Self.FK_client_type_de_client" FromRole="client" ToRole="type_de_client" />
+          <NavigationProperty Name="commande" Relationship="Self.FK_commande_client" FromRole="client" ToRole="commande" />
+        </EntityType>
+        <EntityType Name="commande">
+          <Key>
+            <PropertyRef Name="numCmd" />
+          </Key>
+          <Property Name="numCmd" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="numC" Type="Int32" Nullable="false" />
+          <Property Name="idGarage" Type="Int32" Nullable="false" />
+          <Property Name="dateLivraisonCmd" Type="DateTime" />
+          <Property Name="dateCmd" Type="DateTime" />
+          <Property Name="etatCmd" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="client" Relationship="Self.FK_commande_client" FromRole="commande" ToRole="client" />
+          <NavigationProperty Name="garage" Relationship="Self.FK_commande_garage" FromRole="commande" ToRole="garage" />
+        </EntityType>
+        <EntityType Name="garage">
+          <Key>
+            <PropertyRef Name="idGarage" />
+          </Key>
+          <Property Name="idGarage" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idType" Type="Int32" Nullable="false" />
+          <Property Name="nomG" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="adresseG" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="cpG" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="telG" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="emailG" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="commande" Relationship="Self.FK_commande_garage" FromRole="garage" ToRole="commande" />
+          <NavigationProperty Name="type_de_garage" Relationship="Self.FK_garage_type_de_garage" FromRole="garage" ToRole="type_de_garage" />
+          <NavigationProperty Name="voiture" Relationship="Self.FK_voiture_garage" FromRole="garage" ToRole="voiture" />
+        </EntityType>
+        <EntityType Name="marque">
+          <Key>
+            <PropertyRef Name="idMarque" />
+          </Key>
+          <Property Name="idMarque" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nomMarque" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="modele" Relationship="Self.FK_modele_marque" FromRole="marque" ToRole="modele" />
+        </EntityType>
+        <EntityType Name="modele">
+          <Key>
+            <PropertyRef Name="idModele" />
+          </Key>
+          <Property Name="idModele" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idMarque" Type="Int32" Nullable="false" />
+          <Property Name="nomModele" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="marque" Relationship="Self.FK_modele_marque" FromRole="modele" ToRole="marque" />
+          <NavigationProperty Name="voiture" Relationship="Self.FK_voiture_modele" FromRole="modele" ToRole="voiture" />
+        </EntityType>
+        <EntityType Name="type_de_client">
+          <Key>
+            <PropertyRef Name="numTypeClient" />
+          </Key>
+          <Property Name="numTypeClient" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="typeClient" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="client" Relationship="Self.FK_client_type_de_client" FromRole="type_de_client" ToRole="client" />
+        </EntityType>
+        <EntityType Name="type_de_garage">
+          <Key>
+            <PropertyRef Name="idType" />
+          </Key>
+          <Property Name="idType" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="libelleType" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="garage" Relationship="Self.FK_garage_type_de_garage" FromRole="type_de_garage" ToRole="garage" />
+        </EntityType>
+        <EntityType Name="type_de_voiture">
+          <Key>
+            <PropertyRef Name="idTypeV" />
+          </Key>
+          <Property Name="idTypeV" Type="Int32" Nullable="false" />
+          <Property Name="etatTypeV" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="voiture" Relationship="Self.FK_voiture_type_de_voiture" FromRole="type_de_voiture" ToRole="voiture" />
+        </EntityType>
+        <EntityType Name="voiture">
+          <Key>
+            <PropertyRef Name="idVoiture" />
+          </Key>
+          <Property Name="idVoiture" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idGarage" Type="Int32" Nullable="false" />
+          <Property Name="idTypeV" Type="Int32" Nullable="false" />
+          <Property Name="idModele" Type="Int32" Nullable="false" />
+          <Property Name="numSerieV" Type="Int64" />
+          <Property Name="nbPassagerV" Type="Int32" />
+          <Property Name="nbKmV" Type="Int32" />
+          <Property Name="puissanceV" Type="Int32" />
+          <Property Name="couleurV" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="energieV" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="prixVenteV" Type="Int64" />
+          <Property Name="boiteDeVitesseV" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="garage" Relationship="Self.FK_voiture_garage" FromRole="voiture" ToRole="garage" />
+          <NavigationProperty Name="modele" Relationship="Self.FK_voiture_modele" FromRole="voiture" ToRole="modele" />
+          <NavigationProperty Name="type_de_voiture" Relationship="Self.FK_voiture_type_de_voiture" FromRole="voiture" ToRole="type_de_voiture" />
+        </EntityType>
+        <Association Name="FK_client_type_de_client">
+          <End Role="type_de_client" Type="Self.type_de_client" Multiplicity="1" />
+          <End Role="client" Type="Self.client" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="type_de_client">
+              <PropertyRef Name="numTypeClient" />
+            </Principal>
+            <Dependent Role="client">
+              <PropertyRef Name="numTypeClient" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_commande_client">
+          <End Role="client" Type="Self.client" Multiplicity="1" />
+          <End Role="commande" Type="Self.commande" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="client">
+              <PropertyRef Name="numC" />
+            </Principal>
+            <Dependent Role="commande">
+              <PropertyRef Name="numC" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_commande_garage">
+          <End Role="garage" Type="Self.garage" Multiplicity="1" />
+          <End Role="commande" Type="Self.commande" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="garage">
+              <PropertyRef Name="idGarage" />
+            </Principal>
+            <Dependent Role="commande">
+              <PropertyRef Name="idGarage" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_garage_type_de_garage">
+          <End Role="type_de_garage" Type="Self.type_de_garage" Multiplicity="1" />
+          <End Role="garage" Type="Self.garage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="type_de_garage">
+              <PropertyRef Name="idType" />
+            </Principal>
+            <Dependent Role="garage">
+              <PropertyRef Name="idType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_voiture_garage">
+          <End Role="garage" Type="Self.garage" Multiplicity="1" />
+          <End Role="voiture" Type="Self.voiture" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="garage">
+              <PropertyRef Name="idGarage" />
+            </Principal>
+            <Dependent Role="voiture">
+              <PropertyRef Name="idGarage" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_modele_marque">
+          <End Role="marque" Type="Self.marque" Multiplicity="1" />
+          <End Role="modele" Type="Self.modele" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="marque">
+              <PropertyRef Name="idMarque" />
+            </Principal>
+            <Dependent Role="modele">
+              <PropertyRef Name="idMarque" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_voiture_modele">
+          <End Role="modele" Type="Self.modele" Multiplicity="1" />
+          <End Role="voiture" Type="Self.voiture" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="modele">
+              <PropertyRef Name="idModele" />
+            </Principal>
+            <Dependent Role="voiture">
+              <PropertyRef Name="idModele" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_voiture_type_de_voiture">
+          <End Role="type_de_voiture" Type="Self.type_de_voiture" Multiplicity="1" />
+          <End Role="voiture" Type="Self.voiture" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="type_de_voiture">
+              <PropertyRef Name="idTypeV" />
+            </Principal>
+            <Dependent Role="voiture">
+              <PropertyRef Name="idTypeV" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="client" EntityType="Self.client" />
+          <EntitySet Name="commande" EntityType="Self.commande" />
+          <EntitySet Name="garage" EntityType="Self.garage" />
+          <EntitySet Name="marque" EntityType="Self.marque" />
+          <EntitySet Name="modele" EntityType="Self.modele" />
+          <EntitySet Name="type_de_client" EntityType="Self.type_de_client" />
+          <EntitySet Name="type_de_garage" EntityType="Self.type_de_garage" />
+          <EntitySet Name="type_de_voiture" EntityType="Self.type_de_voiture" />
+          <EntitySet Name="voiture" EntityType="Self.voiture" />
+          <AssociationSet Name="FK_client_type_de_client" Association="Self.FK_client_type_de_client">
+            <End Role="type_de_client" EntitySet="type_de_client" />
+            <End Role="client" EntitySet="client" />
+          </AssociationSet>
+          <AssociationSet Name="FK_commande_client" Association="Self.FK_commande_client">
+            <End Role="client" EntitySet="client" />
+            <End Role="commande" EntitySet="commande" />
+          </AssociationSet>
+          <AssociationSet Name="FK_commande_garage" Association="Self.FK_commande_garage">
+            <End Role="garage" EntitySet="garage" />
+            <End Role="commande" EntitySet="commande" />
+          </AssociationSet>
+          <AssociationSet Name="FK_garage_type_de_garage" Association="Self.FK_garage_type_de_garage">
+            <End Role="type_de_garage" EntitySet="type_de_garage" />
+            <End Role="garage" EntitySet="garage" />
+          </AssociationSet>
+          <AssociationSet Name="FK_voiture_garage" Association="Self.FK_voiture_garage">
+            <End Role="garage" EntitySet="garage" />
+            <End Role="voiture" EntitySet="voiture" />
+          </AssociationSet>
+          <AssociationSet Name="FK_modele_marque" Association="Self.FK_modele_marque">
+            <End Role="marque" EntitySet="marque" />
+            <End Role="modele" EntitySet="modele" />
+          </AssociationSet>
+          <AssociationSet Name="FK_voiture_modele" Association="Self.FK_voiture_modele">
+            <End Role="modele" EntitySet="modele" />
+            <End Role="voiture" EntitySet="voiture" />
+          </AssociationSet>
+          <AssociationSet Name="FK_voiture_type_de_voiture" Association="Self.FK_voiture_type_de_voiture">
+            <End Role="type_de_voiture" EntitySet="type_de_voiture" />
+            <End Role="voiture" EntitySet="voiture" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="motorista_baseModelStoreContainer" CdmEntityContainer="Entities">
+          <EntitySetMapping Name="client">
+            <EntityTypeMapping TypeName="motorista_baseModel.client">
+              <MappingFragment StoreEntitySet="client">
+                <ScalarProperty Name="numC" ColumnName="numC" />
+                <ScalarProperty Name="numTypeClient" ColumnName="numTypeClient" />
+                <ScalarProperty Name="nomC" ColumnName="nomC" />
+                <ScalarProperty Name="prenomC" ColumnName="prenomC" />
+                <ScalarProperty Name="adresseC" ColumnName="adresseC" />
+                <ScalarProperty Name="cpC" ColumnName="cpC" />
+                <ScalarProperty Name="villeC" ColumnName="villeC" />
+                <ScalarProperty Name="paysC" ColumnName="paysC" />
+                <ScalarProperty Name="telC" ColumnName="telC" />
+                <ScalarProperty Name="emailC" ColumnName="emailC" />
+                <ScalarProperty Name="loginC" ColumnName="loginC" />
+                <ScalarProperty Name="mdpC" ColumnName="mdpC" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="commande">
+            <EntityTypeMapping TypeName="motorista_baseModel.commande">
+              <MappingFragment StoreEntitySet="commande">
+                <ScalarProperty Name="numCmd" ColumnName="numCmd" />
+                <ScalarProperty Name="numC" ColumnName="numC" />
+                <ScalarProperty Name="idGarage" ColumnName="idGarage" />
+                <ScalarProperty Name="dateLivraisonCmd" ColumnName="dateLivraisonCmd" />
+                <ScalarProperty Name="dateCmd" ColumnName="dateCmd" />
+                <ScalarProperty Name="etatCmd" ColumnName="etatCmd" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="garage">
+            <EntityTypeMapping TypeName="motorista_baseModel.garage">
+              <MappingFragment StoreEntitySet="garage">
+                <ScalarProperty Name="idGarage" ColumnName="idGarage" />
+                <ScalarProperty Name="idType" ColumnName="idType" />
+                <ScalarProperty Name="nomG" ColumnName="nomG" />
+                <ScalarProperty Name="adresseG" ColumnName="adresseG" />
+                <ScalarProperty Name="cpG" ColumnName="cpG" />
+                <ScalarProperty Name="telG" ColumnName="telG" />
+                <ScalarProperty Name="emailG" ColumnName="emailG" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="marque">
+            <EntityTypeMapping TypeName="motorista_baseModel.marque">
+              <MappingFragment StoreEntitySet="marque">
+                <ScalarProperty Name="idMarque" ColumnName="idMarque" />
+                <ScalarProperty Name="nomMarque" ColumnName="nomMarque" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="modele">
+            <EntityTypeMapping TypeName="motorista_baseModel.modele">
+              <MappingFragment StoreEntitySet="modele">
+                <ScalarProperty Name="idModele" ColumnName="idModele" />
+                <ScalarProperty Name="idMarque" ColumnName="idMarque" />
+                <ScalarProperty Name="nomModele" ColumnName="nomModele" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="type_de_client">
+            <EntityTypeMapping TypeName="motorista_baseModel.type_de_client">
+              <MappingFragment StoreEntitySet="type_de_client">
+                <ScalarProperty Name="numTypeClient" ColumnName="numTypeClient" />
+                <ScalarProperty Name="typeClient" ColumnName="typeClient" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="type_de_garage">
+            <EntityTypeMapping TypeName="motorista_baseModel.type_de_garage">
+              <MappingFragment StoreEntitySet="type_de_garage">
+                <ScalarProperty Name="idType" ColumnName="idType" />
+                <ScalarProperty Name="libelleType" ColumnName="libelleType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="type_de_voiture">
+            <EntityTypeMapping TypeName="motorista_baseModel.type_de_voiture">
+              <MappingFragment StoreEntitySet="type_de_voiture">
+                <ScalarProperty Name="idTypeV" ColumnName="idTypeV" />
+                <ScalarProperty Name="etatTypeV" ColumnName="etatTypeV" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="voiture">
+            <EntityTypeMapping TypeName="motorista_baseModel.voiture">
+              <MappingFragment StoreEntitySet="voiture">
+                <ScalarProperty Name="idVoiture" ColumnName="idVoiture" />
+                <ScalarProperty Name="idGarage" ColumnName="idGarage" />
+                <ScalarProperty Name="idTypeV" ColumnName="idTypeV" />
+                <ScalarProperty Name="idModele" ColumnName="idModele" />
+                <ScalarProperty Name="numSerieV" ColumnName="numSerieV" />
+                <ScalarProperty Name="nbPassagerV" ColumnName="nbPassagerV" />
+                <ScalarProperty Name="nbKmV" ColumnName="nbKmV" />
+                <ScalarProperty Name="puissanceV" ColumnName="puissanceV" />
+                <ScalarProperty Name="couleurV" ColumnName="couleurV" />
+                <ScalarProperty Name="energieV" ColumnName="energieV" />
+                <ScalarProperty Name="prixVenteV" ColumnName="prixVenteV" />
+                <ScalarProperty Name="boiteDeVitesseV" ColumnName="boiteDeVitesseV" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Aucun" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
