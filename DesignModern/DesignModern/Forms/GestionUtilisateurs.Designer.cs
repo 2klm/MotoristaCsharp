@@ -32,11 +32,14 @@
             this.buttonModifUtil = new FontAwesome.Sharp.IconButton();
             this.buttonSupprimerUtil = new FontAwesome.Sharp.IconButton();
             this.panelGestionUtil = new System.Windows.Forms.Panel();
+            this.panelButton = new System.Windows.Forms.Panel();
             this.panelTitle = new System.Windows.Forms.Panel();
-            this.buttonUtil = new FontAwesome.Sharp.IconButton();
             this.lblGestionUtil = new System.Windows.Forms.Label();
+            this.buttonUtil = new FontAwesome.Sharp.IconButton();
             this.panelBar = new System.Windows.Forms.Panel();
+            this.panelInfoUtil = new System.Windows.Forms.Panel();
             this.panelGestionUtil.SuspendLayout();
+            this.panelButton.SuspendLayout();
             this.panelTitle.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -52,7 +55,7 @@
             this.buttonAjouterUtil.IconColor = System.Drawing.Color.Gainsboro;
             this.buttonAjouterUtil.IconSize = 58;
             this.buttonAjouterUtil.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonAjouterUtil.Location = new System.Drawing.Point(284, 488);
+            this.buttonAjouterUtil.Location = new System.Drawing.Point(3, 4);
             this.buttonAjouterUtil.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonAjouterUtil.Name = "buttonAjouterUtil";
             this.buttonAjouterUtil.Rotation = 0D;
@@ -73,7 +76,7 @@
             this.buttonModifUtil.IconColor = System.Drawing.Color.Gainsboro;
             this.buttonModifUtil.IconSize = 58;
             this.buttonModifUtil.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonModifUtil.Location = new System.Drawing.Point(519, 488);
+            this.buttonModifUtil.Location = new System.Drawing.Point(212, 4);
             this.buttonModifUtil.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonModifUtil.Name = "buttonModifUtil";
             this.buttonModifUtil.Rotation = 0D;
@@ -94,7 +97,7 @@
             this.buttonSupprimerUtil.IconColor = System.Drawing.Color.Gainsboro;
             this.buttonSupprimerUtil.IconSize = 58;
             this.buttonSupprimerUtil.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonSupprimerUtil.Location = new System.Drawing.Point(755, 488);
+            this.buttonSupprimerUtil.Location = new System.Drawing.Point(419, 4);
             this.buttonSupprimerUtil.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonSupprimerUtil.Name = "buttonSupprimerUtil";
             this.buttonSupprimerUtil.Rotation = 0D;
@@ -106,15 +109,26 @@
             // panelGestionUtil
             // 
             this.panelGestionUtil.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panelGestionUtil.Controls.Add(this.buttonModifUtil);
-            this.panelGestionUtil.Controls.Add(this.buttonSupprimerUtil);
-            this.panelGestionUtil.Controls.Add(this.buttonAjouterUtil);
+            this.panelGestionUtil.Controls.Add(this.panelInfoUtil);
+            this.panelGestionUtil.Controls.Add(this.panelButton);
             this.panelGestionUtil.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelGestionUtil.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panelGestionUtil.Location = new System.Drawing.Point(0, 0);
             this.panelGestionUtil.Name = "panelGestionUtil";
             this.panelGestionUtil.Size = new System.Drawing.Size(1233, 670);
             this.panelGestionUtil.TabIndex = 3;
+            // 
+            // panelButton
+            // 
+            this.panelButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.panelButton.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panelButton.Controls.Add(this.buttonAjouterUtil);
+            this.panelButton.Controls.Add(this.buttonSupprimerUtil);
+            this.panelButton.Controls.Add(this.buttonModifUtil);
+            this.panelButton.Location = new System.Drawing.Point(322, 546);
+            this.panelButton.Name = "panelButton";
+            this.panelButton.Size = new System.Drawing.Size(634, 69);
+            this.panelButton.TabIndex = 3;
             // 
             // panelTitle
             // 
@@ -125,6 +139,17 @@
             this.panelTitle.Name = "panelTitle";
             this.panelTitle.Size = new System.Drawing.Size(1233, 100);
             this.panelTitle.TabIndex = 4;
+            // 
+            // lblGestionUtil
+            // 
+            this.lblGestionUtil.AutoSize = true;
+            this.lblGestionUtil.Font = new System.Drawing.Font("Century Gothic", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGestionUtil.ForeColor = System.Drawing.Color.Gainsboro;
+            this.lblGestionUtil.Location = new System.Drawing.Point(101, 31);
+            this.lblGestionUtil.Name = "lblGestionUtil";
+            this.lblGestionUtil.Size = new System.Drawing.Size(400, 41);
+            this.lblGestionUtil.TabIndex = 6;
+            this.lblGestionUtil.Text = "Gestion Des Utilisateurs";
             // 
             // buttonUtil
             // 
@@ -145,17 +170,6 @@
             this.buttonUtil.TabIndex = 5;
             this.buttonUtil.UseVisualStyleBackColor = true;
             // 
-            // lblGestionUtil
-            // 
-            this.lblGestionUtil.AutoSize = true;
-            this.lblGestionUtil.Font = new System.Drawing.Font("Century Gothic", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGestionUtil.ForeColor = System.Drawing.Color.Gainsboro;
-            this.lblGestionUtil.Location = new System.Drawing.Point(101, 31);
-            this.lblGestionUtil.Name = "lblGestionUtil";
-            this.lblGestionUtil.Size = new System.Drawing.Size(400, 41);
-            this.lblGestionUtil.TabIndex = 6;
-            this.lblGestionUtil.Text = "Gestion Des Utilisateurs";
-            // 
             // panelBar
             // 
             this.panelBar.BackColor = System.Drawing.Color.Gainsboro;
@@ -164,6 +178,15 @@
             this.panelBar.Name = "panelBar";
             this.panelBar.Size = new System.Drawing.Size(1233, 9);
             this.panelBar.TabIndex = 5;
+            // 
+            // panelInfoUtil
+            // 
+            this.panelInfoUtil.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.panelInfoUtil.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panelInfoUtil.Location = new System.Drawing.Point(208, 137);
+            this.panelInfoUtil.Name = "panelInfoUtil";
+            this.panelInfoUtil.Size = new System.Drawing.Size(829, 374);
+            this.panelInfoUtil.TabIndex = 4;
             // 
             // GestionUtil
             // 
@@ -179,6 +202,7 @@
             this.Name = "GestionUtil";
             this.Text = "Dashboardcs";
             this.panelGestionUtil.ResumeLayout(false);
+            this.panelButton.ResumeLayout(false);
             this.panelTitle.ResumeLayout(false);
             this.panelTitle.PerformLayout();
             this.ResumeLayout(false);
@@ -195,5 +219,7 @@
         private System.Windows.Forms.Label lblGestionUtil;
         private FontAwesome.Sharp.IconButton buttonUtil;
         private System.Windows.Forms.Panel panelBar;
+        private System.Windows.Forms.Panel panelButton;
+        private System.Windows.Forms.Panel panelInfoUtil;
     }
 }
