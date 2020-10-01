@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Motorista.Properties {
+namespace DesignModern.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace Motorista.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Motorista.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("DesignModern.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -63,9 +63,9 @@ namespace Motorista.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap profile {
+        internal static System.Drawing.Bitmap Logo_RjCodeAdvance_1 {
             get {
-                object obj = ResourceManager.GetObject("profile", resourceCulture);
+                object obj = ResourceManager.GetObject("Logo-RjCodeAdvance-1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

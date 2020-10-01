@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace testInterfaceModele.Forms
+namespace DesignModern
 {
-    public partial class FormCompte : Form
+    public partial class Customers : Form
     {
-        public FormCompte()
+        public Customers()
         {
             InitializeComponent();
         }

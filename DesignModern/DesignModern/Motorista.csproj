@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{D846EF5F-17FF-404B-A4B6-DAE8D2DE2F13}</ProjectGuid>
+    <ProjectGuid>{D41B9A99-70B0-47AF-AA9B-C32DF503127C}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>Motorista</RootNamespace>
-    <AssemblyName>Motorista</AssemblyName>
+    <RootNamespace>DesignModern</RootNamespace>
+    <AssemblyName>DesignModern</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -49,52 +49,52 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Forms\FormAchats.cs">
+    <Compile Include="Forms\Customers.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FormAchats.Designer.cs">
-      <DependentUpon>FormAchats.cs</DependentUpon>
+    <Compile Include="Forms\Customers.Designer.cs">
+      <DependentUpon>Customers.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FormChocolat.cs">
+    <Compile Include="Forms\Dashboardcs.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FormChocolat.Designer.cs">
-      <DependentUpon>FormChocolat.cs</DependentUpon>
+    <Compile Include="Forms\Dashboardcs.Designer.cs">
+      <DependentUpon>Dashboardcs.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FormCompte.cs">
+    <Compile Include="FormMain.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FormCompte.Designer.cs">
-      <DependentUpon>FormCompte.cs</DependentUpon>
+    <Compile Include="FormMain.Designer.cs">
+      <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FormConnexion.cs">
+    <Compile Include="Forms\Marketing.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FormConnexion.Designer.cs">
-      <DependentUpon>FormConnexion.cs</DependentUpon>
+    <Compile Include="Forms\Marketing.Designer.cs">
+      <DependentUpon>Marketing.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FormMenu.cs">
+    <Compile Include="Forms\Orders.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FormMenu.Designer.cs">
-      <DependentUpon>FormMenu.cs</DependentUpon>
+    <Compile Include="Forms\Orders.Designer.cs">
+      <DependentUpon>Orders.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FormPanier.cs">
+    <Compile Include="Forms\Products.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FormPanier.Designer.cs">
-      <DependentUpon>FormPanier.cs</DependentUpon>
-    </Compile>
-    <Compile Include="MainForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MainForm.Designer.cs">
-      <DependentUpon>MainForm.cs</DependentUpon>
+    <Compile Include="Forms\Products.Designer.cs">
+      <DependentUpon>Products.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="MainForm.resx">
-      <DependentUpon>MainForm.cs</DependentUpon>
+    <Compile Include="Forms\Setting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Setting.Designer.cs">
+      <DependentUpon>Setting.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="FormMain.resx">
+      <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -121,7 +121,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\profile.png" />
+    <None Include="Resources\Logo-RjCodeAdvance-1.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

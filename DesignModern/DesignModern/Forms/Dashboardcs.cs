@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace testInterfaceModele.Forms
+namespace DesignModern
 {
-    public partial class FormPanier : Form
+    public partial class Dashboardcs : Form
     {
-        public FormPanier()
+        public Dashboardcs()
         {
             InitializeComponent();
         }

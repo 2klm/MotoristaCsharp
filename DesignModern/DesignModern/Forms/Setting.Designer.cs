@@ -1,6 +1,6 @@
-﻿namespace testInterfaceModele
+﻿namespace DesignModern
 {
-    partial class FormMenu
+    partial class Setting
     {
         /// <summary>
         /// Required designer variable.
@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "FormMenu";
+            this.Text = "Setting";
         }
 
         #endregion

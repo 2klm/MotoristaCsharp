@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace testInterfaceModele.Forms
+namespace DesignModern
 {
-    public partial class FormChocolat : Form
+    public partial class Setting : Form
     {
-        public FormChocolat()
+        public Setting()
         {
             InitializeComponent();
         }
