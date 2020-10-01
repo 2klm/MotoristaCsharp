@@ -167,12 +167,12 @@ namespace DesignModern
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
 
-        private void btnReduire_Click(object sender, EventArgs e)
+        private void buttonClose_Click(object sender, EventArgs e)
         {
-            WindowState = FormWindowState.Minimized;
+            Application.Exit();
         }
 
-        private void btnAgrandir_Click(object sender, EventArgs e)
+        private void buttonAgrandir_Click(object sender, EventArgs e)
         {
             if (WindowState == FormWindowState.Normal)
             {
@@ -184,9 +184,9 @@ namespace DesignModern
             }
         }
 
-        private void btnFermer_Click(object sender, EventArgs e)
+        private void buttonReduire_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            WindowState = FormWindowState.Minimized;
         }
     }
 }

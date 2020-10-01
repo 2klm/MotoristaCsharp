@@ -38,14 +38,14 @@
             this.panelLogo = new System.Windows.Forms.Panel();
             this.btnHome = new System.Windows.Forms.PictureBox();
             this.panelTitleBar = new System.Windows.Forms.Panel();
-            this.btnFermer = new System.Windows.Forms.Button();
-            this.btnAgrandir = new System.Windows.Forms.Button();
-            this.btnReduire = new System.Windows.Forms.Button();
             this.lblTitleChildForm = new System.Windows.Forms.Label();
             this.iconCurrentChildForm = new FontAwesome.Sharp.IconPictureBox();
             this.panelShadow = new System.Windows.Forms.Panel();
             this.btnMinimize = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.buttonReduire = new FontAwesome.Sharp.IconButton();
+            this.buttonAgrandir = new FontAwesome.Sharp.IconButton();
+            this.buttonClose = new FontAwesome.Sharp.IconButton();
             this.panelMenu.SuspendLayout();
             this.panelLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnHome)).BeginInit();
@@ -241,9 +241,9 @@
             // panelTitleBar
             // 
             this.panelTitleBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(29)))), ((int)(((byte)(30)))));
-            this.panelTitleBar.Controls.Add(this.btnFermer);
-            this.panelTitleBar.Controls.Add(this.btnAgrandir);
-            this.panelTitleBar.Controls.Add(this.btnReduire);
+            this.panelTitleBar.Controls.Add(this.buttonClose);
+            this.panelTitleBar.Controls.Add(this.buttonAgrandir);
+            this.panelTitleBar.Controls.Add(this.buttonReduire);
             this.panelTitleBar.Controls.Add(this.lblTitleChildForm);
             this.panelTitleBar.Controls.Add(this.iconCurrentChildForm);
             this.panelTitleBar.Dock = System.Windows.Forms.DockStyle.Top;
@@ -253,48 +253,6 @@
             this.panelTitleBar.Size = new System.Drawing.Size(1124, 98);
             this.panelTitleBar.TabIndex = 1;
             this.panelTitleBar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelTitleBar_MouseDown);
-            // 
-            // btnFermer
-            // 
-            this.btnFermer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnFermer.FlatAppearance.BorderSize = 0;
-            this.btnFermer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFermer.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnFermer.Location = new System.Drawing.Point(1076, 16);
-            this.btnFermer.Name = "btnFermer";
-            this.btnFermer.Size = new System.Drawing.Size(30, 26);
-            this.btnFermer.TabIndex = 7;
-            this.btnFermer.Text = "X";
-            this.btnFermer.UseVisualStyleBackColor = true;
-            this.btnFermer.Click += new System.EventHandler(this.btnFermer_Click);
-            // 
-            // btnAgrandir
-            // 
-            this.btnAgrandir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAgrandir.FlatAppearance.BorderSize = 0;
-            this.btnAgrandir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAgrandir.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnAgrandir.Location = new System.Drawing.Point(1040, 16);
-            this.btnAgrandir.Name = "btnAgrandir";
-            this.btnAgrandir.Size = new System.Drawing.Size(30, 26);
-            this.btnAgrandir.TabIndex = 6;
-            this.btnAgrandir.Text = "O";
-            this.btnAgrandir.UseVisualStyleBackColor = true;
-            this.btnAgrandir.Click += new System.EventHandler(this.btnAgrandir_Click);
-            // 
-            // btnReduire
-            // 
-            this.btnReduire.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnReduire.FlatAppearance.BorderSize = 0;
-            this.btnReduire.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReduire.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnReduire.Location = new System.Drawing.Point(1004, 16);
-            this.btnReduire.Name = "btnReduire";
-            this.btnReduire.Size = new System.Drawing.Size(30, 26);
-            this.btnReduire.TabIndex = 5;
-            this.btnReduire.Text = "-";
-            this.btnReduire.UseVisualStyleBackColor = true;
-            this.btnReduire.Click += new System.EventHandler(this.btnReduire_Click);
             // 
             // lblTitleChildForm
             // 
@@ -313,7 +271,7 @@
             this.iconCurrentChildForm.ForeColor = System.Drawing.Color.MediumPurple;
             this.iconCurrentChildForm.IconChar = FontAwesome.Sharp.IconChar.Home;
             this.iconCurrentChildForm.IconColor = System.Drawing.Color.MediumPurple;
-            this.iconCurrentChildForm.IconSize = 48;
+            this.iconCurrentChildForm.IconSize = 58;
             this.iconCurrentChildForm.Location = new System.Drawing.Point(14, 32);
             this.iconCurrentChildForm.Margin = new System.Windows.Forms.Padding(4);
             this.iconCurrentChildForm.Name = "iconCurrentChildForm";
@@ -353,6 +311,57 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
+            // 
+            // buttonReduire
+            // 
+            this.buttonReduire.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonReduire.FlatAppearance.BorderSize = 0;
+            this.buttonReduire.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonReduire.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.buttonReduire.IconChar = FontAwesome.Sharp.IconChar.WindowMinimize;
+            this.buttonReduire.IconColor = System.Drawing.Color.Gainsboro;
+            this.buttonReduire.IconSize = 28;
+            this.buttonReduire.Location = new System.Drawing.Point(965, 12);
+            this.buttonReduire.Name = "buttonReduire";
+            this.buttonReduire.Rotation = 0D;
+            this.buttonReduire.Size = new System.Drawing.Size(45, 42);
+            this.buttonReduire.TabIndex = 8;
+            this.buttonReduire.UseVisualStyleBackColor = true;
+            this.buttonReduire.Click += new System.EventHandler(this.buttonReduire_Click);
+            // 
+            // buttonAgrandir
+            // 
+            this.buttonAgrandir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonAgrandir.FlatAppearance.BorderSize = 0;
+            this.buttonAgrandir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonAgrandir.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.buttonAgrandir.IconChar = FontAwesome.Sharp.IconChar.WindowMaximize;
+            this.buttonAgrandir.IconColor = System.Drawing.Color.Gainsboro;
+            this.buttonAgrandir.IconSize = 28;
+            this.buttonAgrandir.Location = new System.Drawing.Point(1016, 12);
+            this.buttonAgrandir.Name = "buttonAgrandir";
+            this.buttonAgrandir.Rotation = 0D;
+            this.buttonAgrandir.Size = new System.Drawing.Size(45, 42);
+            this.buttonAgrandir.TabIndex = 9;
+            this.buttonAgrandir.UseVisualStyleBackColor = true;
+            this.buttonAgrandir.Click += new System.EventHandler(this.buttonAgrandir_Click);
+            // 
+            // buttonClose
+            // 
+            this.buttonClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonClose.FlatAppearance.BorderSize = 0;
+            this.buttonClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonClose.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.buttonClose.IconChar = FontAwesome.Sharp.IconChar.WindowClose;
+            this.buttonClose.IconColor = System.Drawing.Color.Gainsboro;
+            this.buttonClose.IconSize = 28;
+            this.buttonClose.Location = new System.Drawing.Point(1067, 12);
+            this.buttonClose.Name = "buttonClose";
+            this.buttonClose.Rotation = 0D;
+            this.buttonClose.Size = new System.Drawing.Size(45, 42);
+            this.buttonClose.TabIndex = 10;
+            this.buttonClose.UseVisualStyleBackColor = true;
+            this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);
             // 
             // FormMain
             // 
@@ -396,9 +405,9 @@
         private System.Windows.Forms.Panel panelShadow;
         private System.Windows.Forms.Panel btnMinimize;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button btnFermer;
-        private System.Windows.Forms.Button btnAgrandir;
-        private System.Windows.Forms.Button btnReduire;
+        private FontAwesome.Sharp.IconButton buttonClose;
+        private FontAwesome.Sharp.IconButton buttonAgrandir;
+        private FontAwesome.Sharp.IconButton buttonReduire;
     }
 }
 
