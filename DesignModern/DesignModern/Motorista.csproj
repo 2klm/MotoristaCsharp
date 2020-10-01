@@ -123,6 +123,14 @@
   <ItemGroup>
     <None Include="Resources\Logo-RjCodeAdvance-1.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\Logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Logodeux.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Logotrois.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
