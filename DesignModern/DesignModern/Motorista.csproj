@@ -55,11 +55,11 @@
     <Compile Include="Forms\Customers.Designer.cs">
       <DependentUpon>Customers.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Dashboardcs.cs">
+    <Compile Include="Forms\GestionUtilisateurs.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Dashboardcs.Designer.cs">
-      <DependentUpon>Dashboardcs.cs</DependentUpon>
+    <Compile Include="Forms\GestionUtilisateurs.Designer.cs">
+      <DependentUpon>GestionUtilisateurs.cs</DependentUpon>
     </Compile>
     <Compile Include="FormMain.cs">
       <SubType>Form</SubType>
@@ -95,6 +95,9 @@
     </Compile>
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\GestionUtilisateurs.resx">
+      <DependentUpon>GestionUtilisateurs.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

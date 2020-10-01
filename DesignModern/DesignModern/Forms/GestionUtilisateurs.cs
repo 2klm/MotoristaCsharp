@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace DesignModern
 {
-    public partial class Dashboardcs : Form
+    public partial class GestionUtil : Form
     {
-        public Dashboardcs()
+        public GestionUtil()
         {
             InitializeComponent();
         }

@@ -102,7 +102,7 @@ namespace DesignModern
         private void buttonDashboard_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color1);
-            OpenChildForm(new Dashboardcs());
+            OpenChildForm(new GestionUtil());
         }
 
         private void buttonOrders_Click(object sender, EventArgs e)
