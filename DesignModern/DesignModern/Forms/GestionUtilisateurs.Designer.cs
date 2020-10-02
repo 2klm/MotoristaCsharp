@@ -46,8 +46,13 @@
             this.panelBar = new System.Windows.Forms.Panel();
             this.buttonValidAjout = new FontAwesome.Sharp.IconButton();
             this.buttonAnnuler = new FontAwesome.Sharp.IconButton();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.panelGestionUtil.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.panelInfoUtil.SuspendLayout();
             this.panelButton.SuspendLayout();
             this.panelTitle.SuspendLayout();
             this.SuspendLayout();
@@ -229,6 +234,10 @@
             // panelInfoUtil
             // 
             this.panelInfoUtil.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.panelInfoUtil.Controls.Add(this.label2);
+            this.panelInfoUtil.Controls.Add(this.textBox2);
+            this.panelInfoUtil.Controls.Add(this.label1);
+            this.panelInfoUtil.Controls.Add(this.textBox1);
             this.panelInfoUtil.Location = new System.Drawing.Point(108, 127);
             this.panelInfoUtil.Name = "panelInfoUtil";
             this.panelInfoUtil.Size = new System.Drawing.Size(829, 409);
@@ -342,7 +351,6 @@
             this.buttonValidAjout.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonValidAjout.UseVisualStyleBackColor = true;
             this.buttonValidAjout.Visible = false;
-            this.buttonValidAjout.Click += new System.EventHandler(this.buttonValidAjout_Click);
             // 
             // buttonAnnuler
             // 
@@ -367,6 +375,48 @@
             this.buttonAnnuler.UseVisualStyleBackColor = true;
             this.buttonAnnuler.Visible = false;
             // 
+            // textBox1
+            // 
+            this.textBox1.BackColor = System.Drawing.Color.Gainsboro;
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox1.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.World, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(127, 41);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(147, 18);
+            this.textBox1.TabIndex = 0;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Gainsboro;
+            this.label1.Location = new System.Drawing.Point(21, 41);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(100, 16);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Numéro de client";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Gainsboro;
+            this.label2.Location = new System.Drawing.Point(21, 90);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(83, 16);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Nom du client";
+            // 
+            // textBox2
+            // 
+            this.textBox2.BackColor = System.Drawing.Color.Gainsboro;
+            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox2.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.World, ((byte)(0)));
+            this.textBox2.Location = new System.Drawing.Point(127, 90);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(147, 18);
+            this.textBox2.TabIndex = 2;
+            // 
             // GestionUtil
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -382,6 +432,8 @@
             this.Text = "Dashboardcs";
             this.panelGestionUtil.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
+            this.panelInfoUtil.ResumeLayout(false);
+            this.panelInfoUtil.PerformLayout();
             this.panelButton.ResumeLayout(false);
             this.panelTitle.ResumeLayout(false);
             this.panelTitle.PerformLayout();
@@ -409,5 +461,9 @@
         private FontAwesome.Sharp.IconButton buttonValidModif;
         private FontAwesome.Sharp.IconButton buttonValidAjout;
         private FontAwesome.Sharp.IconButton buttonAnnuler;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
