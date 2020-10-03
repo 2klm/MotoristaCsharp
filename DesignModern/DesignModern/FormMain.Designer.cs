@@ -43,8 +43,8 @@
             this.buttonSetting = new FontAwesome.Sharp.IconButton();
             this.buttonMarketing = new FontAwesome.Sharp.IconButton();
             this.buttonCustomers = new FontAwesome.Sharp.IconButton();
-            this.buttonProducts = new FontAwesome.Sharp.IconButton();
-            this.buttonOrders = new FontAwesome.Sharp.IconButton();
+            this.buttonCommandes = new FontAwesome.Sharp.IconButton();
+            this.buttonVehicules = new FontAwesome.Sharp.IconButton();
             this.buttonGestionUtil = new FontAwesome.Sharp.IconButton();
             this.btnHome = new System.Windows.Forms.PictureBox();
             this.panelMenu.SuspendLayout();
@@ -62,8 +62,8 @@
             this.panelMenu.Controls.Add(this.buttonSetting);
             this.panelMenu.Controls.Add(this.buttonMarketing);
             this.panelMenu.Controls.Add(this.buttonCustomers);
-            this.panelMenu.Controls.Add(this.buttonProducts);
-            this.panelMenu.Controls.Add(this.buttonOrders);
+            this.panelMenu.Controls.Add(this.buttonCommandes);
+            this.panelMenu.Controls.Add(this.buttonVehicules);
             this.panelMenu.Controls.Add(this.buttonGestionUtil);
             this.panelMenu.Controls.Add(this.panelLogo);
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
@@ -103,12 +103,12 @@
             // 
             this.lblTitleChildForm.AutoSize = true;
             this.lblTitleChildForm.ForeColor = System.Drawing.Color.Gainsboro;
-            this.lblTitleChildForm.Location = new System.Drawing.Point(80, 44);
+            this.lblTitleChildForm.Location = new System.Drawing.Point(80, 59);
             this.lblTitleChildForm.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTitleChildForm.Name = "lblTitleChildForm";
-            this.lblTitleChildForm.Size = new System.Drawing.Size(40, 16);
+            this.lblTitleChildForm.Size = new System.Drawing.Size(60, 19);
             this.lblTitleChildForm.TabIndex = 1;
-            this.lblTitleChildForm.Text = "Home";
+            this.lblTitleChildForm.Text = "Accueil";
             // 
             // panelShadow
             // 
@@ -215,7 +215,7 @@
             this.buttonSetting.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSetting.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
             this.buttonSetting.ForeColor = System.Drawing.Color.Gainsboro;
-            this.buttonSetting.IconChar = FontAwesome.Sharp.IconChar.Cube;
+            this.buttonSetting.IconChar = FontAwesome.Sharp.IconChar.QuestionCircle;
             this.buttonSetting.IconColor = System.Drawing.Color.Gainsboro;
             this.buttonSetting.IconSize = 32;
             this.buttonSetting.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -226,7 +226,7 @@
             this.buttonSetting.Rotation = 0D;
             this.buttonSetting.Size = new System.Drawing.Size(293, 79);
             this.buttonSetting.TabIndex = 6;
-            this.buttonSetting.Text = " Setting";
+            this.buttonSetting.Text = " A propos";
             this.buttonSetting.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonSetting.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonSetting.UseVisualStyleBackColor = true;
@@ -239,7 +239,7 @@
             this.buttonMarketing.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonMarketing.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
             this.buttonMarketing.ForeColor = System.Drawing.Color.Gainsboro;
-            this.buttonMarketing.IconChar = FontAwesome.Sharp.IconChar.Cube;
+            this.buttonMarketing.IconChar = FontAwesome.Sharp.IconChar.Warehouse;
             this.buttonMarketing.IconColor = System.Drawing.Color.Gainsboro;
             this.buttonMarketing.IconSize = 32;
             this.buttonMarketing.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -250,7 +250,7 @@
             this.buttonMarketing.Rotation = 0D;
             this.buttonMarketing.Size = new System.Drawing.Size(293, 79);
             this.buttonMarketing.TabIndex = 5;
-            this.buttonMarketing.Text = " Marketing";
+            this.buttonMarketing.Text = " Garages";
             this.buttonMarketing.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonMarketing.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonMarketing.UseVisualStyleBackColor = true;
@@ -263,7 +263,7 @@
             this.buttonCustomers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonCustomers.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
             this.buttonCustomers.ForeColor = System.Drawing.Color.Gainsboro;
-            this.buttonCustomers.IconChar = FontAwesome.Sharp.IconChar.Cube;
+            this.buttonCustomers.IconChar = FontAwesome.Sharp.IconChar.GreaterThanEqual;
             this.buttonCustomers.IconColor = System.Drawing.Color.Gainsboro;
             this.buttonCustomers.IconSize = 32;
             this.buttonCustomers.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -274,59 +274,59 @@
             this.buttonCustomers.Rotation = 0D;
             this.buttonCustomers.Size = new System.Drawing.Size(293, 79);
             this.buttonCustomers.TabIndex = 4;
-            this.buttonCustomers.Text = " Customers";
+            this.buttonCustomers.Text = " Comparateur";
             this.buttonCustomers.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonCustomers.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonCustomers.UseVisualStyleBackColor = true;
             this.buttonCustomers.Click += new System.EventHandler(this.buttonCustomers_Click);
             // 
-            // buttonProducts
+            // buttonCommandes
             // 
-            this.buttonProducts.Dock = System.Windows.Forms.DockStyle.Top;
-            this.buttonProducts.FlatAppearance.BorderSize = 0;
-            this.buttonProducts.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonProducts.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.buttonProducts.ForeColor = System.Drawing.Color.Gainsboro;
-            this.buttonProducts.IconChar = FontAwesome.Sharp.IconChar.Cube;
-            this.buttonProducts.IconColor = System.Drawing.Color.Gainsboro;
-            this.buttonProducts.IconSize = 32;
-            this.buttonProducts.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonProducts.Location = new System.Drawing.Point(0, 341);
-            this.buttonProducts.Margin = new System.Windows.Forms.Padding(4);
-            this.buttonProducts.Name = "buttonProducts";
-            this.buttonProducts.Padding = new System.Windows.Forms.Padding(13, 0, 27, 0);
-            this.buttonProducts.Rotation = 0D;
-            this.buttonProducts.Size = new System.Drawing.Size(293, 79);
-            this.buttonProducts.TabIndex = 3;
-            this.buttonProducts.Text = " Products";
-            this.buttonProducts.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonProducts.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.buttonProducts.UseVisualStyleBackColor = true;
-            this.buttonProducts.Click += new System.EventHandler(this.buttonProducts_Click);
+            this.buttonCommandes.Dock = System.Windows.Forms.DockStyle.Top;
+            this.buttonCommandes.FlatAppearance.BorderSize = 0;
+            this.buttonCommandes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonCommandes.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.buttonCommandes.ForeColor = System.Drawing.Color.Gainsboro;
+            this.buttonCommandes.IconChar = FontAwesome.Sharp.IconChar.Dolly;
+            this.buttonCommandes.IconColor = System.Drawing.Color.Gainsboro;
+            this.buttonCommandes.IconSize = 32;
+            this.buttonCommandes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonCommandes.Location = new System.Drawing.Point(0, 341);
+            this.buttonCommandes.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonCommandes.Name = "buttonCommandes";
+            this.buttonCommandes.Padding = new System.Windows.Forms.Padding(13, 0, 27, 0);
+            this.buttonCommandes.Rotation = 0D;
+            this.buttonCommandes.Size = new System.Drawing.Size(293, 79);
+            this.buttonCommandes.TabIndex = 3;
+            this.buttonCommandes.Text = " Commandes";
+            this.buttonCommandes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonCommandes.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.buttonCommandes.UseVisualStyleBackColor = true;
+            this.buttonCommandes.Click += new System.EventHandler(this.buttonProducts_Click);
             // 
-            // buttonOrders
+            // buttonVehicules
             // 
-            this.buttonOrders.Dock = System.Windows.Forms.DockStyle.Top;
-            this.buttonOrders.FlatAppearance.BorderSize = 0;
-            this.buttonOrders.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonOrders.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.buttonOrders.ForeColor = System.Drawing.Color.Gainsboro;
-            this.buttonOrders.IconChar = FontAwesome.Sharp.IconChar.Cube;
-            this.buttonOrders.IconColor = System.Drawing.Color.Gainsboro;
-            this.buttonOrders.IconSize = 32;
-            this.buttonOrders.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonOrders.Location = new System.Drawing.Point(0, 262);
-            this.buttonOrders.Margin = new System.Windows.Forms.Padding(4);
-            this.buttonOrders.Name = "buttonOrders";
-            this.buttonOrders.Padding = new System.Windows.Forms.Padding(13, 0, 27, 0);
-            this.buttonOrders.Rotation = 0D;
-            this.buttonOrders.Size = new System.Drawing.Size(293, 79);
-            this.buttonOrders.TabIndex = 2;
-            this.buttonOrders.Text = " Orders";
-            this.buttonOrders.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonOrders.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.buttonOrders.UseVisualStyleBackColor = true;
-            this.buttonOrders.Click += new System.EventHandler(this.buttonOrders_Click);
+            this.buttonVehicules.Dock = System.Windows.Forms.DockStyle.Top;
+            this.buttonVehicules.FlatAppearance.BorderSize = 0;
+            this.buttonVehicules.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonVehicules.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.buttonVehicules.ForeColor = System.Drawing.Color.Gainsboro;
+            this.buttonVehicules.IconChar = FontAwesome.Sharp.IconChar.Car;
+            this.buttonVehicules.IconColor = System.Drawing.Color.Gainsboro;
+            this.buttonVehicules.IconSize = 32;
+            this.buttonVehicules.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonVehicules.Location = new System.Drawing.Point(0, 262);
+            this.buttonVehicules.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonVehicules.Name = "buttonVehicules";
+            this.buttonVehicules.Padding = new System.Windows.Forms.Padding(13, 0, 27, 0);
+            this.buttonVehicules.Rotation = 0D;
+            this.buttonVehicules.Size = new System.Drawing.Size(293, 79);
+            this.buttonVehicules.TabIndex = 2;
+            this.buttonVehicules.Text = " Véhicules";
+            this.buttonVehicules.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonVehicules.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.buttonVehicules.UseVisualStyleBackColor = true;
+            this.buttonVehicules.Click += new System.EventHandler(this.buttonOrders_Click);
             // 
             // buttonGestionUtil
             // 
@@ -346,7 +346,7 @@
             this.buttonGestionUtil.Rotation = 0D;
             this.buttonGestionUtil.Size = new System.Drawing.Size(293, 79);
             this.buttonGestionUtil.TabIndex = 1;
-            this.buttonGestionUtil.Text = " Gestion Utilisateurs";
+            this.buttonGestionUtil.Text = " Utilisateurs";
             this.buttonGestionUtil.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonGestionUtil.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonGestionUtil.UseVisualStyleBackColor = true;
@@ -366,7 +366,7 @@
             // 
             // FormMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1417, 849);
             this.Controls.Add(this.btnMinimize);
@@ -396,8 +396,8 @@
         private FontAwesome.Sharp.IconButton buttonSetting;
         private FontAwesome.Sharp.IconButton buttonMarketing;
         private FontAwesome.Sharp.IconButton buttonCustomers;
-        private FontAwesome.Sharp.IconButton buttonProducts;
-        private FontAwesome.Sharp.IconButton buttonOrders;
+        private FontAwesome.Sharp.IconButton buttonCommandes;
+        private FontAwesome.Sharp.IconButton buttonVehicules;
         private FontAwesome.Sharp.IconButton buttonGestionUtil;
         private System.Windows.Forms.Panel panelLogo;
         private System.Windows.Forms.PictureBox btnHome;

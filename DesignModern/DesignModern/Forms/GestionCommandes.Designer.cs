@@ -1,6 +1,6 @@
 ﻿namespace DesignModern
 {
-    partial class GestionUtil
+    partial class GestionCommandes
     {
         /// <summary>
         /// Required designer variable.
@@ -36,33 +36,25 @@
             this.buttonPrecedent = new FontAwesome.Sharp.IconButton();
             this.buttonSuivant = new FontAwesome.Sharp.IconButton();
             this.panelInfoUtil = new System.Windows.Forms.Panel();
+            this.comboEtatCommande = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.txtTelephone = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.txtEmail = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.txtPays = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.txtLogin = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.txtVille = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txtCP = new System.Windows.Forms.TextBox();
+            this.txtGarage = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtAdresse = new System.Windows.Forms.TextBox();
+            this.txtDateLivraison = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtPrenom = new System.Windows.Forms.TextBox();
+            this.txtDateCommande = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtNom = new System.Windows.Forms.TextBox();
+            this.txtNumClient = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtNumeroClient = new System.Windows.Forms.TextBox();
+            this.txtNumCommande = new System.Windows.Forms.TextBox();
             this.panelButton = new System.Windows.Forms.Panel();
             this.buttonAnnuler = new FontAwesome.Sharp.IconButton();
             this.buttonValidAjout = new FontAwesome.Sharp.IconButton();
             this.buttonValidModif = new FontAwesome.Sharp.IconButton();
-            this.buttonSupprimerUtil = new FontAwesome.Sharp.IconButton();
-            this.buttonModifUtil = new FontAwesome.Sharp.IconButton();
-            this.buttonAjouterUtil = new FontAwesome.Sharp.IconButton();
+            this.buttonSupprimer = new FontAwesome.Sharp.IconButton();
+            this.buttonModif = new FontAwesome.Sharp.IconButton();
+            this.buttonAjouter = new FontAwesome.Sharp.IconButton();
             this.panelTitle = new System.Windows.Forms.Panel();
             this.lblGestionUtil = new System.Windows.Forms.Label();
             this.buttonUtil = new FontAwesome.Sharp.IconButton();
@@ -187,198 +179,105 @@
             // panelInfoUtil
             // 
             this.panelInfoUtil.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.panelInfoUtil.Controls.Add(this.comboEtatCommande);
             this.panelInfoUtil.Controls.Add(this.label11);
-            this.panelInfoUtil.Controls.Add(this.txtTelephone);
             this.panelInfoUtil.Controls.Add(this.label10);
-            this.panelInfoUtil.Controls.Add(this.txtEmail);
-            this.panelInfoUtil.Controls.Add(this.label8);
-            this.panelInfoUtil.Controls.Add(this.txtPays);
-            this.panelInfoUtil.Controls.Add(this.label7);
-            this.panelInfoUtil.Controls.Add(this.txtLogin);
-            this.panelInfoUtil.Controls.Add(this.label6);
-            this.panelInfoUtil.Controls.Add(this.txtVille);
-            this.panelInfoUtil.Controls.Add(this.label5);
-            this.panelInfoUtil.Controls.Add(this.txtCP);
+            this.panelInfoUtil.Controls.Add(this.txtGarage);
             this.panelInfoUtil.Controls.Add(this.label4);
-            this.panelInfoUtil.Controls.Add(this.txtAdresse);
+            this.panelInfoUtil.Controls.Add(this.txtDateLivraison);
             this.panelInfoUtil.Controls.Add(this.label3);
-            this.panelInfoUtil.Controls.Add(this.txtPrenom);
+            this.panelInfoUtil.Controls.Add(this.txtDateCommande);
             this.panelInfoUtil.Controls.Add(this.label2);
-            this.panelInfoUtil.Controls.Add(this.txtNom);
+            this.panelInfoUtil.Controls.Add(this.txtNumClient);
             this.panelInfoUtil.Controls.Add(this.label1);
-            this.panelInfoUtil.Controls.Add(this.txtNumeroClient);
+            this.panelInfoUtil.Controls.Add(this.txtNumCommande);
             this.panelInfoUtil.Location = new System.Drawing.Point(108, 127);
             this.panelInfoUtil.Name = "panelInfoUtil";
             this.panelInfoUtil.Size = new System.Drawing.Size(829, 409);
             this.panelInfoUtil.TabIndex = 4;
+            // 
+            // comboEtatCommande
+            // 
+            this.comboEtatCommande.FormattingEnabled = true;
+            this.comboEtatCommande.ItemHeight = 19;
+            this.comboEtatCommande.Location = new System.Drawing.Point(392, 291);
+            this.comboEtatCommande.Name = "comboEtatCommande";
+            this.comboEtatCommande.Size = new System.Drawing.Size(193, 27);
+            this.comboEtatCommande.TabIndex = 22;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label11.Location = new System.Drawing.Point(477, 146);
+            this.label11.Location = new System.Drawing.Point(216, 294);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(81, 19);
+            this.label11.Size = new System.Drawing.Size(123, 19);
             this.label11.TabIndex = 21;
-            this.label11.Text = "Téléphone";
-            // 
-            // txtTelephone
-            // 
-            this.txtTelephone.BackColor = System.Drawing.Color.Gainsboro;
-            this.txtTelephone.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtTelephone.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTelephone.Location = new System.Drawing.Point(560, 140);
-            this.txtTelephone.Name = "txtTelephone";
-            this.txtTelephone.Size = new System.Drawing.Size(180, 30);
-            this.txtTelephone.TabIndex = 20;
+            this.label11.Text = "Etat commande";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label10.Location = new System.Drawing.Point(477, 96);
+            this.label10.Location = new System.Drawing.Point(441, 96);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(46, 19);
+            this.label10.Size = new System.Drawing.Size(63, 19);
             this.label10.TabIndex = 19;
-            this.label10.Text = "Email";
+            this.label10.Text = "Garage";
             // 
-            // txtEmail
+            // txtGarage
             // 
-            this.txtEmail.BackColor = System.Drawing.Color.Gainsboro;
-            this.txtEmail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtEmail.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEmail.Location = new System.Drawing.Point(560, 90);
-            this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(210, 30);
-            this.txtEmail.TabIndex = 18;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label8.Location = new System.Drawing.Point(67, 347);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(40, 19);
-            this.label8.TabIndex = 15;
-            this.label8.Text = "Pays";
-            // 
-            // txtPays
-            // 
-            this.txtPays.BackColor = System.Drawing.Color.Gainsboro;
-            this.txtPays.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtPays.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPays.Location = new System.Drawing.Point(198, 340);
-            this.txtPays.Name = "txtPays";
-            this.txtPays.Size = new System.Drawing.Size(180, 30);
-            this.txtPays.TabIndex = 14;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label7.Location = new System.Drawing.Point(477, 41);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(45, 19);
-            this.label7.TabIndex = 13;
-            this.label7.Text = "Login";
-            // 
-            // txtLogin
-            // 
-            this.txtLogin.BackColor = System.Drawing.Color.Gainsboro;
-            this.txtLogin.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtLogin.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtLogin.Location = new System.Drawing.Point(560, 35);
-            this.txtLogin.Name = "txtLogin";
-            this.txtLogin.Size = new System.Drawing.Size(180, 30);
-            this.txtLogin.TabIndex = 12;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label6.Location = new System.Drawing.Point(67, 296);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(36, 19);
-            this.label6.TabIndex = 11;
-            this.label6.Text = "Ville";
-            // 
-            // txtVille
-            // 
-            this.txtVille.BackColor = System.Drawing.Color.Gainsboro;
-            this.txtVille.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtVille.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtVille.Location = new System.Drawing.Point(198, 290);
-            this.txtVille.Name = "txtVille";
-            this.txtVille.Size = new System.Drawing.Size(180, 30);
-            this.txtVille.TabIndex = 10;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label5.Location = new System.Drawing.Point(67, 246);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(94, 19);
-            this.label5.TabIndex = 9;
-            this.label5.Text = "Code postal";
-            // 
-            // txtCP
-            // 
-            this.txtCP.BackColor = System.Drawing.Color.Gainsboro;
-            this.txtCP.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtCP.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCP.Location = new System.Drawing.Point(198, 240);
-            this.txtCP.Name = "txtCP";
-            this.txtCP.Size = new System.Drawing.Size(180, 30);
-            this.txtCP.TabIndex = 8;
+            this.txtGarage.BackColor = System.Drawing.Color.Gainsboro;
+            this.txtGarage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtGarage.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtGarage.Location = new System.Drawing.Point(560, 90);
+            this.txtGarage.Name = "txtGarage";
+            this.txtGarage.Size = new System.Drawing.Size(180, 30);
+            this.txtGarage.TabIndex = 18;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label4.Location = new System.Drawing.Point(67, 196);
+            this.label4.Location = new System.Drawing.Point(67, 189);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(60, 19);
+            this.label4.Size = new System.Drawing.Size(129, 19);
             this.label4.TabIndex = 7;
-            this.label4.Text = "Adresse";
+            this.label4.Text = "Date commande";
             // 
-            // txtAdresse
+            // txtDateLivraison
             // 
-            this.txtAdresse.BackColor = System.Drawing.Color.Gainsboro;
-            this.txtAdresse.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtAdresse.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAdresse.Location = new System.Drawing.Point(198, 190);
-            this.txtAdresse.Name = "txtAdresse";
-            this.txtAdresse.Size = new System.Drawing.Size(270, 30);
-            this.txtAdresse.TabIndex = 6;
+            this.txtDateLivraison.BackColor = System.Drawing.Color.Gainsboro;
+            this.txtDateLivraison.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtDateLivraison.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDateLivraison.Location = new System.Drawing.Point(560, 184);
+            this.txtDateLivraison.Name = "txtDateLivraison";
+            this.txtDateLivraison.Size = new System.Drawing.Size(114, 30);
+            this.txtDateLivraison.TabIndex = 6;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label3.Location = new System.Drawing.Point(67, 146);
+            this.label3.Location = new System.Drawing.Point(441, 189);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(61, 19);
+            this.label3.Size = new System.Drawing.Size(101, 19);
             this.label3.TabIndex = 5;
-            this.label3.Text = "Prénom";
+            this.label3.Text = "Date livraison";
             // 
-            // txtPrenom
+            // txtDateCommande
             // 
-            this.txtPrenom.BackColor = System.Drawing.Color.Gainsboro;
-            this.txtPrenom.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtPrenom.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPrenom.Location = new System.Drawing.Point(198, 140);
-            this.txtPrenom.Name = "txtPrenom";
-            this.txtPrenom.Size = new System.Drawing.Size(180, 30);
-            this.txtPrenom.TabIndex = 4;
+            this.txtDateCommande.BackColor = System.Drawing.Color.Gainsboro;
+            this.txtDateCommande.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtDateCommande.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDateCommande.Location = new System.Drawing.Point(236, 184);
+            this.txtDateCommande.Name = "txtDateCommande";
+            this.txtDateCommande.Size = new System.Drawing.Size(129, 30);
+            this.txtDateCommande.TabIndex = 4;
             // 
             // label2
             // 
@@ -387,40 +286,40 @@
             this.label2.ForeColor = System.Drawing.Color.Gainsboro;
             this.label2.Location = new System.Drawing.Point(67, 96);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(41, 19);
+            this.label2.Size = new System.Drawing.Size(105, 19);
             this.label2.TabIndex = 3;
-            this.label2.Text = "Nom";
+            this.label2.Text = "Numéro client";
             // 
-            // txtNom
+            // txtNumClient
             // 
-            this.txtNom.BackColor = System.Drawing.Color.Gainsboro;
-            this.txtNom.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtNom.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNom.Location = new System.Drawing.Point(198, 90);
-            this.txtNom.Name = "txtNom";
-            this.txtNom.Size = new System.Drawing.Size(180, 30);
-            this.txtNom.TabIndex = 2;
+            this.txtNumClient.BackColor = System.Drawing.Color.Gainsboro;
+            this.txtNumClient.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtNumClient.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNumClient.Location = new System.Drawing.Point(236, 91);
+            this.txtNumClient.Name = "txtNumClient";
+            this.txtNumClient.Size = new System.Drawing.Size(129, 30);
+            this.txtNumClient.TabIndex = 2;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label1.Location = new System.Drawing.Point(67, 41);
+            this.label1.Location = new System.Drawing.Point(67, 47);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(105, 19);
+            this.label1.Size = new System.Drawing.Size(149, 19);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Numéro client";
+            this.label1.Text = "Numéro commande";
             // 
-            // txtNumeroClient
+            // txtNumCommande
             // 
-            this.txtNumeroClient.BackColor = System.Drawing.Color.Gainsboro;
-            this.txtNumeroClient.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtNumeroClient.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNumeroClient.Location = new System.Drawing.Point(198, 35);
-            this.txtNumeroClient.Name = "txtNumeroClient";
-            this.txtNumeroClient.Size = new System.Drawing.Size(180, 30);
-            this.txtNumeroClient.TabIndex = 0;
+            this.txtNumCommande.BackColor = System.Drawing.Color.Gainsboro;
+            this.txtNumCommande.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtNumCommande.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNumCommande.Location = new System.Drawing.Point(236, 42);
+            this.txtNumCommande.Name = "txtNumCommande";
+            this.txtNumCommande.Size = new System.Drawing.Size(129, 30);
+            this.txtNumCommande.TabIndex = 0;
             // 
             // panelButton
             // 
@@ -428,9 +327,9 @@
             this.panelButton.Controls.Add(this.buttonAnnuler);
             this.panelButton.Controls.Add(this.buttonValidAjout);
             this.panelButton.Controls.Add(this.buttonValidModif);
-            this.panelButton.Controls.Add(this.buttonSupprimerUtil);
-            this.panelButton.Controls.Add(this.buttonModifUtil);
-            this.panelButton.Controls.Add(this.buttonAjouterUtil);
+            this.panelButton.Controls.Add(this.buttonSupprimer);
+            this.panelButton.Controls.Add(this.buttonModif);
+            this.panelButton.Controls.Add(this.buttonAjouter);
             this.panelButton.Location = new System.Drawing.Point(1045, 0);
             this.panelButton.Name = "panelButton";
             this.panelButton.Size = new System.Drawing.Size(188, 670);
@@ -505,71 +404,71 @@
             this.buttonValidModif.UseVisualStyleBackColor = true;
             this.buttonValidModif.Visible = false;
             // 
-            // buttonSupprimerUtil
+            // buttonSupprimer
             // 
-            this.buttonSupprimerUtil.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.buttonSupprimerUtil.FlatAppearance.BorderSize = 0;
-            this.buttonSupprimerUtil.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonSupprimerUtil.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.buttonSupprimerUtil.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonSupprimerUtil.ForeColor = System.Drawing.Color.Gainsboro;
-            this.buttonSupprimerUtil.IconChar = FontAwesome.Sharp.IconChar.UserTimes;
-            this.buttonSupprimerUtil.IconColor = System.Drawing.Color.Gainsboro;
-            this.buttonSupprimerUtil.IconSize = 38;
-            this.buttonSupprimerUtil.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonSupprimerUtil.Location = new System.Drawing.Point(5, 261);
-            this.buttonSupprimerUtil.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.buttonSupprimerUtil.Name = "buttonSupprimerUtil";
-            this.buttonSupprimerUtil.Rotation = 0D;
-            this.buttonSupprimerUtil.Size = new System.Drawing.Size(167, 59);
-            this.buttonSupprimerUtil.TabIndex = 2;
-            this.buttonSupprimerUtil.Text = " Supprimer";
-            this.buttonSupprimerUtil.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.buttonSupprimerUtil.UseVisualStyleBackColor = true;
+            this.buttonSupprimer.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.buttonSupprimer.FlatAppearance.BorderSize = 0;
+            this.buttonSupprimer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonSupprimer.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.buttonSupprimer.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSupprimer.ForeColor = System.Drawing.Color.Gainsboro;
+            this.buttonSupprimer.IconChar = FontAwesome.Sharp.IconChar.UserTimes;
+            this.buttonSupprimer.IconColor = System.Drawing.Color.Gainsboro;
+            this.buttonSupprimer.IconSize = 38;
+            this.buttonSupprimer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonSupprimer.Location = new System.Drawing.Point(5, 261);
+            this.buttonSupprimer.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.buttonSupprimer.Name = "buttonSupprimer";
+            this.buttonSupprimer.Rotation = 0D;
+            this.buttonSupprimer.Size = new System.Drawing.Size(167, 59);
+            this.buttonSupprimer.TabIndex = 2;
+            this.buttonSupprimer.Text = " Supprimer";
+            this.buttonSupprimer.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.buttonSupprimer.UseVisualStyleBackColor = true;
             // 
-            // buttonModifUtil
+            // buttonModif
             // 
-            this.buttonModifUtil.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.buttonModifUtil.FlatAppearance.BorderSize = 0;
-            this.buttonModifUtil.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonModifUtil.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.buttonModifUtil.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonModifUtil.ForeColor = System.Drawing.Color.Gainsboro;
-            this.buttonModifUtil.IconChar = FontAwesome.Sharp.IconChar.UserEdit;
-            this.buttonModifUtil.IconColor = System.Drawing.Color.Gainsboro;
-            this.buttonModifUtil.IconSize = 38;
-            this.buttonModifUtil.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonModifUtil.Location = new System.Drawing.Point(5, 194);
-            this.buttonModifUtil.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.buttonModifUtil.Name = "buttonModifUtil";
-            this.buttonModifUtil.Rotation = 0D;
-            this.buttonModifUtil.Size = new System.Drawing.Size(167, 59);
-            this.buttonModifUtil.TabIndex = 1;
-            this.buttonModifUtil.Text = " Modifier";
-            this.buttonModifUtil.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.buttonModifUtil.UseVisualStyleBackColor = true;
+            this.buttonModif.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.buttonModif.FlatAppearance.BorderSize = 0;
+            this.buttonModif.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonModif.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.buttonModif.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonModif.ForeColor = System.Drawing.Color.Gainsboro;
+            this.buttonModif.IconChar = FontAwesome.Sharp.IconChar.UserEdit;
+            this.buttonModif.IconColor = System.Drawing.Color.Gainsboro;
+            this.buttonModif.IconSize = 38;
+            this.buttonModif.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonModif.Location = new System.Drawing.Point(5, 194);
+            this.buttonModif.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.buttonModif.Name = "buttonModif";
+            this.buttonModif.Rotation = 0D;
+            this.buttonModif.Size = new System.Drawing.Size(167, 59);
+            this.buttonModif.TabIndex = 1;
+            this.buttonModif.Text = " Modifier";
+            this.buttonModif.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.buttonModif.UseVisualStyleBackColor = true;
             // 
-            // buttonAjouterUtil
+            // buttonAjouter
             // 
-            this.buttonAjouterUtil.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.buttonAjouterUtil.FlatAppearance.BorderSize = 0;
-            this.buttonAjouterUtil.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonAjouterUtil.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.buttonAjouterUtil.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonAjouterUtil.ForeColor = System.Drawing.Color.Gainsboro;
-            this.buttonAjouterUtil.IconChar = FontAwesome.Sharp.IconChar.UserPlus;
-            this.buttonAjouterUtil.IconColor = System.Drawing.Color.Gainsboro;
-            this.buttonAjouterUtil.IconSize = 38;
-            this.buttonAjouterUtil.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonAjouterUtil.Location = new System.Drawing.Point(5, 127);
-            this.buttonAjouterUtil.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.buttonAjouterUtil.Name = "buttonAjouterUtil";
-            this.buttonAjouterUtil.Rotation = 0D;
-            this.buttonAjouterUtil.Size = new System.Drawing.Size(167, 59);
-            this.buttonAjouterUtil.TabIndex = 0;
-            this.buttonAjouterUtil.Text = " Ajouter";
-            this.buttonAjouterUtil.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.buttonAjouterUtil.UseVisualStyleBackColor = true;
+            this.buttonAjouter.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.buttonAjouter.FlatAppearance.BorderSize = 0;
+            this.buttonAjouter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonAjouter.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.buttonAjouter.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonAjouter.ForeColor = System.Drawing.Color.Gainsboro;
+            this.buttonAjouter.IconChar = FontAwesome.Sharp.IconChar.UserPlus;
+            this.buttonAjouter.IconColor = System.Drawing.Color.Gainsboro;
+            this.buttonAjouter.IconSize = 38;
+            this.buttonAjouter.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonAjouter.Location = new System.Drawing.Point(5, 127);
+            this.buttonAjouter.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.buttonAjouter.Name = "buttonAjouter";
+            this.buttonAjouter.Rotation = 0D;
+            this.buttonAjouter.Size = new System.Drawing.Size(167, 59);
+            this.buttonAjouter.TabIndex = 0;
+            this.buttonAjouter.Text = " Ajouter";
+            this.buttonAjouter.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.buttonAjouter.UseVisualStyleBackColor = true;
             // 
             // panelTitle
             // 
@@ -588,9 +487,9 @@
             this.lblGestionUtil.ForeColor = System.Drawing.Color.Gainsboro;
             this.lblGestionUtil.Location = new System.Drawing.Point(101, 31);
             this.lblGestionUtil.Name = "lblGestionUtil";
-            this.lblGestionUtil.Size = new System.Drawing.Size(504, 55);
+            this.lblGestionUtil.Size = new System.Drawing.Size(563, 55);
             this.lblGestionUtil.TabIndex = 6;
-            this.lblGestionUtil.Text = "Gestion des utilisateurs";
+            this.lblGestionUtil.Text = "Gestion des commandes";
             // 
             // buttonUtil
             // 
@@ -599,7 +498,7 @@
             this.buttonUtil.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
             this.buttonUtil.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonUtil.ForeColor = System.Drawing.Color.Gainsboro;
-            this.buttonUtil.IconChar = FontAwesome.Sharp.IconChar.UsersCog;
+            this.buttonUtil.IconChar = FontAwesome.Sharp.IconChar.Dolly;
             this.buttonUtil.IconColor = System.Drawing.Color.Gainsboro;
             this.buttonUtil.IconSize = 58;
             this.buttonUtil.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -624,7 +523,7 @@
             // 
             this.errorProviderErreur.ContainerControl = this;
             // 
-            // GestionUtil
+            // GestionCommandes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -635,7 +534,7 @@
             this.Controls.Add(this.panelGestionUtil);
             this.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.Name = "GestionUtil";
+            this.Name = "GestionCommandes";
             this.Text = "Dashboardcs";
             this.panelGestionUtil.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
@@ -651,16 +550,15 @@
 
         #endregion
 
-        private FontAwesome.Sharp.IconButton buttonAjouterUtil;
-        private FontAwesome.Sharp.IconButton buttonModifUtil;
-        private FontAwesome.Sharp.IconButton buttonSupprimerUtil;
+        private FontAwesome.Sharp.IconButton buttonAjouter;
+        private FontAwesome.Sharp.IconButton buttonModif;
+        private FontAwesome.Sharp.IconButton buttonSupprimer;
         private System.Windows.Forms.Panel panelGestionUtil;
         private System.Windows.Forms.Panel panelTitle;
         private System.Windows.Forms.Label lblGestionUtil;
         private FontAwesome.Sharp.IconButton buttonUtil;
         private System.Windows.Forms.Panel panelBar;
         private System.Windows.Forms.Panel panelButton;
-        private System.Windows.Forms.Panel panelInfoUtil;
         private FontAwesome.Sharp.IconButton buttonFin;
         private FontAwesome.Sharp.IconButton buttonDebut;
         private FontAwesome.Sharp.IconButton buttonPrecedent;
@@ -669,26 +567,19 @@
         private FontAwesome.Sharp.IconButton buttonValidModif;
         private FontAwesome.Sharp.IconButton buttonValidAjout;
         private FontAwesome.Sharp.IconButton buttonAnnuler;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtNom;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtNumeroClient;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox txtTelephone;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox txtEmail;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox txtPays;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox txtLogin;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox txtVille;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txtCP;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtAdresse;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtPrenom;
         private System.Windows.Forms.ErrorProvider errorProviderErreur;
+        private System.Windows.Forms.Panel panelInfoUtil;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox txtGarage;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txtDateLivraison;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtDateCommande;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtNumClient;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtNumCommande;
+        private System.Windows.Forms.ComboBox comboEtatCommande;
     }
 }

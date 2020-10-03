@@ -108,31 +108,31 @@ namespace DesignModern
         private void buttonOrders_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color2);
-            OpenChildForm(new Orders());
+            OpenChildForm(new GestionVehicules());
         }
 
         private void buttonProducts_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color3);
-            OpenChildForm(new Products());
+            OpenChildForm(new GestionCommandes());
         }
 
         private void buttonCustomers_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color4);
-            OpenChildForm(new Customers());
+            //OpenChildForm(new Customers());
         }
 
         private void buttonMarketing_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color5);
-            OpenChildForm(new Marketing());
+            //OpenChildForm(new Marketing());
         }
 
         private void buttonSetting_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color6);
-            OpenChildForm(new Setting());
+            //OpenChildForm(new Setting());
         }
 
         private void btnHome_Click(object sender, EventArgs e)
@@ -151,7 +151,7 @@ namespace DesignModern
             leftBorderBtn.Visible = false;
             iconCurrentChildForm.IconChar = IconChar.Home;
             iconCurrentChildForm.IconColor = Color.MediumPurple;
-            lblTitleChildForm.Text = "Home";
+            lblTitleChildForm.Text = "Accueil";
         }
 
         //Drag Form
