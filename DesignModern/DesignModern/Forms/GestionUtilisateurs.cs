@@ -197,6 +197,7 @@ namespace DesignModern
             comboBoxTypesClient.DataSource = db.type_de_client.ToList();
             comboBoxTypesClient.DisplayMember = "typeClient";
             comboBoxTypesClient.ValueMember = "numTypeClient";
+            comboBoxTypesClient.Text = "";
         }
 
         private void buttonAjouterUtil_Click(object sender, EventArgs e)

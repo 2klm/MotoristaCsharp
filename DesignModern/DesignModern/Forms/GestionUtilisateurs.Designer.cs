@@ -36,6 +36,9 @@
             this.buttonPrecedent = new FontAwesome.Sharp.IconButton();
             this.buttonSuivant = new FontAwesome.Sharp.IconButton();
             this.panelInfoUtil = new System.Windows.Forms.Panel();
+            this.comboBoxTypesClient = new System.Windows.Forms.ComboBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.txtMdp = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.txtTelephone = new System.Windows.Forms.TextBox();
@@ -69,9 +72,6 @@
             this.buttonUtil = new FontAwesome.Sharp.IconButton();
             this.panelBar = new System.Windows.Forms.Panel();
             this.errorProviderErreur = new System.Windows.Forms.ErrorProvider(this.components);
-            this.label12 = new System.Windows.Forms.Label();
-            this.txtMdp = new System.Windows.Forms.TextBox();
-            this.comboBoxTypesClient = new System.Windows.Forms.ComboBox();
             this.panelGestionUtil.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panelInfoUtil.SuspendLayout();
@@ -219,6 +219,39 @@
             this.panelInfoUtil.Name = "panelInfoUtil";
             this.panelInfoUtil.Size = new System.Drawing.Size(918, 409);
             this.panelInfoUtil.TabIndex = 4;
+            // 
+            // comboBoxTypesClient
+            // 
+            this.comboBoxTypesClient.BackColor = System.Drawing.Color.Gainsboro;
+            this.comboBoxTypesClient.Enabled = false;
+            this.comboBoxTypesClient.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxTypesClient.FormattingEnabled = true;
+            this.comboBoxTypesClient.Location = new System.Drawing.Point(628, 38);
+            this.comboBoxTypesClient.Name = "comboBoxTypesClient";
+            this.comboBoxTypesClient.Size = new System.Drawing.Size(180, 28);
+            this.comboBoxTypesClient.TabIndex = 26;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.Color.Gainsboro;
+            this.label12.Location = new System.Drawing.Point(530, 146);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(82, 16);
+            this.label12.TabIndex = 25;
+            this.label12.Text = "Mot de passe";
+            // 
+            // txtMdp
+            // 
+            this.txtMdp.BackColor = System.Drawing.Color.Gainsboro;
+            this.txtMdp.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtMdp.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMdp.Location = new System.Drawing.Point(628, 140);
+            this.txtMdp.Name = "txtMdp";
+            this.txtMdp.PasswordChar = '*';
+            this.txtMdp.Size = new System.Drawing.Size(180, 26);
+            this.txtMdp.TabIndex = 24;
             // 
             // label9
             // 
@@ -645,38 +678,6 @@
             // errorProviderErreur
             // 
             this.errorProviderErreur.ContainerControl = this;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label12.Location = new System.Drawing.Point(530, 146);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(82, 16);
-            this.label12.TabIndex = 25;
-            this.label12.Text = "Mot de passe";
-            // 
-            // txtMdp
-            // 
-            this.txtMdp.BackColor = System.Drawing.Color.Gainsboro;
-            this.txtMdp.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtMdp.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMdp.Location = new System.Drawing.Point(628, 140);
-            this.txtMdp.Name = "txtMdp";
-            this.txtMdp.PasswordChar = '*';
-            this.txtMdp.Size = new System.Drawing.Size(180, 26);
-            this.txtMdp.TabIndex = 24;
-            // 
-            // comboBoxTypesClient
-            // 
-            this.comboBoxTypesClient.BackColor = System.Drawing.Color.Gainsboro;
-            this.comboBoxTypesClient.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBoxTypesClient.FormattingEnabled = true;
-            this.comboBoxTypesClient.Location = new System.Drawing.Point(628, 38);
-            this.comboBoxTypesClient.Name = "comboBoxTypesClient";
-            this.comboBoxTypesClient.Size = new System.Drawing.Size(180, 28);
-            this.comboBoxTypesClient.TabIndex = 26;
             // 
             // GestionUtil
             // 
