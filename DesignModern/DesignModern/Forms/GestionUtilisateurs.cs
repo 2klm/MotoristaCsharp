@@ -8,16 +8,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.VisualStyles;
 
 namespace DesignModern
 {
     public partial class GestionUtil : Form
     {
-        private Entities db;
+        private motoristaDbContext db;
         public GestionUtil()
         {
             InitializeComponent();
-            db = new Entities();
+            db = new motoristaDbContext();
         }
 
         private void deverouillerVerrouiller()
@@ -33,8 +34,10 @@ namespace DesignModern
                 txtVille.Enabled = false;
                 txtPays.Enabled = false;
                 txtLogin.Enabled = false;
+                txtMdp.Enabled = false;
                 txtEmail.Enabled = false;
                 txtTelephone.Enabled = false;
+                comboBoxTypesClient.Enabled = false;
             }
             else
             {
@@ -47,8 +50,10 @@ namespace DesignModern
                 txtVille.Enabled = true;
                 txtPays.Enabled = true;
                 txtLogin.Enabled = true;
+                txtMdp.Enabled = true;
                 txtEmail.Enabled = true;
                 txtTelephone.Enabled = true;
+                comboBoxTypesClient.Enabled = true;
             }
         }
         private bool verif()
@@ -132,6 +137,15 @@ namespace DesignModern
             {
                 errorProviderErreur.SetError(txtLogin, "");
             }
+            if (txtMdp.Text.Trim() == "")
+            {
+                errorProviderErreur.SetError(txtMdp, "Veuillez indiquer votre mot de passe");
+                verification = false;
+            }
+            else
+            {
+                errorProviderErreur.SetError(txtMdp, "");
+            }
             if (txtEmail.Text.Trim() == "")
             {
                 errorProviderErreur.SetError(txtEmail, "Veuillez indiquer votre email");
@@ -150,6 +164,15 @@ namespace DesignModern
             {
                 errorProviderErreur.SetError(txtTelephone, "");
             }
+            if (comboBoxTypesClient.Text.Trim() == "")
+            {
+                errorProviderErreur.SetError(comboBoxTypesClient, "Veuillez indiquer le type de client");
+                verification = false;
+            }
+            else
+            {
+                errorProviderErreur.SetError(comboBoxTypesClient, "");
+            }
 
             return (verification);
         }
@@ -163,8 +186,78 @@ namespace DesignModern
             txtVille.Clear();
             txtPays.Clear();
             txtLogin.Clear();
+            txtMdp.Clear();
             txtEmail.Clear();
             txtTelephone.Clear();
+            comboBoxTypesClient.Text = "";
+        }
+
+        private void GestionUtil_Load(object sender, EventArgs e)
+        {
+            comboBoxTypesClient.DataSource = db.type_de_client.ToList();
+            comboBoxTypesClient.DisplayMember = "typeClient";
+            comboBoxTypesClient.ValueMember = "numTypeClient";
+        }
+
+        private void buttonAjouterUtil_Click(object sender, EventArgs e)
+        {
+            remiseAZero();
+            deverouillerVerrouiller();
+            buttonModifUtil.Enabled = false;
+            buttonSupprimerUtil.Enabled = false;
+            buttonValidAjout.Enabled = true;
+            buttonValidAjout.Visible = true;
+            buttonValidModif.Enabled = false;
+            buttonAjouterUtil.Enabled = false;
+            buttonAnnuler.Enabled = true;
+            buttonAnnuler.Visible = true;
+            txtNumeroClient.Focus();
+        }
+
+        private void buttonValidAjout_Click(object sender, EventArgs e)
+        {
+            if (verif() == false)
+            {
+                MessageBox.Show("Veuillez compléter toutes les zones de saisies");
+            }
+            else
+            {
+               // try
+                {
+                    client unClient = new client();
+                    unClient.numC = Convert.ToInt32(txtNumeroClient.Text);
+                    unClient.nomC = txtNom.Text;
+                    unClient.prenomC = txtPrenom.Text;
+                    unClient.adresseC = txtAdresse.Text;
+                    unClient.cpC = txtCP.Text;
+                    unClient.villeC = txtVille.Text;
+                    unClient.paysC = txtPays.Text;
+                    unClient.loginC = txtLogin.Text;
+                    unClient.mdpC = txtMdp.Text;
+                    unClient.emailC = txtEmail.Text;
+                    unClient.telC = txtTelephone.Text;
+                    unClient.numTypeClient = Convert.ToInt32(comboBoxTypesClient.SelectedValue.ToString());
+
+                    db.client.Add(unClient);
+                    db.SaveChanges();
+                    deverouillerVerrouiller();
+
+                    MessageBox.Show("Ajout effectué");
+                }
+               // catch (Exception ex)
+                {
+                    //MessageBox.Show(ex.Message);
+                }
+                //Activation / Désactivation des boutons
+                buttonModifUtil.Enabled = true;
+                buttonSupprimerUtil.Enabled = true;
+                buttonValidAjout.Enabled = false;
+                buttonValidAjout.Visible = false;
+                buttonValidModif.Enabled = false;
+                buttonAjouterUtil.Enabled = true;
+                buttonAnnuler.Enabled = false;
+                buttonAnnuler.Visible = false;
+            }
         }
     }
 }

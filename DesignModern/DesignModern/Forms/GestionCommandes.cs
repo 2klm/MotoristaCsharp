@@ -13,11 +13,11 @@ namespace DesignModern
 {
     public partial class GestionCommandes : Form
     {
-        private Entities db;
+        private motoristaDbContext db;
         public GestionCommandes()
         {
             InitializeComponent();
-            db = new Entities();
+            db = new motoristaDbContext();
         }
 
         private void deverouillerVerrouiller()
