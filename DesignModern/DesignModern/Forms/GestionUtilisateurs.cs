@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.Entity;
+using System.Data.Entity.Core.Mapping;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -223,7 +224,7 @@ namespace DesignModern
             }
             else
             {
-               // try
+                try
                 {
                     client unClient = new client();
                     unClient.numC = Convert.ToInt32(txtNumeroClient.Text);
@@ -245,9 +246,9 @@ namespace DesignModern
 
                     MessageBox.Show("Ajout effectué");
                 }
-               // catch (Exception ex)
+                catch (Exception ex)
                 {
-                    //MessageBox.Show(ex.Message);
+                    MessageBox.Show(ex.Message);
                 }
                 //Activation / Désactivation des boutons
                 buttonModifUtil.Enabled = true;
@@ -258,6 +259,106 @@ namespace DesignModern
                 buttonAjouterUtil.Enabled = true;
                 buttonAnnuler.Enabled = false;
                 buttonAnnuler.Visible = false;
+            }
+        }
+
+        private void buttonAnnuler_Click(object sender, EventArgs e)
+        {
+            remiseAZero();
+            db.SaveChanges();
+            deverouillerVerrouiller();
+            buttonValidAjout.Visible = false;
+            buttonAnnuler.Visible = false;
+            buttonAjouterUtil.Enabled = true;
+            buttonModifUtil.Enabled = true;
+            buttonSupprimerUtil.Enabled = true;
+            buttonValidModif.Visible = false;
+        }
+        private void buttonModifUtil_Click(object sender, EventArgs e)
+        {
+            deverouillerVerrouiller();
+            buttonModifUtil.Enabled = false;
+            buttonSupprimerUtil.Enabled = false;
+            buttonValidAjout.Enabled = true;
+            buttonValidAjout.Visible = false;
+            buttonValidModif.Enabled = true;
+            buttonValidModif.Visible = true;
+            buttonAjouterUtil.Enabled = false;
+            buttonAnnuler.Enabled = true;
+            buttonAnnuler.Visible = true;
+            txtNumeroClient.Focus();
+        }
+        private void buttonValidModif_Click(object sender, EventArgs e)
+        {
+            if (verif() == false)
+            {
+                MessageBox.Show("Veuillez compléter toutes les zones de saisies");
+            }
+            else
+            {
+                try
+                {
+                    //Modification d'un client Reste à recuperer les informations du client et les affichées dans le champs !
+
+                    client unClient = db.client.First(c => c.numC.ToString() == txtNumeroClient.Text);
+                    unClient.numC = Convert.ToInt32(txtNumeroClient.Text);
+                    unClient.nomC = txtNom.Text;
+                    unClient.prenomC = txtPrenom.Text;
+                    unClient.adresseC = txtAdresse.Text;
+                    unClient.cpC = txtCP.Text;
+                    unClient.villeC = txtVille.Text;
+                    unClient.paysC = txtPays.Text;
+                    unClient.loginC = txtLogin.Text;
+                    unClient.mdpC = txtMdp.Text;
+                    unClient.emailC = txtEmail.Text;
+                    unClient.telC = txtTelephone.Text;
+                    unClient.numTypeClient = Convert.ToInt32(comboBoxTypesClient.SelectedValue.ToString());
+
+                    db.SaveChanges();
+                    deverouillerVerrouiller();
+
+                    MessageBox.Show("Modification effectuée");
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                //Activation / Désactivation des boutons
+                buttonModifUtil.Enabled = true;
+                buttonSupprimerUtil.Enabled = true;
+                buttonValidAjout.Enabled = false;
+                buttonValidModif.Enabled = false;
+                buttonValidModif.Visible = false;
+                buttonAjouterUtil.Enabled = true;
+                buttonAnnuler.Enabled = false;
+                buttonAnnuler.Visible = false;
+            }
+        }
+        private void buttonSupprimerUtil_Click(object sender, EventArgs e)
+        {
+
+            if (MessageBox.Show("Etes-vous sûr de vouloir supprimer " + txtNumeroClient.Text + " " + txtNom.Text, "CONFIRMATION", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+            {
+                MessageBox.Show("Suppression annulée");
+            }
+            else
+            {
+                try
+                {
+                    //Suppresion (Reste maintenant à afficher quel client supprimer !
+
+                    client unClient = db.client.First(c => c.numC.ToString() == txtNumeroClient.Text);
+                    db.client.Remove(unClient);
+                    db.SaveChanges();
+                    deverouillerVerrouiller();
+
+                    MessageBox.Show("Suppression effectuée");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
         }
     }

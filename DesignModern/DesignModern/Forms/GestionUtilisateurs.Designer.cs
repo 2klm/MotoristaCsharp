@@ -511,6 +511,7 @@
             this.buttonAnnuler.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonAnnuler.UseVisualStyleBackColor = true;
             this.buttonAnnuler.Visible = false;
+            this.buttonAnnuler.Click += new System.EventHandler(this.buttonAnnuler_Click);
             // 
             // buttonValidAjout
             // 
@@ -558,6 +559,7 @@
             this.buttonValidModif.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonValidModif.UseVisualStyleBackColor = true;
             this.buttonValidModif.Visible = false;
+            this.buttonValidModif.Click += new System.EventHandler(this.buttonValidModif_Click);
             // 
             // buttonSupprimerUtil
             // 
@@ -580,6 +582,7 @@
             this.buttonSupprimerUtil.Text = " Supprimer";
             this.buttonSupprimerUtil.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonSupprimerUtil.UseVisualStyleBackColor = true;
+            this.buttonSupprimerUtil.Click += new System.EventHandler(this.buttonSupprimerUtil_Click);
             // 
             // buttonModifUtil
             // 
@@ -602,6 +605,7 @@
             this.buttonModifUtil.Text = " Modifier";
             this.buttonModifUtil.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonModifUtil.UseVisualStyleBackColor = true;
+            this.buttonModifUtil.Click += new System.EventHandler(this.buttonModifUtil_Click);
             // 
             // buttonAjouterUtil
             // 
