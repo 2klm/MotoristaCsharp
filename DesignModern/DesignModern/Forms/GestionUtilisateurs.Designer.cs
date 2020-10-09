@@ -72,12 +72,14 @@
             this.buttonUtil = new FontAwesome.Sharp.IconButton();
             this.panelBar = new System.Windows.Forms.Panel();
             this.errorProviderErreur = new System.Windows.Forms.ErrorProvider(this.components);
+            this.dataGridViewUtil = new System.Windows.Forms.DataGridView();
             this.panelGestionUtil.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panelInfoUtil.SuspendLayout();
             this.panelButton.SuspendLayout();
             this.panelTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderErreur)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUtil)).BeginInit();
             this.SuspendLayout();
             // 
             // panelGestionUtil
@@ -124,6 +126,7 @@
             this.buttonDebut.TabIndex = 5;
             this.buttonDebut.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonDebut.UseVisualStyleBackColor = true;
+            this.buttonDebut.Click += new System.EventHandler(this.buttonDebut_Click);
             // 
             // buttonFin
             // 
@@ -145,6 +148,7 @@
             this.buttonFin.TabIndex = 6;
             this.buttonFin.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonFin.UseVisualStyleBackColor = true;
+            this.buttonFin.Click += new System.EventHandler(this.buttonFin_Click);
             // 
             // buttonPrecedent
             // 
@@ -166,6 +170,7 @@
             this.buttonPrecedent.TabIndex = 4;
             this.buttonPrecedent.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonPrecedent.UseVisualStyleBackColor = true;
+            this.buttonPrecedent.Click += new System.EventHandler(this.buttonPrecedent_Click);
             // 
             // buttonSuivant
             // 
@@ -187,10 +192,12 @@
             this.buttonSuivant.TabIndex = 3;
             this.buttonSuivant.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonSuivant.UseVisualStyleBackColor = true;
+            this.buttonSuivant.Click += new System.EventHandler(this.buttonSuivant_Click);
             // 
             // panelInfoUtil
             // 
             this.panelInfoUtil.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.panelInfoUtil.Controls.Add(this.dataGridViewUtil);
             this.panelInfoUtil.Controls.Add(this.comboBoxTypesClient);
             this.panelInfoUtil.Controls.Add(this.label12);
             this.panelInfoUtil.Controls.Add(this.txtMdp);
@@ -683,6 +690,16 @@
             // 
             this.errorProviderErreur.ContainerControl = this;
             // 
+            // dataGridViewUtil
+            // 
+            this.dataGridViewUtil.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewUtil.Location = new System.Drawing.Point(411, 311);
+            this.dataGridViewUtil.Name = "dataGridViewUtil";
+            this.dataGridViewUtil.Size = new System.Drawing.Size(494, 80);
+            this.dataGridViewUtil.TabIndex = 27;
+            this.dataGridViewUtil.Visible = false;
+            this.dataGridViewUtil.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewUtil_CellClick);
+            // 
             // GestionUtil
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -705,6 +722,7 @@
             this.panelTitle.ResumeLayout(false);
             this.panelTitle.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderErreur)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUtil)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -754,5 +772,6 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox txtMdp;
         private System.Windows.Forms.ComboBox comboBoxTypesClient;
+        private System.Windows.Forms.DataGridView dataGridViewUtil;
     }
 }

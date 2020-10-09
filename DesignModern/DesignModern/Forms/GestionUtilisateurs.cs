@@ -21,7 +21,49 @@ namespace DesignModern
             InitializeComponent();
             db = new motoristaDbContext();
         }
+        private void chargerDataGrind()
+        {
+            dataGridViewUtil.DataSource = db.client.ToList();
 
+            dataGridViewUtil.DataSource = db.client.Select(c => new
+            {
+                Numero = c.numC,
+                TypeClient = c.type_de_client,
+                Nom = c.nomC,
+                Prenom = c.paysC,
+                Adresse = c.adresseC,
+                CP = c.cpC,
+                Ville = c.villeC,
+                Pays = c.paysC,
+                Telephone = c.telC,
+                Email = c.emailC,
+                Login = c.loginC,
+                MDP = c.mdpC
+
+            }).ToList();
+
+            dataGridViewUtil.Rows[0].Selected = true;
+            dataGridViewUtil.CurrentCell = dataGridViewUtil.Rows[0].Cells[0];
+        }
+
+        private void AffecterValeurs(int ligne)
+        {
+            txtNumeroClient.Text = dataGridViewUtil.Rows[ligne].Cells[0].Value.ToString();
+            comboBoxTypesClient.SelectedValue = dataGridViewUtil.Rows[ligne].Cells[1].Value.ToString();
+            txtNom.Text = dataGridViewUtil.Rows[ligne].Cells[2].Value.ToString();
+            txtPrenom.Text = dataGridViewUtil.Rows[ligne].Cells[3].Value.ToString();
+            txtAdresse.Text = dataGridViewUtil.Rows[ligne].Cells[4].Value.ToString();
+            txtCP.Text = dataGridViewUtil.Rows[ligne].Cells[5].Value.ToString();
+            txtVille.Text = dataGridViewUtil.Rows[ligne].Cells[6].Value.ToString();
+            txtPays.Text = dataGridViewUtil.Rows[ligne].Cells[7].Value.ToString();
+            txtTelephone.Text = dataGridViewUtil.Rows[ligne].Cells[8].Value.ToString();
+            txtEmail.Text = dataGridViewUtil.Rows[ligne].Cells[9].Value.ToString();
+            txtLogin.Text = dataGridViewUtil.Rows[ligne].Cells[10].Value.ToString();
+            txtMdp.Text = dataGridViewUtil.Rows[ligne].Cells[11].Value.ToString();
+
+            dataGridViewUtil.Rows[ligne].Selected = true;
+            dataGridViewUtil.CurrentCell = dataGridViewUtil.Rows[ligne].Cells[0];
+        }
         private void deverouillerVerrouiller()
         {
             if (txtNumeroClient.Enabled == true)
@@ -192,9 +234,61 @@ namespace DesignModern
             txtTelephone.Clear();
             comboBoxTypesClient.Text = "";
         }
+        private void Verrou()
+        {
+            //MessageBox.Show("Nb"+dataGridViewRevue.RowCount.ToString());
+            //MessageBox.Show("Index" + dataGridViewRevue.CurrentRow.Index);
+
+            if (dataGridViewUtil.RowCount == 0)
+            {
+                buttonSuivant.Enabled = false;
+                buttonPrecedent.Enabled = false;
+                buttonDebut.Enabled = false;
+                buttonFin.Enabled = false;
+            }
+            else
+            {
+                if ((dataGridViewUtil.CurrentRow.Index == 0) && (dataGridViewUtil.CurrentRow.Index == dataGridViewUtil.RowCount - 1))
+                {
+                    buttonSuivant.Enabled = false;
+                    buttonPrecedent.Enabled = false;
+                    buttonDebut.Enabled = false;
+                    buttonFin.Enabled = false;
+                }
+                else
+                {
+                    if (dataGridViewUtil.CurrentRow.Index == 0)
+                    {
+                        buttonSuivant.Enabled = true;
+                        buttonPrecedent.Enabled = false;
+                        buttonDebut.Enabled = false;
+                        buttonFin.Enabled = true;
+                    }
+                    else
+                    {
+                        if (dataGridViewUtil.CurrentRow.Index == dataGridViewUtil.RowCount - 1)
+                        {
+                            buttonSuivant.Enabled = false;
+                            buttonPrecedent.Enabled = true;
+                            buttonDebut.Enabled = true;
+                            buttonFin.Enabled = false;
+                        }
+                        else
+                        {
+                            buttonSuivant.Enabled = true;
+                            buttonPrecedent.Enabled = true;
+                            buttonDebut.Enabled = true;
+                            buttonFin.Enabled = true;
+                        }
+                    }
+                }
+
+            }
+        }
 
         private void GestionUtil_Load(object sender, EventArgs e)
         {
+            chargerDataGrind();
             comboBoxTypesClient.DataSource = db.type_de_client.ToList();
             comboBoxTypesClient.DisplayMember = "typeClient";
             comboBoxTypesClient.ValueMember = "numTypeClient";
@@ -242,6 +336,7 @@ namespace DesignModern
 
                     db.client.Add(unClient);
                     db.SaveChanges();
+                    chargerDataGrind();
                     deverouillerVerrouiller();
 
                     MessageBox.Show("Ajout effectué");
@@ -315,6 +410,7 @@ namespace DesignModern
                     unClient.numTypeClient = Convert.ToInt32(comboBoxTypesClient.SelectedValue.ToString());
 
                     db.SaveChanges();
+                    chargerDataGrind();
                     deverouillerVerrouiller();
 
                     MessageBox.Show("Modification effectuée");
@@ -351,6 +447,7 @@ namespace DesignModern
                     client unClient = db.client.First(c => c.numC.ToString() == txtNumeroClient.Text);
                     db.client.Remove(unClient);
                     db.SaveChanges();
+                    chargerDataGrind();
                     deverouillerVerrouiller();
 
                     MessageBox.Show("Suppression effectuée");
@@ -360,6 +457,35 @@ namespace DesignModern
                     MessageBox.Show(ex.Message);
                 }
             }
+        }
+
+        private void dataGridViewUtil_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            AffecterValeurs(dataGridViewUtil.CurrentRow.Index);
+        }
+
+        private void buttonDebut_Click(object sender, EventArgs e)
+        {
+            AffecterValeurs(0);
+            Verrou();
+        }
+
+        private void buttonPrecedent_Click(object sender, EventArgs e)
+        {
+            AffecterValeurs(dataGridViewUtil.CurrentRow.Index - 1);
+            Verrou();
+        }
+
+        private void buttonSuivant_Click(object sender, EventArgs e)
+        {
+            AffecterValeurs(dataGridViewUtil.CurrentRow.Index + 1);
+            Verrou();
+        }
+
+        private void buttonFin_Click(object sender, EventArgs e)
+        {
+            AffecterValeurs(dataGridViewUtil.RowCount - 1);
+            Verrou();
         }
     }
 }
