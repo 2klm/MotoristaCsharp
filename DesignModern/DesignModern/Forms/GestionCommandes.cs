@@ -29,12 +29,8 @@ namespace DesignModern
                 txtNumClient.Enabled = false;
                 txtDateCommande.Enabled = false;
                 txtDateLivraison.Enabled = false;
-               //txtCouleur.Enabled = false;
-                //txtEnergie.Enabled = false;
-                //txtBoiteVitesse.Enabled = false;
-                txtGarage.Enabled = false;
-                txtGarage.Enabled = false;
-               // txtPassagers.Enabled = false;
+                txtNumGarage.Enabled = false;
+                comboEtatCommande.Enabled = false;
             }
             else
             {
@@ -43,31 +39,121 @@ namespace DesignModern
                 txtNumClient.Enabled = true;
                 txtDateCommande.Enabled = true;
                 txtDateLivraison.Enabled = true;
-               // txtCouleur.Enabled = true;
-                //txtEnergie.Enabled = true;
-                //txtBoiteVitesse.Enabled = true;
-                txtGarage.Enabled = true;
-                txtGarage.Enabled = true;
-                //txtPassagers.Enabled = true;
+                txtNumGarage.Enabled = true;
+                comboEtatCommande.Enabled = true;
             }
         }
         private bool verif()
         {
-            
-            return true;
+            bool verification = true;
+
+            if (txtNumCommande.Text.Trim() == "")
+            {
+                errorProviderErreur.SetError(txtNumCommande, "Veuillez indiquer le numéro de commande");
+                verification = false;
+            }
+            else
+            {
+                errorProviderErreur.SetError(txtNumCommande, "");
+            }
+
+            if (txtNumClient.Text.Trim() == "")
+            {
+                errorProviderErreur.SetError(txtNumClient, "Veuillez indiquer le numéro de commande");
+                verification = false;
+            }
+            else
+            {
+                errorProviderErreur.SetError(txtNumClient, "");
+            }
+
+            if (txtNumGarage.Text.Trim() == "")
+            {
+                errorProviderErreur.SetError(txtNumGarage, "Veuillez indiquer le numéro de commande");
+                verification = false;
+            }
+            else
+            {
+                errorProviderErreur.SetError(txtNumGarage, "");
+            }
+
+            if (comboEtatCommande.Text.Trim() == "")
+            {
+                errorProviderErreur.SetError(comboEtatCommande, "Veuillez indiquer le numéro de commande");
+                verification = false;
+            }
+            else
+            {
+                errorProviderErreur.SetError(comboEtatCommande, "");
+            }
+
+            return (verification);
         }
         private void remiseAZero()
         {
-            /*txtNumCommande.Clear();
+            txtNumGarage.Clear(); 
             txtNumClient.Clear();
-            txtDateCommande.Clear();
-            txtDateLivraison.Clear();
-            txtCouleur.Clear();
-            txtEnergie.Clear();
-            txtBoiteVitesse.Clear();
-            txtGarage.Clear();
-            txtGarage.Clear();
-            txtPassagers.Clear();*/
+            txtNumCommande.Clear();
+            txtNumCommande.Enabled = false;
+            txtNumClient.Enabled = false;
+            txtDateCommande.Enabled = false;
+            txtDateLivraison.Enabled = false;
+            txtNumGarage.Enabled = false;
+            comboEtatCommande.Enabled = false;
+        }
+
+        private void buttonAjouter_Click(object sender, EventArgs e)
+        {           
+            buttonModif.Enabled = false;
+            buttonSupprimer.Enabled = false;            
+            buttonAnnuler.Visible = true;
+            deverouillerVerrouiller();
+            txtNumCommande.Focus();
+        }
+
+        private void buttonAnnuler_Click(object sender, EventArgs e)
+        {            
+            buttonModif.Enabled = true;
+            buttonSupprimer.Enabled = true;
+            remiseAZero();
+            buttonAnnuler.Visible = false;
+        }
+
+        private void buttonValidAjout_Click(object sender, EventArgs e)
+        {
+            if (verif() == false)
+            {
+                MessageBox.Show("Veuillez compléter toutes les zones de saisies");
+            }
+            else
+            {
+                //try
+                //{
+                    commande uneCommande = new commande();
+                    uneCommande.numC = Convert.ToInt16(txtNumClient.Text);
+                    uneCommande.numCmd = Convert.ToInt16(txtNumCommande.Text);
+                    uneCommande.idGarage = Convert.ToInt16(txtNumGarage.Text);
+                    uneCommande.dateLivraisonCmd = txtDateLivraison.Value;
+                    uneCommande.dateCmd = txtDateCommande.Value;
+                    uneCommande.etatCmd = comboEtatCommande.Text;
+
+
+                    db.commande.Add(uneCommande);
+                    db.SaveChanges();
+                    deverouillerVerrouiller();
+
+                    MessageBox.Show("Ajout effectué");
+               // }
+                //catch (Exception ex)
+                //{
+                   // MessageBox.Show("Echec de l'ajout"+ex.Message);
+
+                //}
+                //Activation / Désactivation des boutons
+                buttonAnnuler.Visible = false;
+                buttonModif.Enabled = true;
+                buttonSupprimer.Enabled = true;
+            }
         }
     }
 }

@@ -39,27 +39,25 @@
             this.comboEtatCommande = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.txtGarage = new System.Windows.Forms.TextBox();
+            this.txtNumGarage = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtDateLivraison = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtDateCommande = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtNumClient = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtNumCommande = new System.Windows.Forms.TextBox();
             this.panelButton = new System.Windows.Forms.Panel();
             this.buttonAnnuler = new FontAwesome.Sharp.IconButton();
-            this.buttonValidAjout = new FontAwesome.Sharp.IconButton();
             this.buttonValidModif = new FontAwesome.Sharp.IconButton();
             this.buttonSupprimer = new FontAwesome.Sharp.IconButton();
             this.buttonModif = new FontAwesome.Sharp.IconButton();
-            this.buttonAjouter = new FontAwesome.Sharp.IconButton();
             this.panelTitle = new System.Windows.Forms.Panel();
             this.lblGestionUtil = new System.Windows.Forms.Label();
             this.buttonUtil = new FontAwesome.Sharp.IconButton();
             this.panelBar = new System.Windows.Forms.Panel();
             this.errorProviderErreur = new System.Windows.Forms.ErrorProvider(this.components);
+            this.txtDateCommande = new System.Windows.Forms.DateTimePicker();
+            this.txtDateLivraison = new System.Windows.Forms.DateTimePicker();
             this.panelGestionUtil.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panelInfoUtil.SuspendLayout();
@@ -179,14 +177,14 @@
             // panelInfoUtil
             // 
             this.panelInfoUtil.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.panelInfoUtil.Controls.Add(this.txtDateLivraison);
+            this.panelInfoUtil.Controls.Add(this.txtDateCommande);
             this.panelInfoUtil.Controls.Add(this.comboEtatCommande);
             this.panelInfoUtil.Controls.Add(this.label11);
             this.panelInfoUtil.Controls.Add(this.label10);
-            this.panelInfoUtil.Controls.Add(this.txtGarage);
+            this.panelInfoUtil.Controls.Add(this.txtNumGarage);
             this.panelInfoUtil.Controls.Add(this.label4);
-            this.panelInfoUtil.Controls.Add(this.txtDateLivraison);
             this.panelInfoUtil.Controls.Add(this.label3);
-            this.panelInfoUtil.Controls.Add(this.txtDateCommande);
             this.panelInfoUtil.Controls.Add(this.label2);
             this.panelInfoUtil.Controls.Add(this.txtNumClient);
             this.panelInfoUtil.Controls.Add(this.label1);
@@ -198,12 +196,21 @@
             // 
             // comboEtatCommande
             // 
+            this.comboEtatCommande.Enabled = false;
             this.comboEtatCommande.FormattingEnabled = true;
             this.comboEtatCommande.ItemHeight = 19;
+            this.comboEtatCommande.Items.AddRange(new object[] {
+            "Enregistrée",
+            "Vérification",
+            "Validée",
+            "Préparation",
+            "Livraison",
+            "Livrée",
+            "Incident"});
             this.comboEtatCommande.Location = new System.Drawing.Point(392, 291);
             this.comboEtatCommande.Name = "comboEtatCommande";
             this.comboEtatCommande.Size = new System.Drawing.Size(193, 27);
-            this.comboEtatCommande.TabIndex = 22;
+            this.comboEtatCommande.TabIndex = 5;
             // 
             // label11
             // 
@@ -223,19 +230,20 @@
             this.label10.ForeColor = System.Drawing.Color.Gainsboro;
             this.label10.Location = new System.Drawing.Point(441, 96);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(63, 19);
+            this.label10.Size = new System.Drawing.Size(118, 19);
             this.label10.TabIndex = 19;
-            this.label10.Text = "Garage";
+            this.label10.Text = "Numéro garage";
             // 
-            // txtGarage
+            // txtNumGarage
             // 
-            this.txtGarage.BackColor = System.Drawing.Color.Gainsboro;
-            this.txtGarage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtGarage.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtGarage.Location = new System.Drawing.Point(560, 90);
-            this.txtGarage.Name = "txtGarage";
-            this.txtGarage.Size = new System.Drawing.Size(180, 30);
-            this.txtGarage.TabIndex = 18;
+            this.txtNumGarage.BackColor = System.Drawing.Color.Gainsboro;
+            this.txtNumGarage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtNumGarage.Enabled = false;
+            this.txtNumGarage.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNumGarage.Location = new System.Drawing.Point(560, 90);
+            this.txtNumGarage.Name = "txtNumGarage";
+            this.txtNumGarage.Size = new System.Drawing.Size(46, 30);
+            this.txtNumGarage.TabIndex = 2;
             // 
             // label4
             // 
@@ -248,16 +256,6 @@
             this.label4.TabIndex = 7;
             this.label4.Text = "Date commande";
             // 
-            // txtDateLivraison
-            // 
-            this.txtDateLivraison.BackColor = System.Drawing.Color.Gainsboro;
-            this.txtDateLivraison.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtDateLivraison.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDateLivraison.Location = new System.Drawing.Point(560, 184);
-            this.txtDateLivraison.Name = "txtDateLivraison";
-            this.txtDateLivraison.Size = new System.Drawing.Size(114, 30);
-            this.txtDateLivraison.TabIndex = 6;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -268,16 +266,6 @@
             this.label3.Size = new System.Drawing.Size(101, 19);
             this.label3.TabIndex = 5;
             this.label3.Text = "Date livraison";
-            // 
-            // txtDateCommande
-            // 
-            this.txtDateCommande.BackColor = System.Drawing.Color.Gainsboro;
-            this.txtDateCommande.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtDateCommande.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDateCommande.Location = new System.Drawing.Point(236, 184);
-            this.txtDateCommande.Name = "txtDateCommande";
-            this.txtDateCommande.Size = new System.Drawing.Size(129, 30);
-            this.txtDateCommande.TabIndex = 4;
             // 
             // label2
             // 
@@ -294,11 +282,12 @@
             // 
             this.txtNumClient.BackColor = System.Drawing.Color.Gainsboro;
             this.txtNumClient.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtNumClient.Enabled = false;
             this.txtNumClient.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNumClient.Location = new System.Drawing.Point(236, 91);
             this.txtNumClient.Name = "txtNumClient";
-            this.txtNumClient.Size = new System.Drawing.Size(129, 30);
-            this.txtNumClient.TabIndex = 2;
+            this.txtNumClient.Size = new System.Drawing.Size(70, 30);
+            this.txtNumClient.TabIndex = 1;
             // 
             // label1
             // 
@@ -315,6 +304,7 @@
             // 
             this.txtNumCommande.BackColor = System.Drawing.Color.Gainsboro;
             this.txtNumCommande.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtNumCommande.Enabled = false;
             this.txtNumCommande.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNumCommande.Location = new System.Drawing.Point(236, 42);
             this.txtNumCommande.Name = "txtNumCommande";
@@ -325,11 +315,9 @@
             // 
             this.panelButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.panelButton.Controls.Add(this.buttonAnnuler);
-            this.panelButton.Controls.Add(this.buttonValidAjout);
             this.panelButton.Controls.Add(this.buttonValidModif);
             this.panelButton.Controls.Add(this.buttonSupprimer);
             this.panelButton.Controls.Add(this.buttonModif);
-            this.panelButton.Controls.Add(this.buttonAjouter);
             this.panelButton.Location = new System.Drawing.Point(1045, 0);
             this.panelButton.Name = "panelButton";
             this.panelButton.Size = new System.Drawing.Size(188, 670);
@@ -357,29 +345,7 @@
             this.buttonAnnuler.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonAnnuler.UseVisualStyleBackColor = true;
             this.buttonAnnuler.Visible = false;
-            // 
-            // buttonValidAjout
-            // 
-            this.buttonValidAjout.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.buttonValidAjout.FlatAppearance.BorderSize = 0;
-            this.buttonValidAjout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonValidAjout.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.buttonValidAjout.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonValidAjout.ForeColor = System.Drawing.Color.Gainsboro;
-            this.buttonValidAjout.IconChar = FontAwesome.Sharp.IconChar.Check;
-            this.buttonValidAjout.IconColor = System.Drawing.Color.Gainsboro;
-            this.buttonValidAjout.IconSize = 38;
-            this.buttonValidAjout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonValidAjout.Location = new System.Drawing.Point(5, 451);
-            this.buttonValidAjout.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.buttonValidAjout.Name = "buttonValidAjout";
-            this.buttonValidAjout.Rotation = 0D;
-            this.buttonValidAjout.Size = new System.Drawing.Size(167, 59);
-            this.buttonValidAjout.TabIndex = 4;
-            this.buttonValidAjout.Text = " Valider ajout";
-            this.buttonValidAjout.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.buttonValidAjout.UseVisualStyleBackColor = true;
-            this.buttonValidAjout.Visible = false;
+            this.buttonAnnuler.Click += new System.EventHandler(this.buttonAnnuler_Click);
             // 
             // buttonValidModif
             // 
@@ -416,7 +382,7 @@
             this.buttonSupprimer.IconColor = System.Drawing.Color.Gainsboro;
             this.buttonSupprimer.IconSize = 38;
             this.buttonSupprimer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonSupprimer.Location = new System.Drawing.Point(5, 261);
+            this.buttonSupprimer.Location = new System.Drawing.Point(0, 207);
             this.buttonSupprimer.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonSupprimer.Name = "buttonSupprimer";
             this.buttonSupprimer.Rotation = 0D;
@@ -438,7 +404,7 @@
             this.buttonModif.IconColor = System.Drawing.Color.Gainsboro;
             this.buttonModif.IconSize = 38;
             this.buttonModif.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonModif.Location = new System.Drawing.Point(5, 194);
+            this.buttonModif.Location = new System.Drawing.Point(0, 140);
             this.buttonModif.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonModif.Name = "buttonModif";
             this.buttonModif.Rotation = 0D;
@@ -447,28 +413,6 @@
             this.buttonModif.Text = " Modifier";
             this.buttonModif.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonModif.UseVisualStyleBackColor = true;
-            // 
-            // buttonAjouter
-            // 
-            this.buttonAjouter.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.buttonAjouter.FlatAppearance.BorderSize = 0;
-            this.buttonAjouter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonAjouter.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.buttonAjouter.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonAjouter.ForeColor = System.Drawing.Color.Gainsboro;
-            this.buttonAjouter.IconChar = FontAwesome.Sharp.IconChar.UserPlus;
-            this.buttonAjouter.IconColor = System.Drawing.Color.Gainsboro;
-            this.buttonAjouter.IconSize = 38;
-            this.buttonAjouter.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonAjouter.Location = new System.Drawing.Point(5, 127);
-            this.buttonAjouter.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.buttonAjouter.Name = "buttonAjouter";
-            this.buttonAjouter.Rotation = 0D;
-            this.buttonAjouter.Size = new System.Drawing.Size(167, 59);
-            this.buttonAjouter.TabIndex = 0;
-            this.buttonAjouter.Text = " Ajouter";
-            this.buttonAjouter.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.buttonAjouter.UseVisualStyleBackColor = true;
             // 
             // panelTitle
             // 
@@ -523,6 +467,22 @@
             // 
             this.errorProviderErreur.ContainerControl = this;
             // 
+            // txtDateCommande
+            // 
+            this.txtDateCommande.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.txtDateCommande.Location = new System.Drawing.Point(236, 189);
+            this.txtDateCommande.Name = "txtDateCommande";
+            this.txtDateCommande.Size = new System.Drawing.Size(130, 24);
+            this.txtDateCommande.TabIndex = 22;
+            // 
+            // txtDateLivraison
+            // 
+            this.txtDateLivraison.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.txtDateLivraison.Location = new System.Drawing.Point(560, 189);
+            this.txtDateLivraison.Name = "txtDateLivraison";
+            this.txtDateLivraison.Size = new System.Drawing.Size(130, 24);
+            this.txtDateLivraison.TabIndex = 23;
+            // 
             // GestionCommandes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
@@ -549,8 +509,6 @@
         }
 
         #endregion
-
-        private FontAwesome.Sharp.IconButton buttonAjouter;
         private FontAwesome.Sharp.IconButton buttonModif;
         private FontAwesome.Sharp.IconButton buttonSupprimer;
         private System.Windows.Forms.Panel panelGestionUtil;
@@ -565,21 +523,20 @@
         private FontAwesome.Sharp.IconButton buttonSuivant;
         private System.Windows.Forms.Panel panel1;
         private FontAwesome.Sharp.IconButton buttonValidModif;
-        private FontAwesome.Sharp.IconButton buttonValidAjout;
         private FontAwesome.Sharp.IconButton buttonAnnuler;
         private System.Windows.Forms.ErrorProvider errorProviderErreur;
         private System.Windows.Forms.Panel panelInfoUtil;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox txtGarage;
+        private System.Windows.Forms.TextBox txtNumGarage;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtDateLivraison;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtDateCommande;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtNumClient;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtNumCommande;
         private System.Windows.Forms.ComboBox comboEtatCommande;
+        private System.Windows.Forms.DateTimePicker txtDateLivraison;
+        private System.Windows.Forms.DateTimePicker txtDateCommande;
     }
 }
