@@ -68,6 +68,10 @@ namespace DesignModern
             }
         }
 
+        public void OuvrirMDICommandes()
+        {
+            OpenChildForm(new GestionCommandes());
+        }
         private void DisableButton()
         {
             if (currentBtn != null)
@@ -114,7 +118,7 @@ namespace DesignModern
         private void buttonProducts_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color3);
-            OpenChildForm(new GestionCommandes());
+            OpenChildForm(new CreerUser(this));
         }
 
         private void buttonCustomers_Click(object sender, EventArgs e)
