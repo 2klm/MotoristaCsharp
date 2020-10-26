@@ -36,6 +36,8 @@
             this.buttonPrecedent = new FontAwesome.Sharp.IconButton();
             this.buttonSuivant = new FontAwesome.Sharp.IconButton();
             this.panelInfoUtil = new System.Windows.Forms.Panel();
+            this.txtDateLivraison = new System.Windows.Forms.DateTimePicker();
+            this.txtDateCommande = new System.Windows.Forms.DateTimePicker();
             this.comboEtatCommande = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -56,14 +58,14 @@
             this.buttonUtil = new FontAwesome.Sharp.IconButton();
             this.panelBar = new System.Windows.Forms.Panel();
             this.errorProviderErreur = new System.Windows.Forms.ErrorProvider(this.components);
-            this.txtDateCommande = new System.Windows.Forms.DateTimePicker();
-            this.txtDateLivraison = new System.Windows.Forms.DateTimePicker();
+            this.dataGridViewCommandes = new System.Windows.Forms.DataGridView();
             this.panelGestionUtil.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panelInfoUtil.SuspendLayout();
             this.panelButton.SuspendLayout();
             this.panelTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderErreur)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCommandes)).BeginInit();
             this.SuspendLayout();
             // 
             // panelGestionUtil
@@ -110,6 +112,7 @@
             this.buttonDebut.TabIndex = 5;
             this.buttonDebut.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonDebut.UseVisualStyleBackColor = true;
+            this.buttonDebut.Click += new System.EventHandler(this.buttonDebut_Click);
             // 
             // buttonFin
             // 
@@ -131,6 +134,7 @@
             this.buttonFin.TabIndex = 6;
             this.buttonFin.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonFin.UseVisualStyleBackColor = true;
+            this.buttonFin.Click += new System.EventHandler(this.buttonFin_Click);
             // 
             // buttonPrecedent
             // 
@@ -152,6 +156,7 @@
             this.buttonPrecedent.TabIndex = 4;
             this.buttonPrecedent.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonPrecedent.UseVisualStyleBackColor = true;
+            this.buttonPrecedent.Click += new System.EventHandler(this.buttonPrecedent_Click);
             // 
             // buttonSuivant
             // 
@@ -173,10 +178,12 @@
             this.buttonSuivant.TabIndex = 3;
             this.buttonSuivant.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonSuivant.UseVisualStyleBackColor = true;
+            this.buttonSuivant.Click += new System.EventHandler(this.buttonSuivant_Click);
             // 
             // panelInfoUtil
             // 
             this.panelInfoUtil.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.panelInfoUtil.Controls.Add(this.dataGridViewCommandes);
             this.panelInfoUtil.Controls.Add(this.txtDateLivraison);
             this.panelInfoUtil.Controls.Add(this.txtDateCommande);
             this.panelInfoUtil.Controls.Add(this.comboEtatCommande);
@@ -193,6 +200,24 @@
             this.panelInfoUtil.Name = "panelInfoUtil";
             this.panelInfoUtil.Size = new System.Drawing.Size(829, 409);
             this.panelInfoUtil.TabIndex = 4;
+            // 
+            // txtDateLivraison
+            // 
+            this.txtDateLivraison.Enabled = false;
+            this.txtDateLivraison.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.txtDateLivraison.Location = new System.Drawing.Point(560, 189);
+            this.txtDateLivraison.Name = "txtDateLivraison";
+            this.txtDateLivraison.Size = new System.Drawing.Size(130, 24);
+            this.txtDateLivraison.TabIndex = 23;
+            // 
+            // txtDateCommande
+            // 
+            this.txtDateCommande.Enabled = false;
+            this.txtDateCommande.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.txtDateCommande.Location = new System.Drawing.Point(236, 189);
+            this.txtDateCommande.Name = "txtDateCommande";
+            this.txtDateCommande.Size = new System.Drawing.Size(130, 24);
+            this.txtDateCommande.TabIndex = 22;
             // 
             // comboEtatCommande
             // 
@@ -369,6 +394,7 @@
             this.buttonValidModif.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonValidModif.UseVisualStyleBackColor = true;
             this.buttonValidModif.Visible = false;
+            this.buttonValidModif.Click += new System.EventHandler(this.buttonValidModif_Click);
             // 
             // buttonSupprimer
             // 
@@ -413,6 +439,7 @@
             this.buttonModif.Text = " Modifier";
             this.buttonModif.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonModif.UseVisualStyleBackColor = true;
+            this.buttonModif.Click += new System.EventHandler(this.buttonModif_Click);
             // 
             // panelTitle
             // 
@@ -467,21 +494,14 @@
             // 
             this.errorProviderErreur.ContainerControl = this;
             // 
-            // txtDateCommande
+            // dataGridViewCommandes
             // 
-            this.txtDateCommande.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.txtDateCommande.Location = new System.Drawing.Point(236, 189);
-            this.txtDateCommande.Name = "txtDateCommande";
-            this.txtDateCommande.Size = new System.Drawing.Size(130, 24);
-            this.txtDateCommande.TabIndex = 22;
-            // 
-            // txtDateLivraison
-            // 
-            this.txtDateLivraison.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.txtDateLivraison.Location = new System.Drawing.Point(560, 189);
-            this.txtDateLivraison.Name = "txtDateLivraison";
-            this.txtDateLivraison.Size = new System.Drawing.Size(130, 24);
-            this.txtDateLivraison.TabIndex = 23;
+            this.dataGridViewCommandes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewCommandes.Location = new System.Drawing.Point(159, 329);
+            this.dataGridViewCommandes.Name = "dataGridViewCommandes";
+            this.dataGridViewCommandes.RowHeadersWidth = 51;
+            this.dataGridViewCommandes.Size = new System.Drawing.Size(494, 80);
+            this.dataGridViewCommandes.TabIndex = 28;
             // 
             // GestionCommandes
             // 
@@ -504,6 +524,7 @@
             this.panelTitle.ResumeLayout(false);
             this.panelTitle.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderErreur)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCommandes)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -538,5 +559,6 @@
         private System.Windows.Forms.ComboBox comboEtatCommande;
         private System.Windows.Forms.DateTimePicker txtDateLivraison;
         private System.Windows.Forms.DateTimePicker txtDateCommande;
+        private System.Windows.Forms.DataGridView dataGridViewCommandes;
     }
 }
