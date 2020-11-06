@@ -36,6 +36,7 @@
             this.buttonPrecedent = new FontAwesome.Sharp.IconButton();
             this.buttonSuivant = new FontAwesome.Sharp.IconButton();
             this.panelInfoUtil = new System.Windows.Forms.Panel();
+            this.comboBoxTypesClient = new System.Windows.Forms.ComboBox();
             this.dataGridViewUtil = new System.Windows.Forms.DataGridView();
             this.label12 = new System.Windows.Forms.Label();
             this.txtMdp = new System.Windows.Forms.TextBox();
@@ -72,7 +73,6 @@
             this.buttonUtil = new FontAwesome.Sharp.IconButton();
             this.panelBar = new System.Windows.Forms.Panel();
             this.errorProviderErreur = new System.Windows.Forms.ErrorProvider(this.components);
-            this.comboBoxTypesClient = new System.Windows.Forms.ComboBox();
             this.panelGestionUtil.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panelInfoUtil.SuspendLayout();
@@ -227,6 +227,25 @@
             this.panelInfoUtil.Size = new System.Drawing.Size(918, 409);
             this.panelInfoUtil.TabIndex = 4;
             // 
+            // comboBoxTypesClient
+            // 
+            this.comboBoxTypesClient.BackColor = System.Drawing.Color.Gainsboro;
+            this.comboBoxTypesClient.Enabled = false;
+            this.comboBoxTypesClient.FormattingEnabled = true;
+            this.comboBoxTypesClient.ItemHeight = 16;
+            this.comboBoxTypesClient.Items.AddRange(new object[] {
+            "Enregistrée",
+            "Vérification",
+            "Validée",
+            "Préparation",
+            "Livraison",
+            "Livrée",
+            "Incident"});
+            this.comboBoxTypesClient.Location = new System.Drawing.Point(628, 37);
+            this.comboBoxTypesClient.Name = "comboBoxTypesClient";
+            this.comboBoxTypesClient.Size = new System.Drawing.Size(193, 24);
+            this.comboBoxTypesClient.TabIndex = 28;
+            // 
             // dataGridViewUtil
             // 
             this.dataGridViewUtil.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -251,6 +270,7 @@
             // 
             this.txtMdp.BackColor = System.Drawing.Color.Gainsboro;
             this.txtMdp.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtMdp.Enabled = false;
             this.txtMdp.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMdp.Location = new System.Drawing.Point(628, 140);
             this.txtMdp.Name = "txtMdp";
@@ -284,6 +304,7 @@
             // 
             this.txtTelephone.BackColor = System.Drawing.Color.Gainsboro;
             this.txtTelephone.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtTelephone.Enabled = false;
             this.txtTelephone.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTelephone.Location = new System.Drawing.Point(628, 240);
             this.txtTelephone.Name = "txtTelephone";
@@ -305,6 +326,7 @@
             // 
             this.txtEmail.BackColor = System.Drawing.Color.Gainsboro;
             this.txtEmail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtEmail.Enabled = false;
             this.txtEmail.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEmail.Location = new System.Drawing.Point(628, 190);
             this.txtEmail.Name = "txtEmail";
@@ -326,6 +348,7 @@
             // 
             this.txtPays.BackColor = System.Drawing.Color.Gainsboro;
             this.txtPays.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPays.Enabled = false;
             this.txtPays.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPays.Location = new System.Drawing.Point(198, 340);
             this.txtPays.Name = "txtPays";
@@ -347,6 +370,7 @@
             // 
             this.txtLogin.BackColor = System.Drawing.Color.Gainsboro;
             this.txtLogin.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtLogin.Enabled = false;
             this.txtLogin.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtLogin.Location = new System.Drawing.Point(628, 90);
             this.txtLogin.Name = "txtLogin";
@@ -368,6 +392,7 @@
             // 
             this.txtVille.BackColor = System.Drawing.Color.Gainsboro;
             this.txtVille.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtVille.Enabled = false;
             this.txtVille.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtVille.Location = new System.Drawing.Point(198, 290);
             this.txtVille.Name = "txtVille";
@@ -389,6 +414,7 @@
             // 
             this.txtCP.BackColor = System.Drawing.Color.Gainsboro;
             this.txtCP.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtCP.Enabled = false;
             this.txtCP.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCP.Location = new System.Drawing.Point(198, 240);
             this.txtCP.Name = "txtCP";
@@ -410,6 +436,7 @@
             // 
             this.txtAdresse.BackColor = System.Drawing.Color.Gainsboro;
             this.txtAdresse.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtAdresse.Enabled = false;
             this.txtAdresse.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtAdresse.Location = new System.Drawing.Point(198, 190);
             this.txtAdresse.Name = "txtAdresse";
@@ -431,6 +458,7 @@
             // 
             this.txtPrenom.BackColor = System.Drawing.Color.Gainsboro;
             this.txtPrenom.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPrenom.Enabled = false;
             this.txtPrenom.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPrenom.Location = new System.Drawing.Point(198, 140);
             this.txtPrenom.Name = "txtPrenom";
@@ -452,6 +480,7 @@
             // 
             this.txtNom.BackColor = System.Drawing.Color.Gainsboro;
             this.txtNom.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtNom.Enabled = false;
             this.txtNom.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNom.Location = new System.Drawing.Point(198, 90);
             this.txtNom.Name = "txtNom";
@@ -687,25 +716,6 @@
             // errorProviderErreur
             // 
             this.errorProviderErreur.ContainerControl = this;
-            // 
-            // comboBoxTypesClient
-            // 
-            this.comboBoxTypesClient.BackColor = System.Drawing.Color.Gainsboro;
-            this.comboBoxTypesClient.Enabled = false;
-            this.comboBoxTypesClient.FormattingEnabled = true;
-            this.comboBoxTypesClient.ItemHeight = 16;
-            this.comboBoxTypesClient.Items.AddRange(new object[] {
-            "Enregistrée",
-            "Vérification",
-            "Validée",
-            "Préparation",
-            "Livraison",
-            "Livrée",
-            "Incident"});
-            this.comboBoxTypesClient.Location = new System.Drawing.Point(628, 37);
-            this.comboBoxTypesClient.Name = "comboBoxTypesClient";
-            this.comboBoxTypesClient.Size = new System.Drawing.Size(193, 24);
-            this.comboBoxTypesClient.TabIndex = 28;
             // 
             // GestionUtil
             // 

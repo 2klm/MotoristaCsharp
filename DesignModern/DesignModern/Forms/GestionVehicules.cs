@@ -268,6 +268,7 @@ namespace DesignModern
             deverouillerVerrouiller();
             buttonAjouter.Enabled = false;
             buttonSupprimer.Enabled = false;
+            buttonModif.Enabled = false;
             buttonValidAjout.Enabled = true;
             buttonValidAjout.Visible = true;
             buttonValidModif.Enabled = false;
