@@ -353,7 +353,6 @@ namespace DesignModern
 
         private void buttonAnnuler_Click(object sender, EventArgs e)
         {
-            remiseAZero();
             db.SaveChanges();
             deverouillerVerrouiller();
             buttonValidAjout.Visible = false;
