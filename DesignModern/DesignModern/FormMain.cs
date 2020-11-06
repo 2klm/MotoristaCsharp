@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
+﻿using FontAwesome.Sharp;
+using System;
 using System.Drawing;
-using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using FontAwesome.Sharp;
 
 namespace DesignModern
 {
@@ -23,8 +17,8 @@ namespace DesignModern
         public FormMain()
         {
             InitializeComponent();
-            leftBorderBtn = new Panel(); 
-            leftBorderBtn.Size = new Size(7,79);
+            leftBorderBtn = new Panel();
+            leftBorderBtn.Size = new Size(7, 79);
             panelMenu.Controls.Add(leftBorderBtn);
             //Forms
             this.Text = string.Empty;
@@ -46,7 +40,7 @@ namespace DesignModern
         //Methods
         private void ActivateButton(object senderBtn, Color color)
         {
-            if(senderBtn != null)
+            if (senderBtn != null)
             {
                 DisableButton();
                 //Button
@@ -59,7 +53,7 @@ namespace DesignModern
                 currentBtn.ImageAlign = ContentAlignment.MiddleRight;
                 //left border button
                 leftBorderBtn.BackColor = color;
-                leftBorderBtn.Location = new Point(0,currentBtn.Location.Y);
+                leftBorderBtn.Location = new Point(0, currentBtn.Location.Y);
                 leftBorderBtn.Visible = true;
                 leftBorderBtn.BringToFront();
                 //Icon Current Child Form
@@ -87,7 +81,7 @@ namespace DesignModern
 
         private void OpenChildForm(Form childForm)
         {
-            if(currentChildForm != null)
+            if (currentChildForm != null)
             {
                 //open only form
                 currentChildForm.Close();

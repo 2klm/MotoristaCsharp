@@ -1,15 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Data.Entity;
-using System.Data.Entity.Core.Mapping;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Windows.Forms.VisualStyles;
 
 namespace DesignModern
 {
@@ -284,7 +276,6 @@ namespace DesignModern
                         }
                     }
                 }
-
             }
         }
 
@@ -335,12 +326,14 @@ namespace DesignModern
                     unClient.telC = txtTelephone.Text;
                     unClient.numTypeClient = Convert.ToInt32(comboBoxTypesClient.SelectedValue.ToString());
 
+
                     db.client.Add(unClient);
                     db.SaveChanges();
                     chargerDataGrind();
                     deverouillerVerrouiller();
 
                     MessageBox.Show("Ajout effectué");
+                    chargerDataGrind();
                 }
                 catch (Exception ex)
                 {
@@ -415,6 +408,7 @@ namespace DesignModern
                     deverouillerVerrouiller();
 
                     MessageBox.Show("Modification effectuée");
+                    chargerDataGrind();
 
                 }
                 catch (Exception ex)

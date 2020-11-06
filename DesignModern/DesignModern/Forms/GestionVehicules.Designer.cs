@@ -36,6 +36,7 @@
             this.buttonPrecedent = new FontAwesome.Sharp.IconButton();
             this.buttonSuivant = new FontAwesome.Sharp.IconButton();
             this.panelInfoUtil = new System.Windows.Forms.Panel();
+            this.dataGridViewVehicule = new System.Windows.Forms.DataGridView();
             this.label12 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.txtPrix = new System.Windows.Forms.TextBox();
@@ -74,6 +75,7 @@
             this.panelGestionUtil.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panelInfoUtil.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewVehicule)).BeginInit();
             this.panelButton.SuspendLayout();
             this.panelTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderErreur)).BeginInit();
@@ -123,6 +125,7 @@
             this.buttonDebut.TabIndex = 5;
             this.buttonDebut.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonDebut.UseVisualStyleBackColor = true;
+            this.buttonDebut.Click += new System.EventHandler(this.buttonDebut_Click);
             // 
             // buttonFin
             // 
@@ -144,6 +147,7 @@
             this.buttonFin.TabIndex = 6;
             this.buttonFin.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonFin.UseVisualStyleBackColor = true;
+            this.buttonFin.Click += new System.EventHandler(this.buttonFin_Click);
             // 
             // buttonPrecedent
             // 
@@ -165,6 +169,7 @@
             this.buttonPrecedent.TabIndex = 4;
             this.buttonPrecedent.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonPrecedent.UseVisualStyleBackColor = true;
+            this.buttonPrecedent.Click += new System.EventHandler(this.buttonPrecedent_Click);
             // 
             // buttonSuivant
             // 
@@ -186,10 +191,12 @@
             this.buttonSuivant.TabIndex = 3;
             this.buttonSuivant.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonSuivant.UseVisualStyleBackColor = true;
+            this.buttonSuivant.Click += new System.EventHandler(this.buttonSuivant_Click);
             // 
             // panelInfoUtil
             // 
             this.panelInfoUtil.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.panelInfoUtil.Controls.Add(this.dataGridViewVehicule);
             this.panelInfoUtil.Controls.Add(this.label12);
             this.panelInfoUtil.Controls.Add(this.label9);
             this.panelInfoUtil.Controls.Add(this.txtPrix);
@@ -218,6 +225,15 @@
             this.panelInfoUtil.Size = new System.Drawing.Size(829, 409);
             this.panelInfoUtil.TabIndex = 4;
             // 
+            // dataGridViewVehicule
+            // 
+            this.dataGridViewVehicule.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewVehicule.Location = new System.Drawing.Point(326, 326);
+            this.dataGridViewVehicule.Name = "dataGridViewVehicule";
+            this.dataGridViewVehicule.Size = new System.Drawing.Size(494, 57);
+            this.dataGridViewVehicule.TabIndex = 28;
+            this.dataGridViewVehicule.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewVehicule_CellContentClick);
+            // 
             // label12
             // 
             this.label12.AutoSize = true;
@@ -225,7 +241,7 @@
             this.label12.ForeColor = System.Drawing.Color.Gainsboro;
             this.label12.Location = new System.Drawing.Point(678, 295);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(17, 19);
+            this.label12.Size = new System.Drawing.Size(14, 16);
             this.label12.TabIndex = 24;
             this.label12.Text = "€";
             // 
@@ -236,7 +252,7 @@
             this.label9.ForeColor = System.Drawing.Color.Gainsboro;
             this.label9.Location = new System.Drawing.Point(477, 295);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(31, 19);
+            this.label9.Size = new System.Drawing.Size(26, 16);
             this.label9.TabIndex = 23;
             this.label9.Text = "Prix";
             // 
@@ -244,10 +260,11 @@
             // 
             this.txtPrix.BackColor = System.Drawing.Color.Gainsboro;
             this.txtPrix.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPrix.Enabled = false;
             this.txtPrix.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPrix.Location = new System.Drawing.Point(560, 290);
             this.txtPrix.Name = "txtPrix";
-            this.txtPrix.Size = new System.Drawing.Size(116, 30);
+            this.txtPrix.Size = new System.Drawing.Size(116, 26);
             this.txtPrix.TabIndex = 22;
             this.txtPrix.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -258,7 +275,7 @@
             this.label11.ForeColor = System.Drawing.Color.Gainsboro;
             this.label11.Location = new System.Drawing.Point(477, 146);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(74, 19);
+            this.label11.Size = new System.Drawing.Size(60, 16);
             this.label11.TabIndex = 21;
             this.label11.Text = "Passagers";
             // 
@@ -266,10 +283,11 @@
             // 
             this.txtPassagers.BackColor = System.Drawing.Color.Gainsboro;
             this.txtPassagers.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPassagers.Enabled = false;
             this.txtPassagers.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPassagers.Location = new System.Drawing.Point(560, 140);
             this.txtPassagers.Name = "txtPassagers";
-            this.txtPassagers.Size = new System.Drawing.Size(35, 30);
+            this.txtPassagers.Size = new System.Drawing.Size(35, 26);
             this.txtPassagers.TabIndex = 20;
             // 
             // label10
@@ -279,7 +297,7 @@
             this.label10.ForeColor = System.Drawing.Color.Gainsboro;
             this.label10.Location = new System.Drawing.Point(477, 96);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(62, 19);
+            this.label10.Size = new System.Drawing.Size(50, 16);
             this.label10.TabIndex = 19;
             this.label10.Text = "Modèle";
             // 
@@ -287,10 +305,11 @@
             // 
             this.txtModele.BackColor = System.Drawing.Color.Gainsboro;
             this.txtModele.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtModele.Enabled = false;
             this.txtModele.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtModele.Location = new System.Drawing.Point(560, 90);
             this.txtModele.Name = "txtModele";
-            this.txtModele.Size = new System.Drawing.Size(180, 30);
+            this.txtModele.Size = new System.Drawing.Size(180, 26);
             this.txtModele.TabIndex = 18;
             // 
             // label8
@@ -300,7 +319,7 @@
             this.label8.ForeColor = System.Drawing.Color.Gainsboro;
             this.label8.Location = new System.Drawing.Point(67, 295);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(114, 19);
+            this.label8.Size = new System.Drawing.Size(91, 16);
             this.label8.TabIndex = 15;
             this.label8.Text = "Boîte de vitesse";
             // 
@@ -308,10 +327,11 @@
             // 
             this.txtBoiteVitesse.BackColor = System.Drawing.Color.Gainsboro;
             this.txtBoiteVitesse.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtBoiteVitesse.Enabled = false;
             this.txtBoiteVitesse.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBoiteVitesse.Location = new System.Drawing.Point(198, 290);
             this.txtBoiteVitesse.Name = "txtBoiteVitesse";
-            this.txtBoiteVitesse.Size = new System.Drawing.Size(180, 30);
+            this.txtBoiteVitesse.Size = new System.Drawing.Size(180, 26);
             this.txtBoiteVitesse.TabIndex = 14;
             // 
             // label7
@@ -321,7 +341,7 @@
             this.label7.ForeColor = System.Drawing.Color.Gainsboro;
             this.label7.Location = new System.Drawing.Point(477, 41);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(63, 19);
+            this.label7.Size = new System.Drawing.Size(51, 16);
             this.label7.TabIndex = 13;
             this.label7.Text = "Garage";
             // 
@@ -329,10 +349,11 @@
             // 
             this.txtGarage.BackColor = System.Drawing.Color.Gainsboro;
             this.txtGarage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtGarage.Enabled = false;
             this.txtGarage.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtGarage.Location = new System.Drawing.Point(560, 35);
             this.txtGarage.Name = "txtGarage";
-            this.txtGarage.Size = new System.Drawing.Size(210, 30);
+            this.txtGarage.Size = new System.Drawing.Size(210, 26);
             this.txtGarage.TabIndex = 12;
             // 
             // label6
@@ -342,7 +363,7 @@
             this.label6.ForeColor = System.Drawing.Color.Gainsboro;
             this.label6.Location = new System.Drawing.Point(67, 243);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(60, 19);
+            this.label6.Size = new System.Drawing.Size(47, 16);
             this.label6.TabIndex = 11;
             this.label6.Text = "Energie";
             // 
@@ -350,10 +371,11 @@
             // 
             this.txtEnergie.BackColor = System.Drawing.Color.Gainsboro;
             this.txtEnergie.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtEnergie.Enabled = false;
             this.txtEnergie.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEnergie.Location = new System.Drawing.Point(198, 238);
             this.txtEnergie.Name = "txtEnergie";
-            this.txtEnergie.Size = new System.Drawing.Size(138, 30);
+            this.txtEnergie.Size = new System.Drawing.Size(138, 26);
             this.txtEnergie.TabIndex = 10;
             // 
             // label5
@@ -363,7 +385,7 @@
             this.label5.ForeColor = System.Drawing.Color.Gainsboro;
             this.label5.Location = new System.Drawing.Point(477, 196);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(63, 19);
+            this.label5.Size = new System.Drawing.Size(50, 16);
             this.label5.TabIndex = 9;
             this.label5.Text = "Couleur";
             // 
@@ -371,10 +393,11 @@
             // 
             this.txtCouleur.BackColor = System.Drawing.Color.Gainsboro;
             this.txtCouleur.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtCouleur.Enabled = false;
             this.txtCouleur.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCouleur.Location = new System.Drawing.Point(560, 191);
             this.txtCouleur.Name = "txtCouleur";
-            this.txtCouleur.Size = new System.Drawing.Size(149, 30);
+            this.txtCouleur.Size = new System.Drawing.Size(149, 26);
             this.txtCouleur.TabIndex = 8;
             // 
             // label4
@@ -384,7 +407,7 @@
             this.label4.ForeColor = System.Drawing.Color.Gainsboro;
             this.label4.Location = new System.Drawing.Point(67, 196);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(107, 19);
+            this.label4.Size = new System.Drawing.Size(87, 16);
             this.label4.TabIndex = 7;
             this.label4.Text = "Puissance (cv)";
             // 
@@ -392,10 +415,11 @@
             // 
             this.txtPuissance.BackColor = System.Drawing.Color.Gainsboro;
             this.txtPuissance.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPuissance.Enabled = false;
             this.txtPuissance.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPuissance.Location = new System.Drawing.Point(198, 190);
             this.txtPuissance.Name = "txtPuissance";
-            this.txtPuissance.Size = new System.Drawing.Size(70, 30);
+            this.txtPuissance.Size = new System.Drawing.Size(70, 26);
             this.txtPuissance.TabIndex = 6;
             // 
             // label3
@@ -405,7 +429,7 @@
             this.label3.ForeColor = System.Drawing.Color.Gainsboro;
             this.label3.Location = new System.Drawing.Point(67, 146);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(120, 19);
+            this.label3.Size = new System.Drawing.Size(94, 16);
             this.label3.TabIndex = 5;
             this.label3.Text = "Numéro de série";
             // 
@@ -413,10 +437,11 @@
             // 
             this.txtNumSerie.BackColor = System.Drawing.Color.Gainsboro;
             this.txtNumSerie.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtNumSerie.Enabled = false;
             this.txtNumSerie.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNumSerie.Location = new System.Drawing.Point(198, 140);
             this.txtNumSerie.Name = "txtNumSerie";
-            this.txtNumSerie.Size = new System.Drawing.Size(180, 30);
+            this.txtNumSerie.Size = new System.Drawing.Size(180, 26);
             this.txtNumSerie.TabIndex = 4;
             // 
             // label2
@@ -426,7 +451,7 @@
             this.label2.ForeColor = System.Drawing.Color.Gainsboro;
             this.label2.Location = new System.Drawing.Point(67, 96);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(104, 19);
+            this.label2.Size = new System.Drawing.Size(84, 16);
             this.label2.TabIndex = 3;
             this.label2.Text = "Type véhicule";
             // 
@@ -434,10 +459,11 @@
             // 
             this.txtTypeVehicule.BackColor = System.Drawing.Color.Gainsboro;
             this.txtTypeVehicule.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtTypeVehicule.Enabled = false;
             this.txtTypeVehicule.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTypeVehicule.Location = new System.Drawing.Point(198, 90);
             this.txtTypeVehicule.Name = "txtTypeVehicule";
-            this.txtTypeVehicule.Size = new System.Drawing.Size(180, 30);
+            this.txtTypeVehicule.Size = new System.Drawing.Size(180, 26);
             this.txtTypeVehicule.TabIndex = 2;
             // 
             // label1
@@ -447,7 +473,7 @@
             this.label1.ForeColor = System.Drawing.Color.Gainsboro;
             this.label1.Location = new System.Drawing.Point(67, 41);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(126, 19);
+            this.label1.Size = new System.Drawing.Size(100, 16);
             this.label1.TabIndex = 1;
             this.label1.Text = "Numéro véhicule";
             // 
@@ -455,10 +481,11 @@
             // 
             this.txtNumeroVehicule.BackColor = System.Drawing.Color.Gainsboro;
             this.txtNumeroVehicule.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtNumeroVehicule.Enabled = false;
             this.txtNumeroVehicule.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNumeroVehicule.Location = new System.Drawing.Point(198, 35);
             this.txtNumeroVehicule.Name = "txtNumeroVehicule";
-            this.txtNumeroVehicule.Size = new System.Drawing.Size(54, 30);
+            this.txtNumeroVehicule.Size = new System.Drawing.Size(54, 26);
             this.txtNumeroVehicule.TabIndex = 0;
             // 
             // panelButton
@@ -497,6 +524,7 @@
             this.buttonAnnuler.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonAnnuler.UseVisualStyleBackColor = true;
             this.buttonAnnuler.Visible = false;
+            this.buttonAnnuler.Click += new System.EventHandler(this.buttonAnnuler_Click);
             // 
             // buttonValidAjout
             // 
@@ -510,7 +538,7 @@
             this.buttonValidAjout.IconColor = System.Drawing.Color.Gainsboro;
             this.buttonValidAjout.IconSize = 38;
             this.buttonValidAjout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonValidAjout.Location = new System.Drawing.Point(5, 451);
+            this.buttonValidAjout.Location = new System.Drawing.Point(3, 451);
             this.buttonValidAjout.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonValidAjout.Name = "buttonValidAjout";
             this.buttonValidAjout.Rotation = 0D;
@@ -520,6 +548,7 @@
             this.buttonValidAjout.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonValidAjout.UseVisualStyleBackColor = true;
             this.buttonValidAjout.Visible = false;
+            this.buttonValidAjout.Click += new System.EventHandler(this.buttonValidAjout_Click);
             // 
             // buttonValidModif
             // 
@@ -543,6 +572,7 @@
             this.buttonValidModif.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonValidModif.UseVisualStyleBackColor = true;
             this.buttonValidModif.Visible = false;
+            this.buttonValidModif.Click += new System.EventHandler(this.buttonValidModif_Click);
             // 
             // buttonSupprimer
             // 
@@ -565,6 +595,7 @@
             this.buttonSupprimer.Text = " Supprimer";
             this.buttonSupprimer.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonSupprimer.UseVisualStyleBackColor = true;
+            this.buttonSupprimer.Click += new System.EventHandler(this.buttonSupprimer_Click);
             // 
             // buttonModif
             // 
@@ -587,6 +618,7 @@
             this.buttonModif.Text = " Modifier";
             this.buttonModif.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonModif.UseVisualStyleBackColor = true;
+            this.buttonModif.Click += new System.EventHandler(this.buttonModif_Click);
             // 
             // buttonAjouter
             // 
@@ -609,6 +641,7 @@
             this.buttonAjouter.Text = " Ajouter";
             this.buttonAjouter.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonAjouter.UseVisualStyleBackColor = true;
+            this.buttonAjouter.Click += new System.EventHandler(this.buttonAjouter_Click);
             // 
             // panelTitle
             // 
@@ -627,7 +660,7 @@
             this.lblGestionUtil.ForeColor = System.Drawing.Color.Gainsboro;
             this.lblGestionUtil.Location = new System.Drawing.Point(101, 31);
             this.lblGestionUtil.Name = "lblGestionUtil";
-            this.lblGestionUtil.Size = new System.Drawing.Size(490, 55);
+            this.lblGestionUtil.Size = new System.Drawing.Size(389, 42);
             this.lblGestionUtil.TabIndex = 6;
             this.lblGestionUtil.Text = "Gestion des véhicules";
             // 
@@ -665,7 +698,7 @@
             // 
             // GestionVehicules
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(78)))));
             this.ClientSize = new System.Drawing.Size(1233, 670);
@@ -676,10 +709,12 @@
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "GestionVehicules";
             this.Text = "Dashboardcs";
+            this.Load += new System.EventHandler(this.GestionVehicules_Load);
             this.panelGestionUtil.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panelInfoUtil.ResumeLayout(false);
             this.panelInfoUtil.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewVehicule)).EndInit();
             this.panelButton.ResumeLayout(false);
             this.panelTitle.ResumeLayout(false);
             this.panelTitle.PerformLayout();
@@ -732,5 +767,6 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox txtPrix;
+        private System.Windows.Forms.DataGridView dataGridViewVehicule;
     }
 }
