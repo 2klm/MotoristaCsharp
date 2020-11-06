@@ -36,19 +36,19 @@
             this.buttonPrecedent = new FontAwesome.Sharp.IconButton();
             this.buttonSuivant = new FontAwesome.Sharp.IconButton();
             this.panelInfoUtil = new System.Windows.Forms.Panel();
-            this.dataGridViewCommandes = new System.Windows.Forms.DataGridView();
             this.txtDateLivraison = new System.Windows.Forms.DateTimePicker();
             this.txtDateCommande = new System.Windows.Forms.DateTimePicker();
             this.comboEtatCommande = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.txtNumGarage = new System.Windows.Forms.TextBox();
+            this.txtNomGarage = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtNumClient = new System.Windows.Forms.TextBox();
+            this.txtNomClient = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtNumCommande = new System.Windows.Forms.TextBox();
+            this.dataGridViewCommandes = new System.Windows.Forms.DataGridView();
             this.panelButton = new System.Windows.Forms.Panel();
             this.buttonAnnuler = new FontAwesome.Sharp.IconButton();
             this.buttonValidModif = new FontAwesome.Sharp.IconButton();
@@ -185,30 +185,21 @@
             this.panelInfoUtil.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panelInfoUtil.Controls.Add(this.txtDateLivraison);
             this.panelInfoUtil.Controls.Add(this.txtDateCommande);
-            this.panelInfoUtil.Controls.Add(this.comboEtatCommande);
             this.panelInfoUtil.Controls.Add(this.label11);
             this.panelInfoUtil.Controls.Add(this.label10);
-            this.panelInfoUtil.Controls.Add(this.txtNumGarage);
+            this.panelInfoUtil.Controls.Add(this.txtNomGarage);
             this.panelInfoUtil.Controls.Add(this.label4);
             this.panelInfoUtil.Controls.Add(this.label3);
             this.panelInfoUtil.Controls.Add(this.label2);
-            this.panelInfoUtil.Controls.Add(this.txtNumClient);
+            this.panelInfoUtil.Controls.Add(this.txtNomClient);
             this.panelInfoUtil.Controls.Add(this.label1);
             this.panelInfoUtil.Controls.Add(this.txtNumCommande);
+            this.panelInfoUtil.Controls.Add(this.comboEtatCommande);
             this.panelInfoUtil.Controls.Add(this.dataGridViewCommandes);
             this.panelInfoUtil.Location = new System.Drawing.Point(108, 127);
             this.panelInfoUtil.Name = "panelInfoUtil";
             this.panelInfoUtil.Size = new System.Drawing.Size(829, 409);
             this.panelInfoUtil.TabIndex = 4;
-            // 
-            // dataGridViewCommandes
-            // 
-            this.dataGridViewCommandes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewCommandes.Location = new System.Drawing.Point(464, 303);
-            this.dataGridViewCommandes.Name = "dataGridViewCommandes";
-            this.dataGridViewCommandes.RowHeadersWidth = 51;
-            this.dataGridViewCommandes.Size = new System.Drawing.Size(10, 10);
-            this.dataGridViewCommandes.TabIndex = 28;
             // 
             // txtDateLivraison
             // 
@@ -262,22 +253,22 @@
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label10.Location = new System.Drawing.Point(441, 96);
+            this.label10.Location = new System.Drawing.Point(476, 96);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(118, 19);
+            this.label10.Size = new System.Drawing.Size(119, 19);
             this.label10.TabIndex = 19;
-            this.label10.Text = "Numéro garage";
+            this.label10.Text = "Nom du garage";
             // 
-            // txtNumGarage
+            // txtNomGarage
             // 
-            this.txtNumGarage.BackColor = System.Drawing.Color.Gainsboro;
-            this.txtNumGarage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtNumGarage.Enabled = false;
-            this.txtNumGarage.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNumGarage.Location = new System.Drawing.Point(560, 90);
-            this.txtNumGarage.Name = "txtNumGarage";
-            this.txtNumGarage.Size = new System.Drawing.Size(46, 30);
-            this.txtNumGarage.TabIndex = 2;
+            this.txtNomGarage.BackColor = System.Drawing.Color.Gainsboro;
+            this.txtNomGarage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtNomGarage.Enabled = false;
+            this.txtNomGarage.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNomGarage.Location = new System.Drawing.Point(622, 91);
+            this.txtNomGarage.Name = "txtNomGarage";
+            this.txtNomGarage.Size = new System.Drawing.Size(165, 30);
+            this.txtNomGarage.TabIndex = 2;
             // 
             // label4
             // 
@@ -308,20 +299,20 @@
             this.label2.ForeColor = System.Drawing.Color.Gainsboro;
             this.label2.Location = new System.Drawing.Point(67, 96);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(105, 19);
+            this.label2.Size = new System.Drawing.Size(106, 19);
             this.label2.TabIndex = 3;
-            this.label2.Text = "Numéro client";
+            this.label2.Text = "Nom du client";
             // 
-            // txtNumClient
+            // txtNomClient
             // 
-            this.txtNumClient.BackColor = System.Drawing.Color.Gainsboro;
-            this.txtNumClient.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtNumClient.Enabled = false;
-            this.txtNumClient.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNumClient.Location = new System.Drawing.Point(236, 91);
-            this.txtNumClient.Name = "txtNumClient";
-            this.txtNumClient.Size = new System.Drawing.Size(70, 30);
-            this.txtNumClient.TabIndex = 1;
+            this.txtNomClient.BackColor = System.Drawing.Color.Gainsboro;
+            this.txtNomClient.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtNomClient.Enabled = false;
+            this.txtNomClient.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNomClient.Location = new System.Drawing.Point(236, 91);
+            this.txtNomClient.Name = "txtNomClient";
+            this.txtNomClient.Size = new System.Drawing.Size(206, 30);
+            this.txtNomClient.TabIndex = 1;
             // 
             // label1
             // 
@@ -344,6 +335,15 @@
             this.txtNumCommande.Name = "txtNumCommande";
             this.txtNumCommande.Size = new System.Drawing.Size(129, 30);
             this.txtNumCommande.TabIndex = 0;
+            // 
+            // dataGridViewCommandes
+            // 
+            this.dataGridViewCommandes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewCommandes.Location = new System.Drawing.Point(414, 303);
+            this.dataGridViewCommandes.Name = "dataGridViewCommandes";
+            this.dataGridViewCommandes.RowHeadersWidth = 51;
+            this.dataGridViewCommandes.Size = new System.Drawing.Size(10, 10);
+            this.dataGridViewCommandes.TabIndex = 28;
             // 
             // panelButton
             // 
@@ -426,6 +426,7 @@
             this.buttonSupprimer.Text = " Supprimer";
             this.buttonSupprimer.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonSupprimer.UseVisualStyleBackColor = true;
+            this.buttonSupprimer.Click += new System.EventHandler(this.buttonSupprimer_Click);
             // 
             // buttonModif
             // 
@@ -549,11 +550,11 @@
         private System.Windows.Forms.Panel panelInfoUtil;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox txtNumGarage;
+        private System.Windows.Forms.TextBox txtNomGarage;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtNumClient;
+        private System.Windows.Forms.TextBox txtNomClient;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtNumCommande;
         private System.Windows.Forms.ComboBox comboEtatCommande;

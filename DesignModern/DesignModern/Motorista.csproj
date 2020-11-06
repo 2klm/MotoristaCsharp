@@ -143,6 +143,12 @@
     <Compile Include="commande.cs">
       <DependentUpon>ModelMotorista.tt</DependentUpon>
     </Compile>
+    <Compile Include="Forms\GestionGarages.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\GestionGarages.Designer.cs">
+      <DependentUpon>GestionGarages.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\GestionCommandes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -213,6 +219,9 @@
     </Compile>
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\GestionGarages.resx">
+      <DependentUpon>GestionGarages.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\GestionCommandes.resx">
       <DependentUpon>GestionCommandes.cs</DependentUpon>

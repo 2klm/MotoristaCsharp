@@ -36,7 +36,6 @@
             this.buttonPrecedent = new FontAwesome.Sharp.IconButton();
             this.buttonSuivant = new FontAwesome.Sharp.IconButton();
             this.panelInfoUtil = new System.Windows.Forms.Panel();
-            this.dataGridViewCommandes = new System.Windows.Forms.DataGridView();
             this.txtDateLivraison = new System.Windows.Forms.DateTimePicker();
             this.txtDateCommande = new System.Windows.Forms.DateTimePicker();
             this.comboEtatCommande = new System.Windows.Forms.ComboBox();
@@ -49,6 +48,7 @@
             this.txtNumClient = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtNumCommande = new System.Windows.Forms.TextBox();
+            this.dataGridViewCommandes = new System.Windows.Forms.DataGridView();
             this.panelButton = new System.Windows.Forms.Panel();
             this.buttonAnnuler = new FontAwesome.Sharp.IconButton();
             this.buttonValidModif = new FontAwesome.Sharp.IconButton();
@@ -201,15 +201,6 @@
             this.panelInfoUtil.Size = new System.Drawing.Size(829, 409);
             this.panelInfoUtil.TabIndex = 4;
             // 
-            // dataGridViewCommandes
-            // 
-            this.dataGridViewCommandes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewCommandes.Location = new System.Drawing.Point(464, 303);
-            this.dataGridViewCommandes.Name = "dataGridViewCommandes";
-            this.dataGridViewCommandes.RowHeadersWidth = 51;
-            this.dataGridViewCommandes.Size = new System.Drawing.Size(10, 10);
-            this.dataGridViewCommandes.TabIndex = 28;
-            // 
             // txtDateLivraison
             // 
             this.txtDateLivraison.Enabled = false;
@@ -345,6 +336,15 @@
             this.txtNumCommande.Size = new System.Drawing.Size(129, 30);
             this.txtNumCommande.TabIndex = 0;
             // 
+            // dataGridViewCommandes
+            // 
+            this.dataGridViewCommandes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewCommandes.Location = new System.Drawing.Point(464, 303);
+            this.dataGridViewCommandes.Name = "dataGridViewCommandes";
+            this.dataGridViewCommandes.RowHeadersWidth = 51;
+            this.dataGridViewCommandes.Size = new System.Drawing.Size(10, 10);
+            this.dataGridViewCommandes.TabIndex = 28;
+            // 
             // panelButton
             // 
             this.panelButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -467,9 +467,9 @@
             this.lblGestionUtil.ForeColor = System.Drawing.Color.Gainsboro;
             this.lblGestionUtil.Location = new System.Drawing.Point(101, 31);
             this.lblGestionUtil.Name = "lblGestionUtil";
-            this.lblGestionUtil.Size = new System.Drawing.Size(563, 55);
+            this.lblGestionUtil.Size = new System.Drawing.Size(466, 55);
             this.lblGestionUtil.TabIndex = 6;
-            this.lblGestionUtil.Text = "Gestion des commandes";
+            this.lblGestionUtil.Text = "Gestion des garages";
             // 
             // buttonUtil
             // 
@@ -503,7 +503,7 @@
             // 
             this.errorProviderErreur.ContainerControl = this;
             // 
-            // GestionCommandes
+            // GestionGarages
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -514,7 +514,7 @@
             this.Controls.Add(this.panelGestionUtil);
             this.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.Name = "GestionCommandes";
+            this.Name = "GestionGarages";
             this.Text = "Dashboardcs";
             this.panelGestionUtil.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
