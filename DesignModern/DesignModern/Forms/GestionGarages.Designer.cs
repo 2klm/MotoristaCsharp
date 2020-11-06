@@ -1,6 +1,6 @@
 ﻿namespace DesignModern
 {
-    partial class GestionCommandes
+    partial class GestionGarages
     {
         /// <summary>
         /// Required designer variable.

@@ -11,10 +11,10 @@ using System.Windows.Forms;
 
 namespace DesignModern
 {
-    public partial class GestionCommandes : Form
+    public partial class GestionGarages : Form
     {
         private motoristaDbContext db;
-        public GestionCommandes()
+        public GestionGarages()
         {
             InitializeComponent();
             db = new motoristaDbContext();
@@ -53,7 +53,6 @@ namespace DesignModern
             if (txtNumCommande.Enabled == true)
             {
                 //Vérouillage
-                txtNumCommande.Enabled = false;
                 txtNumClient.Enabled = false;
                 txtDateCommande.Enabled = false;
                 txtDateLivraison.Enabled = false;
@@ -63,7 +62,6 @@ namespace DesignModern
             else
             {
                 //Déverouillage
-                txtNumCommande.Enabled = true;
                 txtNumClient.Enabled = true;
                 txtDateCommande.Enabled = true;
                 txtDateLivraison.Enabled = true;
