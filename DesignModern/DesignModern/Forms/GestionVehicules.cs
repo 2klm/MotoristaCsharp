@@ -334,6 +334,7 @@ namespace DesignModern
             buttonModif.Enabled = true;
             buttonSupprimer.Enabled = true;
             buttonValidModif.Visible = false;
+            AffecterValeurs(0);
         }
 
         private void buttonModif_Click(object sender, EventArgs e)
