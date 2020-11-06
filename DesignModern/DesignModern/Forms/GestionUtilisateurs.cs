@@ -20,6 +20,7 @@ namespace DesignModern
         {
             InitializeComponent();
             db = new motoristaDbContext();
+            chargerDataGrind();
         }
         private void chargerDataGrind()
         {
@@ -28,7 +29,7 @@ namespace DesignModern
             dataGridViewUtil.DataSource = db.client.Select(c => new
             {
                 Numero = c.numC,
-                TypeClient = c.type_de_client,
+                TypeClient = c.type_de_client.typeClient,
                 Nom = c.nomC,
                 Prenom = c.paysC,
                 Adresse = c.adresseC,
@@ -43,13 +44,14 @@ namespace DesignModern
             }).ToList();
 
             dataGridViewUtil.Rows[0].Selected = true;
+            AffecterValeurs(0);
             dataGridViewUtil.CurrentCell = dataGridViewUtil.Rows[0].Cells[0];
         }
 
         private void AffecterValeurs(int ligne)
         {
             txtNumeroClient.Text = dataGridViewUtil.Rows[ligne].Cells[0].Value.ToString();
-            comboBoxTypesClient.SelectedValue = dataGridViewUtil.Rows[ligne].Cells[1].Value.ToString();
+            comboBoxTypesClient.Text = dataGridViewUtil.Rows[ligne].Cells[1].Value.ToString();
             txtNom.Text = dataGridViewUtil.Rows[ligne].Cells[2].Value.ToString();
             txtPrenom.Text = dataGridViewUtil.Rows[ligne].Cells[3].Value.ToString();
             txtAdresse.Text = dataGridViewUtil.Rows[ligne].Cells[4].Value.ToString();
@@ -292,7 +294,6 @@ namespace DesignModern
             comboBoxTypesClient.DataSource = db.type_de_client.ToList();
             comboBoxTypesClient.DisplayMember = "typeClient";
             comboBoxTypesClient.ValueMember = "numTypeClient";
-            comboBoxTypesClient.Text = "";
         }
 
         private void buttonAjouterUtil_Click(object sender, EventArgs e)
@@ -472,7 +473,11 @@ namespace DesignModern
 
         private void buttonPrecedent_Click(object sender, EventArgs e)
         {
-            AffecterValeurs(dataGridViewUtil.CurrentRow.Index - 1);
+            if (dataGridViewUtil.CurrentRow.Index != 0)
+            {
+                AffecterValeurs(dataGridViewUtil.CurrentRow.Index - 1);
+            }
+            Verrou();
             Verrou();
         }
 

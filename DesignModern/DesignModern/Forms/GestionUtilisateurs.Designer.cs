@@ -36,7 +36,7 @@
             this.buttonPrecedent = new FontAwesome.Sharp.IconButton();
             this.buttonSuivant = new FontAwesome.Sharp.IconButton();
             this.panelInfoUtil = new System.Windows.Forms.Panel();
-            this.comboBoxTypesClient = new System.Windows.Forms.ComboBox();
+            this.dataGridViewUtil = new System.Windows.Forms.DataGridView();
             this.label12 = new System.Windows.Forms.Label();
             this.txtMdp = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -72,14 +72,14 @@
             this.buttonUtil = new FontAwesome.Sharp.IconButton();
             this.panelBar = new System.Windows.Forms.Panel();
             this.errorProviderErreur = new System.Windows.Forms.ErrorProvider(this.components);
-            this.dataGridViewUtil = new System.Windows.Forms.DataGridView();
+            this.comboBoxTypesClient = new System.Windows.Forms.ComboBox();
             this.panelGestionUtil.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panelInfoUtil.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUtil)).BeginInit();
             this.panelButton.SuspendLayout();
             this.panelTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderErreur)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUtil)).BeginInit();
             this.SuspendLayout();
             // 
             // panelGestionUtil
@@ -197,8 +197,8 @@
             // panelInfoUtil
             // 
             this.panelInfoUtil.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.panelInfoUtil.Controls.Add(this.dataGridViewUtil);
             this.panelInfoUtil.Controls.Add(this.comboBoxTypesClient);
+            this.panelInfoUtil.Controls.Add(this.dataGridViewUtil);
             this.panelInfoUtil.Controls.Add(this.label12);
             this.panelInfoUtil.Controls.Add(this.txtMdp);
             this.panelInfoUtil.Controls.Add(this.label9);
@@ -227,16 +227,14 @@
             this.panelInfoUtil.Size = new System.Drawing.Size(918, 409);
             this.panelInfoUtil.TabIndex = 4;
             // 
-            // comboBoxTypesClient
+            // dataGridViewUtil
             // 
-            this.comboBoxTypesClient.BackColor = System.Drawing.Color.Gainsboro;
-            this.comboBoxTypesClient.Enabled = false;
-            this.comboBoxTypesClient.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBoxTypesClient.FormattingEnabled = true;
-            this.comboBoxTypesClient.Location = new System.Drawing.Point(628, 38);
-            this.comboBoxTypesClient.Name = "comboBoxTypesClient";
-            this.comboBoxTypesClient.Size = new System.Drawing.Size(180, 28);
-            this.comboBoxTypesClient.TabIndex = 26;
+            this.dataGridViewUtil.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewUtil.Location = new System.Drawing.Point(411, 311);
+            this.dataGridViewUtil.Name = "dataGridViewUtil";
+            this.dataGridViewUtil.Size = new System.Drawing.Size(494, 80);
+            this.dataGridViewUtil.TabIndex = 27;
+            this.dataGridViewUtil.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewUtil_CellClick);
             // 
             // label12
             // 
@@ -690,15 +688,24 @@
             // 
             this.errorProviderErreur.ContainerControl = this;
             // 
-            // dataGridViewUtil
+            // comboBoxTypesClient
             // 
-            this.dataGridViewUtil.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewUtil.Location = new System.Drawing.Point(411, 311);
-            this.dataGridViewUtil.Name = "dataGridViewUtil";
-            this.dataGridViewUtil.Size = new System.Drawing.Size(494, 80);
-            this.dataGridViewUtil.TabIndex = 27;
-            this.dataGridViewUtil.Visible = false;
-            this.dataGridViewUtil.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewUtil_CellClick);
+            this.comboBoxTypesClient.BackColor = System.Drawing.Color.Gainsboro;
+            this.comboBoxTypesClient.Enabled = false;
+            this.comboBoxTypesClient.FormattingEnabled = true;
+            this.comboBoxTypesClient.ItemHeight = 16;
+            this.comboBoxTypesClient.Items.AddRange(new object[] {
+            "Enregistrée",
+            "Vérification",
+            "Validée",
+            "Préparation",
+            "Livraison",
+            "Livrée",
+            "Incident"});
+            this.comboBoxTypesClient.Location = new System.Drawing.Point(628, 37);
+            this.comboBoxTypesClient.Name = "comboBoxTypesClient";
+            this.comboBoxTypesClient.Size = new System.Drawing.Size(193, 24);
+            this.comboBoxTypesClient.TabIndex = 28;
             // 
             // GestionUtil
             // 
@@ -718,11 +725,11 @@
             this.panel1.ResumeLayout(false);
             this.panelInfoUtil.ResumeLayout(false);
             this.panelInfoUtil.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUtil)).EndInit();
             this.panelButton.ResumeLayout(false);
             this.panelTitle.ResumeLayout(false);
             this.panelTitle.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderErreur)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUtil)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -771,7 +778,7 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox txtMdp;
-        private System.Windows.Forms.ComboBox comboBoxTypesClient;
         private System.Windows.Forms.DataGridView dataGridViewUtil;
+        private System.Windows.Forms.ComboBox comboBoxTypesClient;
     }
 }
