@@ -38,8 +38,6 @@
             this.panelInfoUtil = new System.Windows.Forms.Panel();
             this.txtDateLivraison = new System.Windows.Forms.DateTimePicker();
             this.txtDateCommande = new System.Windows.Forms.DateTimePicker();
-            this.comboEtatCommande = new System.Windows.Forms.ComboBox();
-            this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.txtNumGarage = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -185,8 +183,6 @@
             this.panelInfoUtil.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panelInfoUtil.Controls.Add(this.txtDateLivraison);
             this.panelInfoUtil.Controls.Add(this.txtDateCommande);
-            this.panelInfoUtil.Controls.Add(this.comboEtatCommande);
-            this.panelInfoUtil.Controls.Add(this.label11);
             this.panelInfoUtil.Controls.Add(this.label10);
             this.panelInfoUtil.Controls.Add(this.txtNumGarage);
             this.panelInfoUtil.Controls.Add(this.label4);
@@ -218,35 +214,6 @@
             this.txtDateCommande.Name = "txtDateCommande";
             this.txtDateCommande.Size = new System.Drawing.Size(130, 24);
             this.txtDateCommande.TabIndex = 22;
-            // 
-            // comboEtatCommande
-            // 
-            this.comboEtatCommande.Enabled = false;
-            this.comboEtatCommande.FormattingEnabled = true;
-            this.comboEtatCommande.ItemHeight = 19;
-            this.comboEtatCommande.Items.AddRange(new object[] {
-            "Enregistrée",
-            "Vérification",
-            "Validée",
-            "Préparation",
-            "Livraison",
-            "Livrée",
-            "Incident"});
-            this.comboEtatCommande.Location = new System.Drawing.Point(392, 291);
-            this.comboEtatCommande.Name = "comboEtatCommande";
-            this.comboEtatCommande.Size = new System.Drawing.Size(193, 27);
-            this.comboEtatCommande.TabIndex = 5;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label11.Location = new System.Drawing.Point(216, 294);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(123, 19);
-            this.label11.TabIndex = 21;
-            this.label11.Text = "Etat commande";
             // 
             // label10
             // 
@@ -547,7 +514,6 @@
         private FontAwesome.Sharp.IconButton buttonAnnuler;
         private System.Windows.Forms.ErrorProvider errorProviderErreur;
         private System.Windows.Forms.Panel panelInfoUtil;
-        private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox txtNumGarage;
         private System.Windows.Forms.Label label4;
@@ -556,7 +522,6 @@
         private System.Windows.Forms.TextBox txtNumClient;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtNumCommande;
-        private System.Windows.Forms.ComboBox comboEtatCommande;
         private System.Windows.Forms.DateTimePicker txtDateLivraison;
         private System.Windows.Forms.DateTimePicker txtDateCommande;
         private System.Windows.Forms.DataGridView dataGridViewCommandes;
