@@ -22,13 +22,13 @@ namespace DesignModern
             dataGridViewVehicule.DataSource = db.voiture.Select(v => new
             {
                 idVoiture = v.idVoiture,
-                TypeVehicule = v.idTypeV,
+                TypeVehicule = v.type_de_voiture.idTypeV,
                 numSerieVehicule = v.numSerieV,
                 Puissance = v.puissanceV,
                 Energie = v.energieV,
                 BoiteDeVitesse = v.boiteDeVitesseV,
-                Garage = v.idGarage,
-                Modele = v.idModele,
+                Garage = v.garage.idGarage,
+                Modele = v.modele.idModele,
                 Passagers = v.nbPassagerV,
                 Couleur = v.couleurV,
                 Prix = v.prixVenteV
@@ -43,13 +43,13 @@ namespace DesignModern
         private void AffecterValeurs(int ligne)
         {
             txtNumeroVehicule.Text = dataGridViewVehicule.Rows[ligne].Cells[0].Value.ToString();
-            txtTypeVehicule.Text = dataGridViewVehicule.Rows[ligne].Cells[1].Value.ToString();
+            comboBoxTypesVehicules.Text = dataGridViewVehicule.Rows[ligne].Cells[1].Value.ToString();
             txtNumSerie.Text = dataGridViewVehicule.Rows[ligne].Cells[2].Value.ToString();
             txtPuissance.Text = dataGridViewVehicule.Rows[ligne].Cells[3].Value.ToString(); 
             txtEnergie.Text = dataGridViewVehicule.Rows[ligne].Cells[4].Value.ToString();
             txtBoiteVitesse.Text = dataGridViewVehicule.Rows[ligne].Cells[5].Value.ToString();
-            txtGarage.Text = dataGridViewVehicule.Rows[ligne].Cells[6].Value.ToString();
-            txtModele.Text = dataGridViewVehicule.Rows[ligne].Cells[7].Value.ToString();
+            comboBoxTypesGarage.Text = dataGridViewVehicule.Rows[ligne].Cells[6].Value.ToString();
+            comboBoxModele.Text = dataGridViewVehicule.Rows[ligne].Cells[7].Value.ToString();
             txtPassagers.Text = dataGridViewVehicule.Rows[ligne].Cells[8].Value.ToString();
             txtCouleur.Text = dataGridViewVehicule.Rows[ligne].Cells[9].Value.ToString();
             txtPrix.Text = dataGridViewVehicule.Rows[ligne].Cells[10].Value.ToString();
@@ -63,31 +63,31 @@ namespace DesignModern
             {
                 //Vérouillage
                 txtNumeroVehicule.Enabled = false;
-                txtTypeVehicule.Enabled = false;
                 txtNumSerie.Enabled = false;
                 txtPuissance.Enabled = false;
                 txtCouleur.Enabled = false;
                 txtEnergie.Enabled = false;
                 txtBoiteVitesse.Enabled = false;
-                txtGarage.Enabled = false;
-                txtModele.Enabled = false;
+                comboBoxTypesGarage.Enabled = false;
+                comboBoxModele.Enabled = false;
                 txtPassagers.Enabled = false;
                 txtPrix.Enabled = false;
+                comboBoxTypesVehicules.Enabled = false;
             }
             else
             {
                 //Déverouillage
                 txtNumeroVehicule.Enabled = true;
-                txtTypeVehicule.Enabled = true;
                 txtNumSerie.Enabled = true;
                 txtPuissance.Enabled = true;
                 txtCouleur.Enabled = true;
                 txtEnergie.Enabled = true;
                 txtBoiteVitesse.Enabled = true;
-                txtGarage.Enabled = true;
-                txtModele.Enabled = true;
+                comboBoxTypesGarage.Enabled = true;
+                comboBoxModele.Enabled = true;
                 txtPassagers.Enabled = true;
                 txtPrix.Enabled = true;
+                comboBoxTypesVehicules.Enabled = true;
             }
         }
         private bool verif()
@@ -103,14 +103,14 @@ namespace DesignModern
                 errorProviderErreur.SetError(txtNumeroVehicule, "");
             }
 
-            if (txtTypeVehicule.Text.Trim() == "")
+            if (comboBoxTypesVehicules.Text.Trim() == "")
             {
-                errorProviderErreur.SetError(txtTypeVehicule, "Veuillez indiquer votre nom");
+                errorProviderErreur.SetError(comboBoxTypesVehicules, "Veuillez indiquer votre nom");
                 verification = false;
             }
             else
             {
-                errorProviderErreur.SetError(txtTypeVehicule, "");
+                errorProviderErreur.SetError(comboBoxTypesVehicules, "");
             }
 
             if (txtNumSerie.Text.Trim() == "")
@@ -162,23 +162,23 @@ namespace DesignModern
             {
                 errorProviderErreur.SetError(txtBoiteVitesse, "");
             }
-            if (txtGarage.Text.Trim() == "")
+            if (comboBoxTypesGarage.Text.Trim() == "")
             {
-                errorProviderErreur.SetError(txtGarage, "Veuillez indiquer votre login");
+                errorProviderErreur.SetError(comboBoxTypesGarage, "Veuillez indiquer votre login");
                 verification = false;
             }
             else
             {
-                errorProviderErreur.SetError(txtGarage, "");
+                errorProviderErreur.SetError(comboBoxTypesGarage, "");
             }
-            if (txtModele.Text.Trim() == "")
+            if (comboBoxModele.Text.Trim() == "")
             {
-                errorProviderErreur.SetError(txtModele, "Veuillez indiquer votre email");
+                errorProviderErreur.SetError(comboBoxModele, "Veuillez indiquer votre email");
                 verification = false;
             }
             else
             {
-                errorProviderErreur.SetError(txtModele, "");
+                errorProviderErreur.SetError(comboBoxModele, "");
             }
             if (txtPassagers.Text.Trim() == "")
             {
@@ -195,16 +195,16 @@ namespace DesignModern
         private void remiseAZero()
         {
             txtNumeroVehicule.Clear();
-            txtTypeVehicule.Clear();
             txtNumSerie.Clear();
             txtPuissance.Clear();
             txtCouleur.Clear();
             txtEnergie.Clear();
             txtBoiteVitesse.Clear();
-            txtGarage.Clear();
-            txtModele.Clear();
+            comboBoxTypesGarage.Text ="";
+            comboBoxModele.Text ="";
             txtPassagers.Clear();
             txtPrix.Clear();
+            comboBoxTypesVehicules.Text = "";
         }
         private void Verrou()
         {
@@ -260,6 +260,17 @@ namespace DesignModern
         private void GestionVehicules_Load(object sender, System.EventArgs e)
         {
             chargerDataGrid();
+            comboBoxTypesVehicules.DataSource = db.type_de_voiture.ToList();
+            comboBoxTypesVehicules.DisplayMember = "etatTypeV";
+            comboBoxTypesVehicules.ValueMember = "idTypeV";
+
+            comboBoxTypesGarage.DataSource = db.garage.ToList();
+            comboBoxTypesGarage.DisplayMember = "nomG";
+            comboBoxTypesGarage.ValueMember = "idGarage";
+
+            comboBoxModele.DataSource = db.modele.ToList();
+            comboBoxModele.DisplayMember = "nomModele";
+            comboBoxModele.ValueMember = "idModele";
         }
 
         private void buttonAjouter_Click(object sender, System.EventArgs e)
@@ -289,16 +300,16 @@ namespace DesignModern
                 {
                     voiture uneVoiture = new voiture();
                     uneVoiture.idVoiture = Convert.ToInt32(txtNumeroVehicule.Text);
-                    uneVoiture.idTypeV = Convert.ToInt32(txtTypeVehicule.Text);
                     uneVoiture.numSerieV = Convert.ToInt32(txtNumSerie.Text);
                     uneVoiture.puissanceV = Convert.ToInt32(txtPuissance.Text);
                     uneVoiture.energieV = txtEnergie.Text;
                     uneVoiture.boiteDeVitesseV = txtBoiteVitesse.Text;
-                    uneVoiture.idGarage = Convert.ToInt32(txtGarage.Text);
-                    uneVoiture.idModele = Convert.ToInt32(txtModele.Text);
+                    uneVoiture.idGarage = Convert.ToInt32(comboBoxTypesGarage.SelectedValue.ToString());
+                    uneVoiture.idModele = Convert.ToInt32(comboBoxModele.SelectedValue.ToString());
                     uneVoiture.nbPassagerV = Convert.ToInt32(txtPassagers.Text);
                     uneVoiture.couleurV = txtCouleur.Text;
                     uneVoiture.prixVenteV = Convert.ToInt32(txtPrix.Text);
+                    uneVoiture.idTypeV = Convert.ToInt32(comboBoxTypesVehicules.SelectedValue.ToString());
 
                     db.voiture.Add(uneVoiture);
                     db.SaveChanges();
@@ -363,16 +374,16 @@ namespace DesignModern
                 {
                     voiture uneVoiture = db.voiture.First(v => v.idVoiture.ToString() == txtNumeroVehicule.Text);
                     uneVoiture.idVoiture = Convert.ToInt32(txtNumeroVehicule.Text);
-                    uneVoiture.idTypeV = Convert.ToInt32(txtTypeVehicule.Text);
                     uneVoiture.numSerieV = Convert.ToInt32(txtNumSerie.Text);
                     uneVoiture.puissanceV = Convert.ToInt32(txtPuissance.Text);
                     uneVoiture.energieV = txtEnergie.Text;
                     uneVoiture.boiteDeVitesseV = txtBoiteVitesse.Text;
-                    uneVoiture.idGarage = Convert.ToInt32(txtGarage.Text);
-                    uneVoiture.idModele = Convert.ToInt32(txtModele.Text);
+                    uneVoiture.idGarage = Convert.ToInt32(comboBoxTypesGarage.SelectedValue.ToString());
+                    uneVoiture.idModele = Convert.ToInt32(comboBoxModele.SelectedValue.ToString());
                     uneVoiture.nbPassagerV = Convert.ToInt32(txtPassagers.Text);
                     uneVoiture.couleurV = txtCouleur.Text;
                     uneVoiture.prixVenteV = Convert.ToInt32(txtPrix.Text);
+                    uneVoiture.idTypeV = Convert.ToInt32(comboBoxTypesVehicules.SelectedValue.ToString());
 
                     db.SaveChanges();
                     chargerDataGrid();

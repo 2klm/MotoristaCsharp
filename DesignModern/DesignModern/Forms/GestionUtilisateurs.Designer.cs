@@ -198,7 +198,6 @@
             // 
             this.panelInfoUtil.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panelInfoUtil.Controls.Add(this.comboBoxTypesClient);
-            this.panelInfoUtil.Controls.Add(this.dataGridViewUtil);
             this.panelInfoUtil.Controls.Add(this.label12);
             this.panelInfoUtil.Controls.Add(this.txtMdp);
             this.panelInfoUtil.Controls.Add(this.label9);
@@ -222,6 +221,7 @@
             this.panelInfoUtil.Controls.Add(this.txtNom);
             this.panelInfoUtil.Controls.Add(this.label1);
             this.panelInfoUtil.Controls.Add(this.txtNumeroClient);
+            this.panelInfoUtil.Controls.Add(this.dataGridViewUtil);
             this.panelInfoUtil.Location = new System.Drawing.Point(85, 127);
             this.panelInfoUtil.Name = "panelInfoUtil";
             this.panelInfoUtil.Size = new System.Drawing.Size(918, 409);
@@ -249,9 +249,9 @@
             // dataGridViewUtil
             // 
             this.dataGridViewUtil.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewUtil.Location = new System.Drawing.Point(411, 311);
+            this.dataGridViewUtil.Location = new System.Drawing.Point(333, 347);
             this.dataGridViewUtil.Name = "dataGridViewUtil";
-            this.dataGridViewUtil.Size = new System.Drawing.Size(494, 80);
+            this.dataGridViewUtil.Size = new System.Drawing.Size(10, 10);
             this.dataGridViewUtil.TabIndex = 27;
             this.dataGridViewUtil.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewUtil_CellClick);
             // 

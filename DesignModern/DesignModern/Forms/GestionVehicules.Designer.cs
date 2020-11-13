@@ -43,11 +43,9 @@
             this.label11 = new System.Windows.Forms.Label();
             this.txtPassagers = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.txtModele = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.txtBoiteVitesse = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.txtGarage = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.txtEnergie = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -57,7 +55,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.txtNumSerie = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtTypeVehicule = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtNumeroVehicule = new System.Windows.Forms.TextBox();
             this.panelButton = new System.Windows.Forms.Panel();
@@ -72,6 +69,9 @@
             this.buttonUtil = new FontAwesome.Sharp.IconButton();
             this.panelBar = new System.Windows.Forms.Panel();
             this.errorProviderErreur = new System.Windows.Forms.ErrorProvider(this.components);
+            this.comboBoxTypesVehicules = new System.Windows.Forms.ComboBox();
+            this.comboBoxTypesGarage = new System.Windows.Forms.ComboBox();
+            this.comboBoxModele = new System.Windows.Forms.ComboBox();
             this.panelGestionUtil.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panelInfoUtil.SuspendLayout();
@@ -196,18 +196,18 @@
             // panelInfoUtil
             // 
             this.panelInfoUtil.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.panelInfoUtil.Controls.Add(this.dataGridViewVehicule);
+            this.panelInfoUtil.Controls.Add(this.comboBoxModele);
+            this.panelInfoUtil.Controls.Add(this.comboBoxTypesGarage);
+            this.panelInfoUtil.Controls.Add(this.comboBoxTypesVehicules);
             this.panelInfoUtil.Controls.Add(this.label12);
             this.panelInfoUtil.Controls.Add(this.label9);
             this.panelInfoUtil.Controls.Add(this.txtPrix);
             this.panelInfoUtil.Controls.Add(this.label11);
             this.panelInfoUtil.Controls.Add(this.txtPassagers);
             this.panelInfoUtil.Controls.Add(this.label10);
-            this.panelInfoUtil.Controls.Add(this.txtModele);
             this.panelInfoUtil.Controls.Add(this.label8);
             this.panelInfoUtil.Controls.Add(this.txtBoiteVitesse);
             this.panelInfoUtil.Controls.Add(this.label7);
-            this.panelInfoUtil.Controls.Add(this.txtGarage);
             this.panelInfoUtil.Controls.Add(this.label6);
             this.panelInfoUtil.Controls.Add(this.txtEnergie);
             this.panelInfoUtil.Controls.Add(this.label5);
@@ -217,9 +217,9 @@
             this.panelInfoUtil.Controls.Add(this.label3);
             this.panelInfoUtil.Controls.Add(this.txtNumSerie);
             this.panelInfoUtil.Controls.Add(this.label2);
-            this.panelInfoUtil.Controls.Add(this.txtTypeVehicule);
             this.panelInfoUtil.Controls.Add(this.label1);
             this.panelInfoUtil.Controls.Add(this.txtNumeroVehicule);
+            this.panelInfoUtil.Controls.Add(this.dataGridViewVehicule);
             this.panelInfoUtil.Location = new System.Drawing.Point(108, 127);
             this.panelInfoUtil.Name = "panelInfoUtil";
             this.panelInfoUtil.Size = new System.Drawing.Size(829, 409);
@@ -228,9 +228,9 @@
             // dataGridViewVehicule
             // 
             this.dataGridViewVehicule.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewVehicule.Location = new System.Drawing.Point(326, 326);
+            this.dataGridViewVehicule.Location = new System.Drawing.Point(301, 301);
             this.dataGridViewVehicule.Name = "dataGridViewVehicule";
-            this.dataGridViewVehicule.Size = new System.Drawing.Size(494, 57);
+            this.dataGridViewVehicule.Size = new System.Drawing.Size(10, 10);
             this.dataGridViewVehicule.TabIndex = 28;
             this.dataGridViewVehicule.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewVehicule_CellContentClick);
             // 
@@ -301,17 +301,6 @@
             this.label10.TabIndex = 19;
             this.label10.Text = "Modèle";
             // 
-            // txtModele
-            // 
-            this.txtModele.BackColor = System.Drawing.Color.Gainsboro;
-            this.txtModele.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtModele.Enabled = false;
-            this.txtModele.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtModele.Location = new System.Drawing.Point(560, 90);
-            this.txtModele.Name = "txtModele";
-            this.txtModele.Size = new System.Drawing.Size(180, 26);
-            this.txtModele.TabIndex = 18;
-            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -344,17 +333,6 @@
             this.label7.Size = new System.Drawing.Size(51, 16);
             this.label7.TabIndex = 13;
             this.label7.Text = "Garage";
-            // 
-            // txtGarage
-            // 
-            this.txtGarage.BackColor = System.Drawing.Color.Gainsboro;
-            this.txtGarage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtGarage.Enabled = false;
-            this.txtGarage.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtGarage.Location = new System.Drawing.Point(560, 35);
-            this.txtGarage.Name = "txtGarage";
-            this.txtGarage.Size = new System.Drawing.Size(210, 26);
-            this.txtGarage.TabIndex = 12;
             // 
             // label6
             // 
@@ -454,17 +432,6 @@
             this.label2.Size = new System.Drawing.Size(84, 16);
             this.label2.TabIndex = 3;
             this.label2.Text = "Type véhicule";
-            // 
-            // txtTypeVehicule
-            // 
-            this.txtTypeVehicule.BackColor = System.Drawing.Color.Gainsboro;
-            this.txtTypeVehicule.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtTypeVehicule.Enabled = false;
-            this.txtTypeVehicule.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTypeVehicule.Location = new System.Drawing.Point(198, 90);
-            this.txtTypeVehicule.Name = "txtTypeVehicule";
-            this.txtTypeVehicule.Size = new System.Drawing.Size(180, 26);
-            this.txtTypeVehicule.TabIndex = 2;
             // 
             // label1
             // 
@@ -696,6 +663,66 @@
             // 
             this.errorProviderErreur.ContainerControl = this;
             // 
+            // comboBoxTypesVehicules
+            // 
+            this.comboBoxTypesVehicules.BackColor = System.Drawing.Color.Gainsboro;
+            this.comboBoxTypesVehicules.Enabled = false;
+            this.comboBoxTypesVehicules.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxTypesVehicules.FormattingEnabled = true;
+            this.comboBoxTypesVehicules.ItemHeight = 16;
+            this.comboBoxTypesVehicules.Items.AddRange(new object[] {
+            "Enregistrée",
+            "Vérification",
+            "Validée",
+            "Préparation",
+            "Livraison",
+            "Livrée",
+            "Incident"});
+            this.comboBoxTypesVehicules.Location = new System.Drawing.Point(198, 90);
+            this.comboBoxTypesVehicules.Name = "comboBoxTypesVehicules";
+            this.comboBoxTypesVehicules.Size = new System.Drawing.Size(193, 24);
+            this.comboBoxTypesVehicules.TabIndex = 29;
+            // 
+            // comboBoxTypesGarage
+            // 
+            this.comboBoxTypesGarage.BackColor = System.Drawing.Color.Gainsboro;
+            this.comboBoxTypesGarage.Enabled = false;
+            this.comboBoxTypesGarage.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxTypesGarage.FormattingEnabled = true;
+            this.comboBoxTypesGarage.ItemHeight = 16;
+            this.comboBoxTypesGarage.Items.AddRange(new object[] {
+            "Enregistrée",
+            "Vérification",
+            "Validée",
+            "Préparation",
+            "Livraison",
+            "Livrée",
+            "Incident"});
+            this.comboBoxTypesGarage.Location = new System.Drawing.Point(560, 35);
+            this.comboBoxTypesGarage.Name = "comboBoxTypesGarage";
+            this.comboBoxTypesGarage.Size = new System.Drawing.Size(193, 24);
+            this.comboBoxTypesGarage.TabIndex = 30;
+            // 
+            // comboBoxModele
+            // 
+            this.comboBoxModele.BackColor = System.Drawing.Color.Gainsboro;
+            this.comboBoxModele.Enabled = false;
+            this.comboBoxModele.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxModele.FormattingEnabled = true;
+            this.comboBoxModele.ItemHeight = 16;
+            this.comboBoxModele.Items.AddRange(new object[] {
+            "Enregistrée",
+            "Vérification",
+            "Validée",
+            "Préparation",
+            "Livraison",
+            "Livrée",
+            "Incident"});
+            this.comboBoxModele.Location = new System.Drawing.Point(560, 93);
+            this.comboBoxModele.Name = "comboBoxModele";
+            this.comboBoxModele.Size = new System.Drawing.Size(193, 24);
+            this.comboBoxModele.TabIndex = 31;
+            // 
             // GestionVehicules
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -744,17 +771,14 @@
         private FontAwesome.Sharp.IconButton buttonValidAjout;
         private FontAwesome.Sharp.IconButton buttonAnnuler;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtTypeVehicule;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtNumeroVehicule;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox txtPassagers;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox txtModele;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txtBoiteVitesse;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox txtGarage;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtEnergie;
         private System.Windows.Forms.Label label5;
@@ -768,5 +792,8 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox txtPrix;
         private System.Windows.Forms.DataGridView dataGridViewVehicule;
+        private System.Windows.Forms.ComboBox comboBoxTypesVehicules;
+        private System.Windows.Forms.ComboBox comboBoxTypesGarage;
+        private System.Windows.Forms.ComboBox comboBoxModele;
     }
 }
