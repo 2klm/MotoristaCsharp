@@ -183,7 +183,6 @@
             // panelInfoUtil
             // 
             this.panelInfoUtil.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.panelInfoUtil.Controls.Add(this.dataGridViewCommandes);
             this.panelInfoUtil.Controls.Add(this.comboBoxNomClient);
             this.panelInfoUtil.Controls.Add(this.comboBoxGarage);
             this.panelInfoUtil.Controls.Add(this.txtDateLivraison);
@@ -196,6 +195,7 @@
             this.panelInfoUtil.Controls.Add(this.label1);
             this.panelInfoUtil.Controls.Add(this.txtNumCommande);
             this.panelInfoUtil.Controls.Add(this.comboEtatCommande);
+            this.panelInfoUtil.Controls.Add(this.dataGridViewCommandes);
             this.panelInfoUtil.Location = new System.Drawing.Point(108, 127);
             this.panelInfoUtil.Name = "panelInfoUtil";
             this.panelInfoUtil.Size = new System.Drawing.Size(829, 409);
@@ -204,10 +204,10 @@
             // dataGridViewCommandes
             // 
             this.dataGridViewCommandes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewCommandes.Location = new System.Drawing.Point(3, 340);
+            this.dataGridViewCommandes.Location = new System.Drawing.Point(376, 294);
             this.dataGridViewCommandes.Name = "dataGridViewCommandes";
             this.dataGridViewCommandes.RowHeadersWidth = 51;
-            this.dataGridViewCommandes.Size = new System.Drawing.Size(842, 69);
+            this.dataGridViewCommandes.Size = new System.Drawing.Size(10, 10);
             this.dataGridViewCommandes.TabIndex = 28;
             // 
             // comboBoxNomClient
