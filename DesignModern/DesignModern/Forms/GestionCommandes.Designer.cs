@@ -36,7 +36,6 @@
             this.buttonPrecedent = new FontAwesome.Sharp.IconButton();
             this.buttonSuivant = new FontAwesome.Sharp.IconButton();
             this.panelInfoUtil = new System.Windows.Forms.Panel();
-            this.dataGridViewCommandes = new System.Windows.Forms.DataGridView();
             this.comboBoxNomClient = new System.Windows.Forms.ComboBox();
             this.comboBoxGarage = new System.Windows.Forms.ComboBox();
             this.txtDateLivraison = new System.Windows.Forms.DateTimePicker();
@@ -49,6 +48,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtNumCommande = new System.Windows.Forms.TextBox();
             this.comboEtatCommande = new System.Windows.Forms.ComboBox();
+            this.dataGridViewCommandes = new System.Windows.Forms.DataGridView();
             this.panelButton = new System.Windows.Forms.Panel();
             this.buttonAnnuler = new FontAwesome.Sharp.IconButton();
             this.buttonValidModif = new FontAwesome.Sharp.IconButton();
@@ -200,15 +200,6 @@
             this.panelInfoUtil.Name = "panelInfoUtil";
             this.panelInfoUtil.Size = new System.Drawing.Size(829, 409);
             this.panelInfoUtil.TabIndex = 4;
-            // 
-            // dataGridViewCommandes
-            // 
-            this.dataGridViewCommandes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewCommandes.Location = new System.Drawing.Point(376, 294);
-            this.dataGridViewCommandes.Name = "dataGridViewCommandes";
-            this.dataGridViewCommandes.RowHeadersWidth = 51;
-            this.dataGridViewCommandes.Size = new System.Drawing.Size(10, 10);
-            this.dataGridViewCommandes.TabIndex = 28;
             // 
             // comboBoxNomClient
             // 
@@ -362,6 +353,15 @@
             this.comboEtatCommande.Size = new System.Drawing.Size(193, 27);
             this.comboEtatCommande.TabIndex = 5;
             // 
+            // dataGridViewCommandes
+            // 
+            this.dataGridViewCommandes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewCommandes.Location = new System.Drawing.Point(376, 294);
+            this.dataGridViewCommandes.Name = "dataGridViewCommandes";
+            this.dataGridViewCommandes.RowHeadersWidth = 51;
+            this.dataGridViewCommandes.Size = new System.Drawing.Size(10, 10);
+            this.dataGridViewCommandes.TabIndex = 28;
+            // 
             // panelButton
             // 
             this.panelButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -414,7 +414,7 @@
             this.buttonValidModif.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonValidModif.Name = "buttonValidModif";
             this.buttonValidModif.Rotation = 0D;
-            this.buttonValidModif.Size = new System.Drawing.Size(167, 59);
+            this.buttonValidModif.Size = new System.Drawing.Size(185, 59);
             this.buttonValidModif.TabIndex = 3;
             this.buttonValidModif.Text = "Valider modification";
             this.buttonValidModif.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;

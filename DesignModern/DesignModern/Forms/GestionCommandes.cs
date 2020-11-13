@@ -57,8 +57,6 @@ namespace DesignModern
             else
             {
                 //Déverouillage
-                txtNumCommande.Enabled = true;
-                comboBoxNomClient.Enabled = true;
                 txtDateCommande.Enabled = true;
                 txtDateLivraison.Enabled = true;
                 comboBoxGarage.Enabled = true;
@@ -117,7 +115,6 @@ namespace DesignModern
         //méthode de débug. vide les champs de texte
         private void remiseAZero()
         {
-            //txtNomGarage.Clear();
             txtNumCommande.Clear();
             txtNumCommande.Enabled = false;
             comboBoxNomClient.Enabled = false;
@@ -154,9 +151,6 @@ namespace DesignModern
         //verrouiller les boutons Suivant/précédent en fonction de la position du selecteur
         private void Verrou()
         {
-            //MessageBox.Show("Nb"+dataGridViewRevue.RowCount.ToString());
-            //MessageBox.Show("Index" + dataGridViewRevue.CurrentRow.Index);
-
             if (dataGridViewCommandes.RowCount == 0)
             {
                 buttonSuivant.Enabled = false;

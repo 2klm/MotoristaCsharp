@@ -280,7 +280,6 @@
     <None Include="ModelMotorista.edmx.diagram">
       <DependentUpon>ModelMotorista.edmx</DependentUpon>
     </None>
-    <None Include="Motorista_TemporaryKey.pfx" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
