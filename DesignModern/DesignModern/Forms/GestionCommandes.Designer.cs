@@ -36,19 +36,19 @@
             this.buttonPrecedent = new FontAwesome.Sharp.IconButton();
             this.buttonSuivant = new FontAwesome.Sharp.IconButton();
             this.panelInfoUtil = new System.Windows.Forms.Panel();
+            this.dataGridViewCommandes = new System.Windows.Forms.DataGridView();
+            this.comboBoxNomClient = new System.Windows.Forms.ComboBox();
+            this.comboBoxGarage = new System.Windows.Forms.ComboBox();
             this.txtDateLivraison = new System.Windows.Forms.DateTimePicker();
             this.txtDateCommande = new System.Windows.Forms.DateTimePicker();
-            this.comboEtatCommande = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.txtNomGarage = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtNomClient = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtNumCommande = new System.Windows.Forms.TextBox();
-            this.dataGridViewCommandes = new System.Windows.Forms.DataGridView();
+            this.comboEtatCommande = new System.Windows.Forms.ComboBox();
             this.panelButton = new System.Windows.Forms.Panel();
             this.buttonAnnuler = new FontAwesome.Sharp.IconButton();
             this.buttonValidModif = new FontAwesome.Sharp.IconButton();
@@ -183,23 +183,70 @@
             // panelInfoUtil
             // 
             this.panelInfoUtil.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.panelInfoUtil.Controls.Add(this.dataGridViewCommandes);
+            this.panelInfoUtil.Controls.Add(this.comboBoxNomClient);
+            this.panelInfoUtil.Controls.Add(this.comboBoxGarage);
             this.panelInfoUtil.Controls.Add(this.txtDateLivraison);
             this.panelInfoUtil.Controls.Add(this.txtDateCommande);
             this.panelInfoUtil.Controls.Add(this.label11);
             this.panelInfoUtil.Controls.Add(this.label10);
-            this.panelInfoUtil.Controls.Add(this.txtNomGarage);
             this.panelInfoUtil.Controls.Add(this.label4);
             this.panelInfoUtil.Controls.Add(this.label3);
             this.panelInfoUtil.Controls.Add(this.label2);
-            this.panelInfoUtil.Controls.Add(this.txtNomClient);
             this.panelInfoUtil.Controls.Add(this.label1);
             this.panelInfoUtil.Controls.Add(this.txtNumCommande);
             this.panelInfoUtil.Controls.Add(this.comboEtatCommande);
-            this.panelInfoUtil.Controls.Add(this.dataGridViewCommandes);
             this.panelInfoUtil.Location = new System.Drawing.Point(108, 127);
             this.panelInfoUtil.Name = "panelInfoUtil";
             this.panelInfoUtil.Size = new System.Drawing.Size(829, 409);
             this.panelInfoUtil.TabIndex = 4;
+            // 
+            // dataGridViewCommandes
+            // 
+            this.dataGridViewCommandes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewCommandes.Location = new System.Drawing.Point(3, 340);
+            this.dataGridViewCommandes.Name = "dataGridViewCommandes";
+            this.dataGridViewCommandes.RowHeadersWidth = 51;
+            this.dataGridViewCommandes.Size = new System.Drawing.Size(842, 69);
+            this.dataGridViewCommandes.TabIndex = 28;
+            // 
+            // comboBoxNomClient
+            // 
+            this.comboBoxNomClient.Enabled = false;
+            this.comboBoxNomClient.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxNomClient.FormattingEnabled = true;
+            this.comboBoxNomClient.ItemHeight = 19;
+            this.comboBoxNomClient.Items.AddRange(new object[] {
+            "Enregistrée",
+            "Vérification",
+            "Validée",
+            "Préparation",
+            "Livraison",
+            "Livrée",
+            "Incident"});
+            this.comboBoxNomClient.Location = new System.Drawing.Point(236, 93);
+            this.comboBoxNomClient.Name = "comboBoxNomClient";
+            this.comboBoxNomClient.Size = new System.Drawing.Size(219, 27);
+            this.comboBoxNomClient.TabIndex = 30;
+            // 
+            // comboBoxGarage
+            // 
+            this.comboBoxGarage.Enabled = false;
+            this.comboBoxGarage.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxGarage.FormattingEnabled = true;
+            this.comboBoxGarage.ItemHeight = 19;
+            this.comboBoxGarage.Items.AddRange(new object[] {
+            "Enregistrée",
+            "Vérification",
+            "Validée",
+            "Préparation",
+            "Livraison",
+            "Livrée",
+            "Incident"});
+            this.comboBoxGarage.Location = new System.Drawing.Point(618, 93);
+            this.comboBoxGarage.Name = "comboBoxGarage";
+            this.comboBoxGarage.Size = new System.Drawing.Size(208, 27);
+            this.comboBoxGarage.TabIndex = 29;
             // 
             // txtDateLivraison
             // 
@@ -218,24 +265,6 @@
             this.txtDateCommande.Name = "txtDateCommande";
             this.txtDateCommande.Size = new System.Drawing.Size(130, 24);
             this.txtDateCommande.TabIndex = 22;
-            // 
-            // comboEtatCommande
-            // 
-            this.comboEtatCommande.Enabled = false;
-            this.comboEtatCommande.FormattingEnabled = true;
-            this.comboEtatCommande.ItemHeight = 19;
-            this.comboEtatCommande.Items.AddRange(new object[] {
-            "Enregistrée",
-            "Vérification",
-            "Validée",
-            "Préparation",
-            "Livraison",
-            "Livrée",
-            "Incident"});
-            this.comboEtatCommande.Location = new System.Drawing.Point(392, 291);
-            this.comboEtatCommande.Name = "comboEtatCommande";
-            this.comboEtatCommande.Size = new System.Drawing.Size(193, 27);
-            this.comboEtatCommande.TabIndex = 5;
             // 
             // label11
             // 
@@ -258,17 +287,6 @@
             this.label10.Size = new System.Drawing.Size(119, 19);
             this.label10.TabIndex = 19;
             this.label10.Text = "Nom du garage";
-            // 
-            // txtNomGarage
-            // 
-            this.txtNomGarage.BackColor = System.Drawing.Color.Gainsboro;
-            this.txtNomGarage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtNomGarage.Enabled = false;
-            this.txtNomGarage.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNomGarage.Location = new System.Drawing.Point(622, 91);
-            this.txtNomGarage.Name = "txtNomGarage";
-            this.txtNomGarage.Size = new System.Drawing.Size(165, 30);
-            this.txtNomGarage.TabIndex = 2;
             // 
             // label4
             // 
@@ -303,17 +321,6 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "Nom du client";
             // 
-            // txtNomClient
-            // 
-            this.txtNomClient.BackColor = System.Drawing.Color.Gainsboro;
-            this.txtNomClient.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtNomClient.Enabled = false;
-            this.txtNomClient.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNomClient.Location = new System.Drawing.Point(236, 91);
-            this.txtNomClient.Name = "txtNomClient";
-            this.txtNomClient.Size = new System.Drawing.Size(206, 30);
-            this.txtNomClient.TabIndex = 1;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -336,14 +343,24 @@
             this.txtNumCommande.Size = new System.Drawing.Size(129, 30);
             this.txtNumCommande.TabIndex = 0;
             // 
-            // dataGridViewCommandes
+            // comboEtatCommande
             // 
-            this.dataGridViewCommandes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewCommandes.Location = new System.Drawing.Point(414, 303);
-            this.dataGridViewCommandes.Name = "dataGridViewCommandes";
-            this.dataGridViewCommandes.RowHeadersWidth = 51;
-            this.dataGridViewCommandes.Size = new System.Drawing.Size(10, 10);
-            this.dataGridViewCommandes.TabIndex = 28;
+            this.comboEtatCommande.Enabled = false;
+            this.comboEtatCommande.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboEtatCommande.FormattingEnabled = true;
+            this.comboEtatCommande.ItemHeight = 19;
+            this.comboEtatCommande.Items.AddRange(new object[] {
+            "Enregistrée",
+            "Vérification",
+            "Validée",
+            "Préparation",
+            "Livraison",
+            "Livrée",
+            "Incident"});
+            this.comboEtatCommande.Location = new System.Drawing.Point(363, 291);
+            this.comboEtatCommande.Name = "comboEtatCommande";
+            this.comboEtatCommande.Size = new System.Drawing.Size(193, 27);
+            this.comboEtatCommande.TabIndex = 5;
             // 
             // panelButton
             // 
@@ -517,6 +534,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "GestionCommandes";
             this.Text = "Dashboardcs";
+            this.Load += new System.EventHandler(this.GestionCommandes_Load);
             this.panelGestionUtil.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panelInfoUtil.ResumeLayout(false);
@@ -550,16 +568,16 @@
         private System.Windows.Forms.Panel panelInfoUtil;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox txtNomGarage;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtNomClient;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtNumCommande;
         private System.Windows.Forms.ComboBox comboEtatCommande;
         private System.Windows.Forms.DateTimePicker txtDateLivraison;
         private System.Windows.Forms.DateTimePicker txtDateCommande;
         private System.Windows.Forms.DataGridView dataGridViewCommandes;
+        private System.Windows.Forms.ComboBox comboBoxGarage;
+        private System.Windows.Forms.ComboBox comboBoxNomClient;
     }
 }

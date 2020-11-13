@@ -23,8 +23,8 @@ namespace DesignModern
             dataGridViewCommandes.DataSource = db.commande.Select(c => new
             {
                 NumeroCmd = c.numCmd,
-                NomClient = c.client.nomC + " " + c.client.prenomC,
-                NumeroGarage = c.garage.nomG,
+                NomClient = c.client.nomC,
+                idGarage = c.garage.nomG,
                 DateCommande = c.dateCmd,
                 DateLivraison = c.dateLivraisonCmd,
                 Etat = c.etatCmd
@@ -34,8 +34,8 @@ namespace DesignModern
             dataGridViewCommandes.CurrentCell = dataGridViewCommandes.Rows[0].Cells[0];
 
             txtNumCommande.Text = dataGridViewCommandes.Rows[0].Cells[0].Value.ToString();
-            txtNomClient.Text = dataGridViewCommandes.Rows[0].Cells[1].Value.ToString();
-            txtNomGarage.Text = dataGridViewCommandes.Rows[0].Cells[2].Value.ToString();
+            comboBoxNomClient.Text = dataGridViewCommandes.Rows[0].Cells[1].Value.ToString();
+            comboBoxGarage.Text = dataGridViewCommandes.Rows[0].Cells[2].Value.ToString();
             txtDateCommande.Value = DateTime.Parse(dataGridViewCommandes.Rows[0].Cells[3].Value.ToString());
             txtDateLivraison.Value = DateTime.Parse(dataGridViewCommandes.Rows[0].Cells[4].Value.ToString());
             comboEtatCommande.Text = dataGridViewCommandes.Rows[0].Cells[5].Value.ToString();
@@ -48,20 +48,20 @@ namespace DesignModern
             {
                 //Vérouillage
                 txtNumCommande.Enabled = false;
-                txtNomClient.Enabled = false;
+                comboBoxNomClient.Enabled = false;
                 txtDateCommande.Enabled = false;
                 txtDateLivraison.Enabled = false;
-                txtNomGarage.Enabled = false;
+                comboBoxGarage.Enabled = false;
                 comboEtatCommande.Enabled = false;
             }
             else
             {
                 //Déverouillage
                 txtNumCommande.Enabled = true;
-                txtNomClient.Enabled = true;
+                comboBoxNomClient.Enabled = true;
                 txtDateCommande.Enabled = true;
                 txtDateLivraison.Enabled = true;
-                txtNomGarage.Enabled = true;
+                comboBoxGarage.Enabled = true;
                 comboEtatCommande.Enabled = true;
             }
         }
@@ -81,29 +81,29 @@ namespace DesignModern
                 errorProviderErreur.SetError(txtNumCommande, "");
             }
 
-            if (txtNomClient.Text.Trim() == "")
+            if (comboBoxNomClient.Text.Trim() == "")
             {
-                errorProviderErreur.SetError(txtNomClient, "Veuillez indiquer le numéro de commande");
+                errorProviderErreur.SetError(comboBoxNomClient, "Veuillez indiquer le nom du client");
                 verification = false;
             }
             else
             {
-                errorProviderErreur.SetError(txtNomClient, "");
+                errorProviderErreur.SetError(comboBoxNomClient, "");
             }
 
-            if (txtNomGarage.Text.Trim() == "")
+            if (comboBoxGarage.Text.Trim() == "")
             {
-                errorProviderErreur.SetError(txtNomGarage, "Veuillez indiquer le numéro de commande");
+                errorProviderErreur.SetError(comboBoxGarage, "Veuillez indiquer le numéro de commande");
                 verification = false;
             }
             else
             {
-                errorProviderErreur.SetError(txtNomGarage, "");
+                errorProviderErreur.SetError(comboBoxGarage, "");
             }
 
             if (comboEtatCommande.Text.Trim() == "")
             {
-                errorProviderErreur.SetError(comboEtatCommande, "Veuillez indiquer le numéro de commande");
+                errorProviderErreur.SetError(comboEtatCommande, "Veuillez indiquer l'état de commande");
                 verification = false;
             }
             else
@@ -117,14 +117,13 @@ namespace DesignModern
         //méthode de débug. vide les champs de texte
         private void remiseAZero()
         {
-            txtNomGarage.Clear();
-            txtNomClient.Clear();
+            //txtNomGarage.Clear();
             txtNumCommande.Clear();
             txtNumCommande.Enabled = false;
-            txtNomClient.Enabled = false;
+            comboBoxNomClient.Enabled = false;
             txtDateCommande.Enabled = false;
             txtDateLivraison.Enabled = false;
-            txtNomGarage.Enabled = false;
+            comboBoxGarage.Enabled = false;
             comboEtatCommande.Enabled = false;
         }
 
@@ -142,8 +141,8 @@ namespace DesignModern
         private void AffecterValeurs(int ligne)
         {
             txtNumCommande.Text = dataGridViewCommandes.Rows[ligne].Cells[0].Value.ToString();
-            txtNomClient.Text = dataGridViewCommandes.Rows[ligne].Cells[1].Value.ToString();
-            txtNomGarage.Text = dataGridViewCommandes.Rows[ligne].Cells[2].Value.ToString();
+            comboBoxNomClient.Text = dataGridViewCommandes.Rows[ligne].Cells[1].Value.ToString();
+            comboBoxGarage.Text = dataGridViewCommandes.Rows[ligne].Cells[2].Value.ToString();
             txtDateCommande.Value = DateTime.Parse(dataGridViewCommandes.Rows[ligne].Cells[3].Value.ToString());
             txtDateLivraison.Value = DateTime.Parse(dataGridViewCommandes.Rows[ligne].Cells[4].Value.ToString());
             comboEtatCommande.Text = dataGridViewCommandes.Rows[ligne].Cells[5].Value.ToString();
@@ -246,19 +245,19 @@ namespace DesignModern
 
         private void buttonValidModif_Click(object sender, EventArgs e)
         {
+            MessageBox.Show(comboBoxGarage.SelectedValue.ToString());
             if (Verif() == false)
                 MessageBox.Show("Veuillez compléter toutes les zones de saisies");
             
             else
             {
                 int numCmd = int.Parse(txtNumCommande.Text);
-                int numC = int.Parse(txtNomClient.Text);
-                int idGarage = int.Parse(txtNomGarage.Text);
+                //int idGarage = int.Parse(txtNomGarage.Text);
                 try
                 {
                     commande uneCommande = db.commande.First(r => r.numCmd == numCmd);
-                    uneCommande.numC = numC;
-                    uneCommande.idGarage = idGarage;
+                    uneCommande.numC = int.Parse(comboBoxNomClient.SelectedValue.ToString());
+                    uneCommande.idGarage = int.Parse(comboBoxGarage.SelectedValue.ToString()) ;
                     uneCommande.dateCmd = txtDateCommande.Value;
                     uneCommande.dateLivraisonCmd = txtDateLivraison.Value;
                     uneCommande.etatCmd = comboEtatCommande.Text;
@@ -283,7 +282,7 @@ namespace DesignModern
 
         private void buttonSupprimer_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Etes-vous sûr de vouloir supprimer la commande de " + txtNomClient.Text + " ?", "CONFIRMATION", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+            if (MessageBox.Show("Etes-vous sûr de vouloir supprimer la commande de " + comboBoxNomClient.Text + " ?", "CONFIRMATION", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
             { }
 
             else
@@ -303,6 +302,17 @@ namespace DesignModern
                     MessageBox.Show(ex.Message);
                 }
             }
+        }
+
+        private void GestionCommandes_Load(object sender, EventArgs e)
+        {
+            comboBoxGarage.DataSource = db.garage.ToList();
+            comboBoxGarage.DisplayMember = "nomG";
+            comboBoxGarage.ValueMember = "idGarage";
+
+            comboBoxNomClient.DataSource = db.client.ToList();
+            comboBoxNomClient.DisplayMember = "nomC";
+            comboBoxNomClient.ValueMember = "numC";
         }
     }
 }

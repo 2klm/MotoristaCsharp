@@ -44,7 +44,7 @@ namespace DesignModern
             txtNumGarage.Text = dataGridViewCommandes.Rows[0].Cells[2].Value.ToString();
             txtDateCommande.Value = DateTime.Parse(dataGridViewCommandes.Rows[0].Cells[3].Value.ToString());
             txtDateLivraison.Value = DateTime.Parse(dataGridViewCommandes.Rows[0].Cells[4].Value.ToString());
-            comboEtatCommande.Text = dataGridViewCommandes.Rows[0].Cells[5].Value.ToString();
+            //comboEtatCommande.Text = dataGridViewCommandes.Rows[0].Cells[5].Value.ToString();
         }
 
         //verrouille ou deverouille les champs de texte
@@ -57,7 +57,7 @@ namespace DesignModern
                 txtDateCommande.Enabled = false;
                 txtDateLivraison.Enabled = false;
                 txtNumGarage.Enabled = false;
-                comboEtatCommande.Enabled = false;
+               // comboEtatCommande.Enabled = false;
             }
             else
             {
@@ -66,7 +66,7 @@ namespace DesignModern
                 txtDateCommande.Enabled = true;
                 txtDateLivraison.Enabled = true;
                 txtNumGarage.Enabled = true;
-                comboEtatCommande.Enabled = true;
+               // comboEtatCommande.Enabled = true;
             }
         }
 
@@ -105,7 +105,7 @@ namespace DesignModern
                 errorProviderErreur.SetError(txtNumGarage, "");
             }
 
-            if (comboEtatCommande.Text.Trim() == "")
+           /* if (comboEtatCommande.Text.Trim() == "")
             {
                 errorProviderErreur.SetError(comboEtatCommande, "Veuillez indiquer le numéro de commande");
                 verification = false;
@@ -113,7 +113,7 @@ namespace DesignModern
             else
             {
                 errorProviderErreur.SetError(comboEtatCommande, "");
-            }
+            }*/
 
             return (verification);
         }
@@ -129,7 +129,7 @@ namespace DesignModern
             txtDateCommande.Enabled = false;
             txtDateLivraison.Enabled = false;
             txtNumGarage.Enabled = false;
-            comboEtatCommande.Enabled = false;
+            //comboEtatCommande.Enabled = false;
         }
 
         private void buttonAnnuler_Click(object sender, EventArgs e)
@@ -153,7 +153,7 @@ namespace DesignModern
             txtNumGarage.Text = dataGridViewCommandes.Rows[ligne].Cells[2].Value.ToString();
             txtDateCommande.Value = DateTime.Parse(dataGridViewCommandes.Rows[ligne].Cells[3].Value.ToString());
             txtDateLivraison.Value = DateTime.Parse(dataGridViewCommandes.Rows[ligne].Cells[4].Value.ToString());
-            comboEtatCommande.Text = dataGridViewCommandes.Rows[ligne].Cells[5].Value.ToString();
+          //  comboEtatCommande.Text = dataGridViewCommandes.Rows[ligne].Cells[5].Value.ToString();
 
             dataGridViewCommandes.Rows[ligne].Selected = true;
             dataGridViewCommandes.CurrentCell = dataGridViewCommandes.Rows[ligne].Cells[0];
@@ -268,7 +268,7 @@ namespace DesignModern
                     uneCommande.idGarage = idGarage;
                     uneCommande.dateCmd = txtDateCommande.Value;
                     uneCommande.dateLivraisonCmd = txtDateLivraison.Value;
-                    uneCommande.etatCmd = comboEtatCommande.Text;
+                    //uneCommande.etatCmd = comboEtatCommande.Text;
                     db.SaveChanges();
                     chargerDataGrind();
 
