@@ -7,6 +7,8 @@ namespace DesignModern
 {
     public partial class GestionUtil : Form
     {
+        int z = 0;
+
         private motoristaDbContext db;
         public GestionUtil()
         {
@@ -282,13 +284,12 @@ namespace DesignModern
         private void GestionUtil_Load(object sender, EventArgs e)
         {
             chargerDataGrind();
-            comboBoxTypesClient.DataSource = db.type_de_client.ToList();
-            comboBoxTypesClient.DisplayMember = "typeClient";
-            comboBoxTypesClient.ValueMember = "numTypeClient";
+            chargerComboBox();
         }
 
         private void buttonAjouterUtil_Click(object sender, EventArgs e)
         {
+            z = 1;
             remiseAZero();
             deverouillerVerrouiller();
             buttonModifUtil.Enabled = false;
@@ -361,7 +362,13 @@ namespace DesignModern
             buttonModifUtil.Enabled = true;
             buttonSupprimerUtil.Enabled = true;
             buttonValidModif.Visible = false;
-            AffecterValeurs(0);
+
+            if (z == 1)
+            {
+                AffecterValeurs(0);
+                z = 0;
+                chargerComboBox();
+            }
         }
         private void buttonModifUtil_Click(object sender, EventArgs e)
         {
@@ -485,6 +492,13 @@ namespace DesignModern
         {
             AffecterValeurs(dataGridViewUtil.RowCount - 1);
             Verrou();
+        }
+
+        public void chargerComboBox()
+        {
+            comboBoxTypesClient.DataSource = db.type_de_client.ToList();
+            comboBoxTypesClient.DisplayMember = "typeClient";
+            comboBoxTypesClient.ValueMember = "numTypeClient";
         }
     }
 }

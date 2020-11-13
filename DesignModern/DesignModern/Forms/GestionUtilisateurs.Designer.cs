@@ -231,6 +231,7 @@
             // 
             this.comboBoxTypesClient.BackColor = System.Drawing.Color.Gainsboro;
             this.comboBoxTypesClient.Enabled = false;
+            this.comboBoxTypesClient.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxTypesClient.FormattingEnabled = true;
             this.comboBoxTypesClient.ItemHeight = 16;
             this.comboBoxTypesClient.Items.AddRange(new object[] {

@@ -7,12 +7,13 @@ namespace DesignModern
 {
     public partial class GestionVehicules : Form
     {
+        int z = 0;
         private motoristaDbContext db;
         public GestionVehicules()
         {
             InitializeComponent();
             db = new motoristaDbContext();
-            //chargerDataGrid();
+            chargerDataGrid();
         }
 
         private void chargerDataGrid()
@@ -260,21 +261,12 @@ namespace DesignModern
         private void GestionVehicules_Load(object sender, System.EventArgs e)
         {
             chargerDataGrid();
-            comboBoxTypesVehicules.DataSource = db.type_de_voiture.ToList();
-            comboBoxTypesVehicules.DisplayMember = "etatTypeV";
-            comboBoxTypesVehicules.ValueMember = "idTypeV";
-
-            comboBoxTypesGarage.DataSource = db.garage.ToList();
-            comboBoxTypesGarage.DisplayMember = "nomG";
-            comboBoxTypesGarage.ValueMember = "idGarage";
-
-            comboBoxModele.DataSource = db.modele.ToList();
-            comboBoxModele.DisplayMember = "nomModele";
-            comboBoxModele.ValueMember = "idModele";
+            chargerComboBox();
         }
 
         private void buttonAjouter_Click(object sender, System.EventArgs e)
         {
+            z = 1;
             remiseAZero();
             deverouillerVerrouiller();
             buttonAjouter.Enabled = false;
@@ -345,7 +337,14 @@ namespace DesignModern
             buttonModif.Enabled = true;
             buttonSupprimer.Enabled = true;
             buttonValidModif.Visible = false;
-            AffecterValeurs(0);
+            
+            if (z == 1)
+            {
+               AffecterValeurs(0);
+                z = 0;
+                chargerComboBox();
+            }
+
         }
 
         private void buttonModif_Click(object sender, EventArgs e)
@@ -466,6 +465,20 @@ namespace DesignModern
         {
             AffecterValeurs(dataGridViewVehicule.RowCount - 1);
             Verrou();
+        }
+        public void chargerComboBox()
+        {
+            comboBoxTypesVehicules.DataSource = db.type_de_voiture.ToList();
+            comboBoxTypesVehicules.DisplayMember = "etatTypeV";
+            comboBoxTypesVehicules.ValueMember = "idTypeV";
+
+            comboBoxTypesGarage.DataSource = db.garage.ToList();
+            comboBoxTypesGarage.DisplayMember = "nomG";
+            comboBoxTypesGarage.ValueMember = "idGarage";
+
+            comboBoxModele.DataSource = db.modele.ToList();
+            comboBoxModele.DisplayMember = "nomModele";
+            comboBoxModele.ValueMember = "idModele";
         }
     }
 }
