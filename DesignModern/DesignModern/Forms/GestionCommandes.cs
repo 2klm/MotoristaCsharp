@@ -10,15 +10,16 @@ namespace DesignModern
         private motoristaDbContext db;
         public GestionCommandes()
         {
+            //au démarrage
             InitializeComponent();
-            db = new motoristaDbContext();
+            db = new motoristaDbContext(); //on instancie un objet de "type" base de données
             chargerDataGrind();
         }
         
         //remplir le data grid avec les données de la BDD
         private void chargerDataGrind()
         {
-            dataGridViewCommandes.DataSource = db.commande.ToList();
+            dataGridViewCommandes.DataSource = db.commande.ToList(); 
 
             dataGridViewCommandes.DataSource = db.commande.Select(c => new
             {
@@ -30,9 +31,11 @@ namespace DesignModern
                 Etat = c.etatCmd
             }).ToList();
 
+            //on place le curseur sur la première ligne du data grid invisible
             dataGridViewCommandes.Rows[0].Selected = true;
             dataGridViewCommandes.CurrentCell = dataGridViewCommandes.Rows[0].Cells[0];
 
+            //affecter les valeurs aux champs de texte
             txtNumCommande.Text = dataGridViewCommandes.Rows[0].Cells[0].Value.ToString();
             comboBoxNomClient.Text = dataGridViewCommandes.Rows[0].Cells[1].Value.ToString();
             comboBoxGarage.Text = dataGridViewCommandes.Rows[0].Cells[2].Value.ToString();
@@ -44,7 +47,7 @@ namespace DesignModern
         //verrouille ou deverouille les champs de texte
         private void deverouillerVerrouiller()
         {
-            if (txtNumCommande.Enabled == true)
+            if (comboEtatCommande.Enabled == true)
             {
                 //Vérouillage
                 txtNumCommande.Enabled = false;
@@ -68,6 +71,7 @@ namespace DesignModern
         private bool Verif()
         {
             bool verification = true;
+            //au début la vérification est considérée comme "ok", mais changera d'état si on rentre dans un if
 
             if (txtNumCommande.Text.Trim() == "")
             {
@@ -109,7 +113,7 @@ namespace DesignModern
                 errorProviderErreur.SetError(comboEtatCommande, "");
             }
 
-            return (verification);
+            return (verification); //retourne false si un des champs n'est pas correctement rempli
         }
 
         //méthode de débug. vide les champs de texte
@@ -124,6 +128,7 @@ namespace DesignModern
             comboEtatCommande.Enabled = false;
         }
 
+        //clic bouton annuler
         private void buttonAnnuler_Click(object sender, EventArgs e)
         {
             buttonModif.Visible = true;
@@ -197,12 +202,14 @@ namespace DesignModern
             }
         }
 
+        //clic bouton suivant
         private void buttonSuivant_Click(object sender, EventArgs e)
         {
             AffecterValeurs(dataGridViewCommandes.CurrentRow.Index + 1);
             Verrou();
         }
-
+        
+        //clic bouton précédent
         private void buttonPrecedent_Click(object sender, EventArgs e)
         {
             if (dataGridViewCommandes.CurrentRow.Index != 0)
@@ -212,18 +219,21 @@ namespace DesignModern
             Verrou();
         }
 
+        //clic bouton debut
         private void buttonDebut_Click(object sender, EventArgs e)
         {
             AffecterValeurs(0);
             Verrou();
         }
 
+        //clic bouton fin
         private void buttonFin_Click(object sender, EventArgs e)
         {
             AffecterValeurs(dataGridViewCommandes.RowCount - 1);
             Verrou();
         }
 
+        //clic sur le bouton "modifier"
         private void buttonModif_Click(object sender, EventArgs e)
         {
             buttonSuivant.Enabled = false;
@@ -237,16 +247,16 @@ namespace DesignModern
             deverouillerVerrouiller();
         }
 
+        //validation des modifications
         private void buttonValidModif_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(comboBoxGarage.SelectedValue.ToString());
+            //si tous les champs ne sont pas correctement remplis, on affiche un message, sinon on envoie les modifications à la base de données
             if (Verif() == false)
                 MessageBox.Show("Veuillez compléter toutes les zones de saisies");
             
             else
             {
                 int numCmd = int.Parse(txtNumCommande.Text);
-                //int idGarage = int.Parse(txtNomGarage.Text);
                 try
                 {
                     commande uneCommande = db.commande.First(r => r.numCmd == numCmd);
@@ -260,11 +270,12 @@ namespace DesignModern
 
                     MessageBox.Show("Modification effectuée");
                 }
-                catch (Exception ex)
+                catch (Exception ex) // si la modification echoue on affiche le message d'erreur à l'utilisateur
                 {
                     MessageBox.Show(ex.Message);
                 }
 
+                //on rétablit l'était initial des boutons supprimer, modifier etc..., on réaffiche les valeurs des champs et déverouille le selecteur
                 buttonModif.Visible = true;
                 buttonSupprimer.Visible = true;
                 buttonValidModif.Visible = false;
@@ -276,12 +287,13 @@ namespace DesignModern
 
         private void buttonSupprimer_Click(object sender, EventArgs e)
         {
+            //demande de confirmation à l'utilisateur
             if (MessageBox.Show("Etes-vous sûr de vouloir supprimer la commande de " + comboBoxNomClient.Text + " ?", "CONFIRMATION", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
             { }
 
             else
             {
-                try
+                try //on vérifie que la modification est possible au niveau de la BDD
                 {
                     commande uneCommande = db.commande.First(c => c.numCmd.ToString() == txtNumCommande.Text);
                     db.commande.Remove(uneCommande);
@@ -291,13 +303,14 @@ namespace DesignModern
 
                     MessageBox.Show("Suppression effectuée");
                 }
-                catch (Exception ex)
+                catch (Exception ex) // si la modification echoue on affiche le message d'erreur à l'utilisateur
                 {
                     MessageBox.Show(ex.Message);
                 }
             }
         }
 
+        //on charge les comboBox au moment ou le formulaire s'ouvre
         private void GestionCommandes_Load(object sender, EventArgs e)
         {
             comboBoxGarage.DataSource = db.garage.ToList();

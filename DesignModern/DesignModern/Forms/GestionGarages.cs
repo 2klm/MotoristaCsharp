@@ -24,118 +24,129 @@ namespace DesignModern
         //remplir le data grid avec les données de la BDD
         private void chargerDataGrind()
         {
-            dataGridViewCommandes.DataSource = db.commande.ToList();
+            dataGridViewGarages.DataSource = db.garage.ToList();
 
-            dataGridViewCommandes.DataSource = db.commande.Select(c => new
+            dataGridViewGarages.DataSource = db.garage.Select(c => new
             {
-                NumeroCmd = c.numCmd,
-                NumeroClient = c.numC,
-                NumeroGarage = c.idGarage,
-                DateCommande = c.dateCmd,
-                DateLivraison = c.dateLivraisonCmd,
-                Etait = c.etatCmd
+                idGarage = c.idGarage,
+                idType = c.type_de_garage.libelleType,
+                nom = c.nomG,
+                adresse = c.adresseG,
+                codePostal = c.cpG,
+                telephone = c.telG,
+                email = c.emailG
             }).ToList();
 
-            dataGridViewCommandes.Rows[0].Selected = true;
-            dataGridViewCommandes.CurrentCell = dataGridViewCommandes.Rows[0].Cells[0];
+            dataGridViewGarages.Rows[0].Selected = true;
+            dataGridViewGarages.CurrentCell = dataGridViewGarages.Rows[0].Cells[0];
 
-            txtNumCommande.Text = dataGridViewCommandes.Rows[0].Cells[0].Value.ToString();
-            txtNumClient.Text = dataGridViewCommandes.Rows[0].Cells[1].Value.ToString();
-            txtNumGarage.Text = dataGridViewCommandes.Rows[0].Cells[2].Value.ToString();
-            txtDateCommande.Value = DateTime.Parse(dataGridViewCommandes.Rows[0].Cells[3].Value.ToString());
-            txtDateLivraison.Value = DateTime.Parse(dataGridViewCommandes.Rows[0].Cells[4].Value.ToString());
-            //comboEtatCommande.Text = dataGridViewCommandes.Rows[0].Cells[5].Value.ToString();
+            txtNumGarage.Text = dataGridViewGarages.Rows[0].Cells[0].Value.ToString();
+            comboTypeGarage.Text = dataGridViewGarages.Rows[0].Cells[1].Value.ToString();
+            txtNomGarage.Text = dataGridViewGarages.Rows[0].Cells[2].Value.ToString();
+            txtAdresse.Text = dataGridViewGarages.Rows[0].Cells[3].Value.ToString();
+            txtCodePostal.Text = dataGridViewGarages.Rows[0].Cells[4].Value.ToString();
+            txtTelephone.Text = dataGridViewGarages.Rows[0].Cells[5].Value.ToString();
+            txtEmail.Text = dataGridViewGarages.Rows[0].Cells[6].Value.ToString();
         }
 
         //verrouille ou deverouille les champs de texte
         private void deverouillerVerrouiller()
         {
-            if (txtNumCommande.Enabled == true)
+            if (txtAdresse.Enabled == true)
             {
                 //Vérouillage
-                txtNumClient.Enabled = false;
-                txtDateCommande.Enabled = false;
-                txtDateLivraison.Enabled = false;
-                txtNumGarage.Enabled = false;
-               // comboEtatCommande.Enabled = false;
+                txtCodePostal.Enabled = false;
+                txtAdresse.Enabled = false;
+                txtEmail.Enabled = false;
+                txtNomGarage.Enabled = false;
+                txtTelephone.Enabled = false;
+                comboTypeGarage.Enabled = false;
             }
             else
             {
                 //Déverouillage
-                txtNumClient.Enabled = true;
-                txtDateCommande.Enabled = true;
-                txtDateLivraison.Enabled = true;
-                txtNumGarage.Enabled = true;
-               // comboEtatCommande.Enabled = true;
-            }
+                txtCodePostal.Enabled = true;
+                txtAdresse.Enabled = true;
+                txtEmail.Enabled = true;
+                txtNomGarage.Enabled = true;
+                txtTelephone.Enabled = true;
+                comboTypeGarage.Enabled = true;
+            }     
         }
 
         //vérifie que les champs sont correctement remplis avant l'envoi à la base de données
         private bool Verif()
         {
             bool verification = true;
-
-            if (txtNumCommande.Text.Trim() == "")
+            
+            if (txtCodePostal.Text.Trim() == "")
             {
-                errorProviderErreur.SetError(txtNumCommande, "Veuillez indiquer le numéro de commande");
+                errorProviderErreur.SetError(txtCodePostal, "Veuillez indiquer le code postal");
                 verification = false;
             }
             else
             {
-                errorProviderErreur.SetError(txtNumCommande, "");
+                errorProviderErreur.SetError(txtCodePostal, "");
             }
 
-            if (txtNumClient.Text.Trim() == "")
+            if (txtAdresse.Text.Trim() == "")
             {
-                errorProviderErreur.SetError(txtNumClient, "Veuillez indiquer le numéro de commande");
+                errorProviderErreur.SetError(txtAdresse, "Veuillez indiquer l'adresse du garage");
                 verification = false;
             }
             else
             {
-                errorProviderErreur.SetError(txtNumClient, "");
+                errorProviderErreur.SetError(txtAdresse, "");
             }
 
-            if (txtNumGarage.Text.Trim() == "")
+            if (txtTelephone.Text.Trim() == "")
             {
-                errorProviderErreur.SetError(txtNumGarage, "Veuillez indiquer le numéro de commande");
+                errorProviderErreur.SetError(txtTelephone, "Veuillez indiquer le numéro de télphone");
                 verification = false;
             }
             else
             {
-                errorProviderErreur.SetError(txtNumGarage, "");
+                errorProviderErreur.SetError(txtTelephone, "");
             }
 
-           /* if (comboEtatCommande.Text.Trim() == "")
+            if (txtEmail.Text.Trim() == "")
             {
-                errorProviderErreur.SetError(comboEtatCommande, "Veuillez indiquer le numéro de commande");
+                errorProviderErreur.SetError(txtEmail, "Veuillez indiquer le numéro de téléphone");
                 verification = false;
             }
             else
             {
-                errorProviderErreur.SetError(comboEtatCommande, "");
-            }*/
+                errorProviderErreur.SetError(txtEmail, "");
+            }
 
+            if (txtNomGarage.Text.Trim() == "")
+            {
+                errorProviderErreur.SetError(txtNomGarage, "Veuillez indiquer le nom du garage");
+                verification = false;
+            }
+            else
+            {
+                errorProviderErreur.SetError(txtNomGarage, "");
+            }
             return (verification);
         }
 
-        //méthode de débug. vide les champs de texte
+        //vide tous les champs de texte, avant une saisie par exemple
         private void remiseAZero()
         {
-            txtNumGarage.Clear();
-            txtNumClient.Clear();
-            txtNumCommande.Clear();
-            txtNumCommande.Enabled = false;
-            txtNumClient.Enabled = false;
-            txtDateCommande.Enabled = false;
-            txtDateLivraison.Enabled = false;
-            txtNumGarage.Enabled = false;
-            //comboEtatCommande.Enabled = false;
+            txtCodePostal.Text = "";
+            txtAdresse.Text = "";
+            txtEmail.Text = "";
+            txtNomGarage.Text = "";
+            txtTelephone.Text = "";
+            comboTypeGarage.Text = "";
         }
 
         private void buttonAnnuler_Click(object sender, EventArgs e)
         {
             buttonModif.Visible = true;
             buttonSupprimer.Visible = true;
+            buttonAjouterUtil.Visible = true;
             buttonValidModif.Visible = false;
             buttonAnnuler.Visible = false;
             deverouillerVerrouiller();
@@ -148,24 +159,23 @@ namespace DesignModern
         //rempli les champs de texte avec les valeurs en fonction de la position du selecteur dans le data grid
         private void AffecterValeurs(int ligne)
         {
-            txtNumCommande.Text = dataGridViewCommandes.Rows[ligne].Cells[0].Value.ToString();
-            txtNumClient.Text = dataGridViewCommandes.Rows[ligne].Cells[1].Value.ToString();
-            txtNumGarage.Text = dataGridViewCommandes.Rows[ligne].Cells[2].Value.ToString();
-            txtDateCommande.Value = DateTime.Parse(dataGridViewCommandes.Rows[ligne].Cells[3].Value.ToString());
-            txtDateLivraison.Value = DateTime.Parse(dataGridViewCommandes.Rows[ligne].Cells[4].Value.ToString());
-          //  comboEtatCommande.Text = dataGridViewCommandes.Rows[ligne].Cells[5].Value.ToString();
+            txtNumGarage.Text = dataGridViewGarages.Rows[ligne].Cells[0].Value.ToString();
+            comboTypeGarage.Text = dataGridViewGarages.Rows[ligne].Cells[1].Value.ToString();
+            txtNomGarage.Text = dataGridViewGarages.Rows[ligne].Cells[2].Value.ToString();
+            txtAdresse.Text = dataGridViewGarages.Rows[ligne].Cells[3].Value.ToString();
+            txtCodePostal.Text = dataGridViewGarages.Rows[ligne].Cells[4].Value.ToString();
+            txtTelephone.Text = dataGridViewGarages.Rows[ligne].Cells[5].Value.ToString();
+            txtEmail.Text = dataGridViewGarages.Rows[ligne].Cells[6].Value.ToString();
 
-            dataGridViewCommandes.Rows[ligne].Selected = true;
-            dataGridViewCommandes.CurrentCell = dataGridViewCommandes.Rows[ligne].Cells[0];
+            dataGridViewGarages.Rows[ligne].Selected = true;
+            dataGridViewGarages.CurrentCell = dataGridViewGarages.Rows[ligne].Cells[0];
         }
 
         //verrouiller les boutons Suivant/précédent en fonction de la position du selecteur
         private void Verrou()
         {
-            //MessageBox.Show("Nb"+dataGridViewRevue.RowCount.ToString());
-            //MessageBox.Show("Index" + dataGridViewRevue.CurrentRow.Index);
 
-            if (dataGridViewCommandes.RowCount == 0)
+            if (dataGridViewGarages.RowCount == 0)
             {
                 buttonSuivant.Enabled = false;
                 buttonPrecedent.Enabled = false;
@@ -174,7 +184,7 @@ namespace DesignModern
             }
             else
             {
-                if ((dataGridViewCommandes.CurrentRow.Index == 0) && (dataGridViewCommandes.CurrentRow.Index == dataGridViewCommandes.RowCount - 1))
+                if ((dataGridViewGarages.CurrentRow.Index == 0) && (dataGridViewGarages.CurrentRow.Index == dataGridViewGarages.RowCount - 1))
                 {
                     buttonSuivant.Enabled = false;
                     buttonPrecedent.Enabled = false;
@@ -183,7 +193,7 @@ namespace DesignModern
                 }
                 else
                 {
-                    if (dataGridViewCommandes.CurrentRow.Index == 0)
+                    if (dataGridViewGarages.CurrentRow.Index == 0)
                     {
                         buttonSuivant.Enabled = true;
                         buttonPrecedent.Enabled = false;
@@ -192,7 +202,7 @@ namespace DesignModern
                     }
                     else
                     {
-                        if (dataGridViewCommandes.CurrentRow.Index == dataGridViewCommandes.RowCount - 1)
+                        if (dataGridViewGarages.CurrentRow.Index == dataGridViewGarages.RowCount - 1)
                         {
                             buttonSuivant.Enabled = false;
                             buttonPrecedent.Enabled = true;
@@ -213,15 +223,15 @@ namespace DesignModern
 
         private void buttonSuivant_Click(object sender, EventArgs e)
         {
-            AffecterValeurs(dataGridViewCommandes.CurrentRow.Index + 1);
+            AffecterValeurs(dataGridViewGarages.CurrentRow.Index + 1);
             Verrou();
         }
 
         private void buttonPrecedent_Click(object sender, EventArgs e)
         {
-            if (dataGridViewCommandes.CurrentRow.Index != 0)
+            if (dataGridViewGarages.CurrentRow.Index != 0)
             {
-                AffecterValeurs(dataGridViewCommandes.CurrentRow.Index - 1);
+                AffecterValeurs(dataGridViewGarages.CurrentRow.Index - 1);
             }
             Verrou();
         }
@@ -234,7 +244,7 @@ namespace DesignModern
 
         private void buttonFin_Click(object sender, EventArgs e)
         {
-            AffecterValeurs(dataGridViewCommandes.RowCount - 1);
+            AffecterValeurs(dataGridViewGarages.RowCount - 1);
             Verrou();
         }
 
@@ -258,17 +268,17 @@ namespace DesignModern
             
             else
             {
-                int numCmd = int.Parse(txtNumCommande.Text);
-                int numC = int.Parse(txtNumClient.Text);
-                int idGarage = int.Parse(txtNumGarage.Text);
+                //int numCmd = int.Parse(txtNumCommande.Text);
+                //int numC = int.Parse(txtNumClient.Text);
+                //int idGarage = int.Parse(txtNumGarage.Text);
                 try
                 {
-                    commande uneCommande = db.commande.First(r => r.numCmd == numCmd);
+                    /*commande uneCommande = db.commande.First(r => r.numCmd == numCmd);
                     uneCommande.numC = numC;
                     uneCommande.idGarage = idGarage;
                     uneCommande.dateCmd = txtDateCommande.Value;
                     uneCommande.dateLivraisonCmd = txtDateLivraison.Value;
-                    //uneCommande.etatCmd = comboEtatCommande.Text;
+                    uneCommande.etatCmd = comboEtatCommande.Text;*/
                     db.SaveChanges();
                     chargerDataGrind();
 
@@ -286,6 +296,13 @@ namespace DesignModern
                 Verrou();
                 deverouillerVerrouiller();
             }
+        }
+
+        private void GestionGarages_Load(object sender, EventArgs e)
+        {
+            comboTypeGarage.DataSource = db.type_de_garage.ToList();
+            comboTypeGarage.DisplayMember = "libelleType";
+            comboTypeGarage.ValueMember = "idType";
         }
     }
 }

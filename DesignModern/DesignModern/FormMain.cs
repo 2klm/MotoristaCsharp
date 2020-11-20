@@ -124,7 +124,7 @@ namespace DesignModern
         private void buttonMarketing_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color5);
-            //OpenChildForm(new Marketing());
+            OpenChildForm(new GestionGarages());
         }
 
         private void buttonSetting_Click(object sender, EventArgs e)

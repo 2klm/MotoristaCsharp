@@ -36,18 +36,23 @@
             this.buttonPrecedent = new FontAwesome.Sharp.IconButton();
             this.buttonSuivant = new FontAwesome.Sharp.IconButton();
             this.panelInfoUtil = new System.Windows.Forms.Panel();
-            this.txtDateLivraison = new System.Windows.Forms.DateTimePicker();
-            this.txtDateCommande = new System.Windows.Forms.DateTimePicker();
-            this.label10 = new System.Windows.Forms.Label();
+            this.comboTypeGarage = new System.Windows.Forms.ComboBox();
             this.txtNumGarage = new System.Windows.Forms.TextBox();
+            this.txtNomGarage = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtNumClient = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtNumCommande = new System.Windows.Forms.TextBox();
-            this.dataGridViewCommandes = new System.Windows.Forms.DataGridView();
+            this.txtEmail = new System.Windows.Forms.TextBox();
+            this.txtTelephone = new System.Windows.Forms.TextBox();
+            this.txtAdresse = new System.Windows.Forms.TextBox();
+            this.txtCodePostal = new System.Windows.Forms.TextBox();
+            this.dataGridViewGarages = new System.Windows.Forms.DataGridView();
             this.panelButton = new System.Windows.Forms.Panel();
+            this.buttonAjouterUtil = new FontAwesome.Sharp.IconButton();
             this.buttonAnnuler = new FontAwesome.Sharp.IconButton();
             this.buttonValidModif = new FontAwesome.Sharp.IconButton();
             this.buttonSupprimer = new FontAwesome.Sharp.IconButton();
@@ -60,7 +65,7 @@
             this.panelGestionUtil.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panelInfoUtil.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCommandes)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewGarages)).BeginInit();
             this.panelButton.SuspendLayout();
             this.panelTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderErreur)).BeginInit();
@@ -181,140 +186,183 @@
             // panelInfoUtil
             // 
             this.panelInfoUtil.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.panelInfoUtil.Controls.Add(this.txtDateLivraison);
-            this.panelInfoUtil.Controls.Add(this.txtDateCommande);
-            this.panelInfoUtil.Controls.Add(this.label10);
+            this.panelInfoUtil.Controls.Add(this.comboTypeGarage);
             this.panelInfoUtil.Controls.Add(this.txtNumGarage);
+            this.panelInfoUtil.Controls.Add(this.txtNomGarage);
+            this.panelInfoUtil.Controls.Add(this.label7);
+            this.panelInfoUtil.Controls.Add(this.label6);
+            this.panelInfoUtil.Controls.Add(this.label5);
             this.panelInfoUtil.Controls.Add(this.label4);
             this.panelInfoUtil.Controls.Add(this.label3);
             this.panelInfoUtil.Controls.Add(this.label2);
-            this.panelInfoUtil.Controls.Add(this.txtNumClient);
             this.panelInfoUtil.Controls.Add(this.label1);
-            this.panelInfoUtil.Controls.Add(this.txtNumCommande);
-            this.panelInfoUtil.Controls.Add(this.dataGridViewCommandes);
+            this.panelInfoUtil.Controls.Add(this.txtEmail);
+            this.panelInfoUtil.Controls.Add(this.txtTelephone);
+            this.panelInfoUtil.Controls.Add(this.txtAdresse);
+            this.panelInfoUtil.Controls.Add(this.txtCodePostal);
+            this.panelInfoUtil.Controls.Add(this.dataGridViewGarages);
             this.panelInfoUtil.Location = new System.Drawing.Point(108, 127);
             this.panelInfoUtil.Name = "panelInfoUtil";
             this.panelInfoUtil.Size = new System.Drawing.Size(829, 409);
             this.panelInfoUtil.TabIndex = 4;
             // 
-            // txtDateLivraison
+            // comboTypeGarage
             // 
-            this.txtDateLivraison.Enabled = false;
-            this.txtDateLivraison.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.txtDateLivraison.Location = new System.Drawing.Point(560, 189);
-            this.txtDateLivraison.Name = "txtDateLivraison";
-            this.txtDateLivraison.Size = new System.Drawing.Size(130, 24);
-            this.txtDateLivraison.TabIndex = 23;
-            // 
-            // txtDateCommande
-            // 
-            this.txtDateCommande.Enabled = false;
-            this.txtDateCommande.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.txtDateCommande.Location = new System.Drawing.Point(236, 189);
-            this.txtDateCommande.Name = "txtDateCommande";
-            this.txtDateCommande.Size = new System.Drawing.Size(130, 24);
-            this.txtDateCommande.TabIndex = 22;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label10.Location = new System.Drawing.Point(441, 96);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(118, 19);
-            this.label10.TabIndex = 19;
-            this.label10.Text = "Numéro garage";
+            this.comboTypeGarage.Enabled = false;
+            this.comboTypeGarage.Font = new System.Drawing.Font("Century Gothic", 11.25F);
+            this.comboTypeGarage.FormattingEnabled = true;
+            this.comboTypeGarage.Items.AddRange(new object[] {
+            "Propriétaire",
+            "Partenaire"});
+            this.comboTypeGarage.Location = new System.Drawing.Point(602, 47);
+            this.comboTypeGarage.Name = "comboTypeGarage";
+            this.comboTypeGarage.Size = new System.Drawing.Size(146, 30);
+            this.comboTypeGarage.TabIndex = 39;
             // 
             // txtNumGarage
             // 
-            this.txtNumGarage.BackColor = System.Drawing.Color.Gainsboro;
-            this.txtNumGarage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtNumGarage.Enabled = false;
-            this.txtNumGarage.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNumGarage.Location = new System.Drawing.Point(560, 90);
+            this.txtNumGarage.Font = new System.Drawing.Font("Century Gothic", 11.25F);
+            this.txtNumGarage.Location = new System.Drawing.Point(222, 96);
             this.txtNumGarage.Name = "txtNumGarage";
-            this.txtNumGarage.Size = new System.Drawing.Size(46, 30);
-            this.txtNumGarage.TabIndex = 2;
+            this.txtNumGarage.Size = new System.Drawing.Size(26, 30);
+            this.txtNumGarage.TabIndex = 36;
+            // 
+            // txtNomGarage
+            // 
+            this.txtNomGarage.Enabled = false;
+            this.txtNomGarage.Font = new System.Drawing.Font("Century Gothic", 11.25F);
+            this.txtNomGarage.Location = new System.Drawing.Point(222, 47);
+            this.txtNomGarage.Name = "txtNomGarage";
+            this.txtNomGarage.Size = new System.Drawing.Size(180, 30);
+            this.txtNomGarage.TabIndex = 35;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.Gainsboro;
+            this.label7.Location = new System.Drawing.Point(504, 238);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(51, 19);
+            this.label7.TabIndex = 34;
+            this.label7.Text = "E-mail";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.Gainsboro;
+            this.label6.Location = new System.Drawing.Point(504, 190);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(81, 19);
+            this.label6.TabIndex = 33;
+            this.label6.Text = "Téléphone";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.Gainsboro;
+            this.label5.Location = new System.Drawing.Point(70, 238);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(94, 19);
+            this.label5.TabIndex = 32;
+            this.label5.Text = "Code postal";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label4.Location = new System.Drawing.Point(67, 189);
+            this.label4.Location = new System.Drawing.Point(70, 190);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(129, 19);
-            this.label4.TabIndex = 7;
-            this.label4.Text = "Date commande";
+            this.label4.Size = new System.Drawing.Size(115, 19);
+            this.label4.TabIndex = 31;
+            this.label4.Text = "Adresse garage";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label3.Location = new System.Drawing.Point(441, 189);
+            this.label3.Location = new System.Drawing.Point(70, 50);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(101, 19);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "Date livraison";
+            this.label3.Size = new System.Drawing.Size(96, 19);
+            this.label3.TabIndex = 30;
+            this.label3.Text = "Nom garage";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label2.Location = new System.Drawing.Point(67, 96);
+            this.label2.Location = new System.Drawing.Point(489, 53);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(105, 19);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Numéro client";
-            // 
-            // txtNumClient
-            // 
-            this.txtNumClient.BackColor = System.Drawing.Color.Gainsboro;
-            this.txtNumClient.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtNumClient.Enabled = false;
-            this.txtNumClient.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNumClient.Location = new System.Drawing.Point(236, 91);
-            this.txtNumClient.Name = "txtNumClient";
-            this.txtNumClient.Size = new System.Drawing.Size(70, 30);
-            this.txtNumClient.TabIndex = 1;
+            this.label2.Size = new System.Drawing.Size(96, 19);
+            this.label2.TabIndex = 29;
+            this.label2.Text = "Type garage";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label1.Location = new System.Drawing.Point(67, 47);
+            this.label1.Location = new System.Drawing.Point(70, 99);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(149, 19);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Numéro commande";
+            this.label1.Size = new System.Drawing.Size(118, 19);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "Numéro garage";
             // 
-            // txtNumCommande
+            // txtEmail
             // 
-            this.txtNumCommande.BackColor = System.Drawing.Color.Gainsboro;
-            this.txtNumCommande.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtNumCommande.Enabled = false;
-            this.txtNumCommande.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNumCommande.Location = new System.Drawing.Point(236, 42);
-            this.txtNumCommande.Name = "txtNumCommande";
-            this.txtNumCommande.Size = new System.Drawing.Size(129, 30);
-            this.txtNumCommande.TabIndex = 0;
+            this.txtEmail.Enabled = false;
+            this.txtEmail.Font = new System.Drawing.Font("Century Gothic", 11.25F);
+            this.txtEmail.Location = new System.Drawing.Point(602, 233);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(201, 30);
+            this.txtEmail.TabIndex = 38;
             // 
-            // dataGridViewCommandes
+            // txtTelephone
             // 
-            this.dataGridViewCommandes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewCommandes.Location = new System.Drawing.Point(464, 303);
-            this.dataGridViewCommandes.Name = "dataGridViewCommandes";
-            this.dataGridViewCommandes.RowHeadersWidth = 51;
-            this.dataGridViewCommandes.Size = new System.Drawing.Size(10, 10);
-            this.dataGridViewCommandes.TabIndex = 28;
+            this.txtTelephone.Enabled = false;
+            this.txtTelephone.Font = new System.Drawing.Font("Century Gothic", 11.25F);
+            this.txtTelephone.Location = new System.Drawing.Point(602, 187);
+            this.txtTelephone.Name = "txtTelephone";
+            this.txtTelephone.Size = new System.Drawing.Size(132, 30);
+            this.txtTelephone.TabIndex = 37;
+            // 
+            // txtAdresse
+            // 
+            this.txtAdresse.Enabled = false;
+            this.txtAdresse.Font = new System.Drawing.Font("Century Gothic", 11.25F);
+            this.txtAdresse.Location = new System.Drawing.Point(221, 187);
+            this.txtAdresse.Name = "txtAdresse";
+            this.txtAdresse.Size = new System.Drawing.Size(253, 30);
+            this.txtAdresse.TabIndex = 36;
+            // 
+            // txtCodePostal
+            // 
+            this.txtCodePostal.Enabled = false;
+            this.txtCodePostal.Font = new System.Drawing.Font("Century Gothic", 11.25F);
+            this.txtCodePostal.Location = new System.Drawing.Point(221, 235);
+            this.txtCodePostal.Name = "txtCodePostal";
+            this.txtCodePostal.Size = new System.Drawing.Size(78, 30);
+            this.txtCodePostal.TabIndex = 38;
+            // 
+            // dataGridViewGarages
+            // 
+            this.dataGridViewGarages.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewGarages.Location = new System.Drawing.Point(260, 199);
+            this.dataGridViewGarages.Name = "dataGridViewGarages";
+            this.dataGridViewGarages.RowHeadersWidth = 51;
+            this.dataGridViewGarages.Size = new System.Drawing.Size(10, 10);
+            this.dataGridViewGarages.TabIndex = 28;
             // 
             // panelButton
             // 
             this.panelButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelButton.Controls.Add(this.buttonAjouterUtil);
             this.panelButton.Controls.Add(this.buttonAnnuler);
             this.panelButton.Controls.Add(this.buttonValidModif);
             this.panelButton.Controls.Add(this.buttonSupprimer);
@@ -323,6 +371,28 @@
             this.panelButton.Name = "panelButton";
             this.panelButton.Size = new System.Drawing.Size(188, 670);
             this.panelButton.TabIndex = 3;
+            // 
+            // buttonAjouterUtil
+            // 
+            this.buttonAjouterUtil.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.buttonAjouterUtil.FlatAppearance.BorderSize = 0;
+            this.buttonAjouterUtil.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonAjouterUtil.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.buttonAjouterUtil.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonAjouterUtil.ForeColor = System.Drawing.Color.Gainsboro;
+            this.buttonAjouterUtil.IconChar = FontAwesome.Sharp.IconChar.UserPlus;
+            this.buttonAjouterUtil.IconColor = System.Drawing.Color.Gainsboro;
+            this.buttonAjouterUtil.IconSize = 38;
+            this.buttonAjouterUtil.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonAjouterUtil.Location = new System.Drawing.Point(0, 127);
+            this.buttonAjouterUtil.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.buttonAjouterUtil.Name = "buttonAjouterUtil";
+            this.buttonAjouterUtil.Rotation = 0D;
+            this.buttonAjouterUtil.Size = new System.Drawing.Size(167, 59);
+            this.buttonAjouterUtil.TabIndex = 6;
+            this.buttonAjouterUtil.Text = " Ajouter";
+            this.buttonAjouterUtil.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.buttonAjouterUtil.UseVisualStyleBackColor = true;
             // 
             // buttonAnnuler
             // 
@@ -364,7 +434,7 @@
             this.buttonValidModif.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonValidModif.Name = "buttonValidModif";
             this.buttonValidModif.Rotation = 0D;
-            this.buttonValidModif.Size = new System.Drawing.Size(167, 59);
+            this.buttonValidModif.Size = new System.Drawing.Size(176, 59);
             this.buttonValidModif.TabIndex = 3;
             this.buttonValidModif.Text = "Valider modification";
             this.buttonValidModif.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -384,7 +454,7 @@
             this.buttonSupprimer.IconColor = System.Drawing.Color.Gainsboro;
             this.buttonSupprimer.IconSize = 38;
             this.buttonSupprimer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonSupprimer.Location = new System.Drawing.Point(0, 207);
+            this.buttonSupprimer.Location = new System.Drawing.Point(0, 261);
             this.buttonSupprimer.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonSupprimer.Name = "buttonSupprimer";
             this.buttonSupprimer.Rotation = 0D;
@@ -406,7 +476,7 @@
             this.buttonModif.IconColor = System.Drawing.Color.Gainsboro;
             this.buttonModif.IconSize = 38;
             this.buttonModif.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonModif.Location = new System.Drawing.Point(0, 140);
+            this.buttonModif.Location = new System.Drawing.Point(0, 194);
             this.buttonModif.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonModif.Name = "buttonModif";
             this.buttonModif.Rotation = 0D;
@@ -445,7 +515,7 @@
             this.buttonUtil.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
             this.buttonUtil.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonUtil.ForeColor = System.Drawing.Color.Gainsboro;
-            this.buttonUtil.IconChar = FontAwesome.Sharp.IconChar.Dolly;
+            this.buttonUtil.IconChar = FontAwesome.Sharp.IconChar.Warehouse;
             this.buttonUtil.IconColor = System.Drawing.Color.Gainsboro;
             this.buttonUtil.IconSize = 58;
             this.buttonUtil.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -483,11 +553,12 @@
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "GestionGarages";
             this.Text = "Dashboardcs";
+            this.Load += new System.EventHandler(this.GestionGarages_Load);
             this.panelGestionUtil.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panelInfoUtil.ResumeLayout(false);
             this.panelInfoUtil.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCommandes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewGarages)).EndInit();
             this.panelButton.ResumeLayout(false);
             this.panelTitle.ResumeLayout(false);
             this.panelTitle.PerformLayout();
@@ -514,16 +585,21 @@
         private FontAwesome.Sharp.IconButton buttonAnnuler;
         private System.Windows.Forms.ErrorProvider errorProviderErreur;
         private System.Windows.Forms.Panel panelInfoUtil;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox txtNumGarage;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.DataGridView dataGridViewGarages;
+        private FontAwesome.Sharp.IconButton buttonAjouterUtil;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtNumClient;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtNumCommande;
-        private System.Windows.Forms.DateTimePicker txtDateLivraison;
-        private System.Windows.Forms.DateTimePicker txtDateCommande;
-        private System.Windows.Forms.DataGridView dataGridViewCommandes;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ComboBox comboTypeGarage;
+        private System.Windows.Forms.TextBox txtCodePostal;
+        private System.Windows.Forms.TextBox txtEmail;
+        private System.Windows.Forms.TextBox txtTelephone;
+        private System.Windows.Forms.TextBox txtAdresse;
+        private System.Windows.Forms.TextBox txtNumGarage;
+        private System.Windows.Forms.TextBox txtNomGarage;
     }
 }

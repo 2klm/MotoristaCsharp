@@ -226,14 +226,6 @@
             this.comboBoxGarage.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxGarage.FormattingEnabled = true;
             this.comboBoxGarage.ItemHeight = 19;
-            this.comboBoxGarage.Items.AddRange(new object[] {
-            "Enregistrée",
-            "Vérification",
-            "Validée",
-            "Préparation",
-            "Livraison",
-            "Livrée",
-            "Incident"});
             this.comboBoxGarage.Location = new System.Drawing.Point(618, 93);
             this.comboBoxGarage.Name = "comboBoxGarage";
             this.comboBoxGarage.Size = new System.Drawing.Size(208, 27);
