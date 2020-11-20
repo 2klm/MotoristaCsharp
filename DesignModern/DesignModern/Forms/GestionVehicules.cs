@@ -22,14 +22,14 @@ namespace DesignModern
 
             dataGridViewVehicule.DataSource = db.voiture.Select(v => new
             {
-                idVoiture = v.idVoiture,
-                TypeVehicule = v.type_de_voiture.idTypeV,
+                v.idVoiture,
+                TypeVehicule = v.type_de_voiture.etatTypeV,
                 numSerieVehicule = v.numSerieV,
                 Puissance = v.puissanceV,
                 Energie = v.energieV,
                 BoiteDeVitesse = v.boiteDeVitesseV,
-                Garage = v.garage.idGarage,
-                Modele = v.modele.idModele,
+                Garage = v.garage.nomG,
+                Modele = v.modele.nomModele,
                 Passagers = v.nbPassagerV,
                 Couleur = v.couleurV,
                 Prix = v.prixVenteV
@@ -40,7 +40,7 @@ namespace DesignModern
             AffecterValeurs(0);
             dataGridViewVehicule.CurrentCell = dataGridViewVehicule.Rows[0].Cells[0];
         }
-
+ 
         private void AffecterValeurs(int ligne)
         {
             txtNumeroVehicule.Text = dataGridViewVehicule.Rows[ligne].Cells[0].Value.ToString();
@@ -50,11 +50,11 @@ namespace DesignModern
             txtEnergie.Text = dataGridViewVehicule.Rows[ligne].Cells[4].Value.ToString();
             txtBoiteVitesse.Text = dataGridViewVehicule.Rows[ligne].Cells[5].Value.ToString();
             comboBoxTypesGarage.Text = dataGridViewVehicule.Rows[ligne].Cells[6].Value.ToString();
-            comboBoxModele.Text = dataGridViewVehicule.Rows[ligne].Cells[7].Value.ToString();
+            comboBoxModele.Text = dataGridViewVehicule.Rows[ligne].Cells[7].Value.ToString().Trim();
             txtPassagers.Text = dataGridViewVehicule.Rows[ligne].Cells[8].Value.ToString();
             txtCouleur.Text = dataGridViewVehicule.Rows[ligne].Cells[9].Value.ToString();
             txtPrix.Text = dataGridViewVehicule.Rows[ligne].Cells[10].Value.ToString();
-
+            
             dataGridViewVehicule.Rows[ligne].Selected = true;
             dataGridViewVehicule.CurrentCell = dataGridViewVehicule.Rows[ligne].Cells[0];
         }
@@ -278,6 +278,7 @@ namespace DesignModern
             buttonAjouter.Enabled = false;
             buttonAnnuler.Enabled = true;
             buttonAnnuler.Visible = true;
+            txtNumeroVehicule.Focus();
         }
 
         private void buttonValidAjout_Click(object sender, System.EventArgs e)
@@ -322,7 +323,6 @@ namespace DesignModern
                 buttonValidAjout.Visible = false;
                 buttonValidModif.Enabled = false;
                 buttonAjouter.Enabled = true;
-                buttonAjouter.Enabled = false;
                 buttonAnnuler.Visible = false;
             }
         }
@@ -349,6 +349,7 @@ namespace DesignModern
 
         private void buttonModif_Click(object sender, EventArgs e)
         {
+            z = 1;
             deverouillerVerrouiller();
             buttonModif.Enabled = false;
             buttonSupprimer.Enabled = false;
@@ -444,21 +445,25 @@ namespace DesignModern
         {
             AffecterValeurs(0);
             Verrou();
+            
         }
 
         private void buttonPrecedent_Click(object sender, EventArgs e)
         {
+            chargerComboBox();
             if (dataGridViewVehicule.CurrentRow.Index != 0)
             {
                 AffecterValeurs(dataGridViewVehicule.CurrentRow.Index - 1);
             }
             Verrou();
+            
         }
 
         private void buttonSuivant_Click(object sender, EventArgs e)
         {
             AffecterValeurs(dataGridViewVehicule.CurrentRow.Index + 1);
             Verrou();
+            
         }
 
         private void buttonFin_Click(object sender, EventArgs e)
