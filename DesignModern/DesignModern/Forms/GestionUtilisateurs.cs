@@ -369,6 +369,7 @@ namespace DesignModern
                 z = 0;
                 chargerComboBox();
             }
+            AffecterValeurs(0);
         }
         private void buttonModifUtil_Click(object sender, EventArgs e)
         {

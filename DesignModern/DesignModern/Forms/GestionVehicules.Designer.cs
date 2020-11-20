@@ -228,6 +228,7 @@
             // comboBoxModele
             // 
             this.comboBoxModele.BackColor = System.Drawing.Color.Gainsboro;
+            this.comboBoxModele.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxModele.Enabled = false;
             this.comboBoxModele.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxModele.FormattingEnabled = true;
@@ -248,6 +249,8 @@
             // comboBoxTypesGarage
             // 
             this.comboBoxTypesGarage.BackColor = System.Drawing.Color.Gainsboro;
+            this.comboBoxTypesGarage.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxTypesGarage.Enabled = false;
             this.comboBoxTypesGarage.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxTypesGarage.FormattingEnabled = true;
             this.comboBoxTypesGarage.ItemHeight = 16;
@@ -268,6 +271,7 @@
             // 
             this.comboBoxTypesVehicules.BackColor = System.Drawing.Color.Gainsboro;
             this.comboBoxTypesVehicules.DisplayMember = "etatTypeV";
+            this.comboBoxTypesVehicules.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxTypesVehicules.Enabled = false;
             this.comboBoxTypesVehicules.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxTypesVehicules.FormattingEnabled = true;

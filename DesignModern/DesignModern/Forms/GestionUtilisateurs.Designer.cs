@@ -37,7 +37,6 @@
             this.buttonSuivant = new FontAwesome.Sharp.IconButton();
             this.panelInfoUtil = new System.Windows.Forms.Panel();
             this.comboBoxTypesClient = new System.Windows.Forms.ComboBox();
-            this.dataGridViewUtil = new System.Windows.Forms.DataGridView();
             this.label12 = new System.Windows.Forms.Label();
             this.txtMdp = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -61,6 +60,7 @@
             this.txtNom = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtNumeroClient = new System.Windows.Forms.TextBox();
+            this.dataGridViewUtil = new System.Windows.Forms.DataGridView();
             this.panelButton = new System.Windows.Forms.Panel();
             this.buttonAnnuler = new FontAwesome.Sharp.IconButton();
             this.buttonValidAjout = new FontAwesome.Sharp.IconButton();
@@ -230,6 +230,7 @@
             // comboBoxTypesClient
             // 
             this.comboBoxTypesClient.BackColor = System.Drawing.Color.Gainsboro;
+            this.comboBoxTypesClient.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxTypesClient.Enabled = false;
             this.comboBoxTypesClient.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxTypesClient.FormattingEnabled = true;
@@ -246,15 +247,6 @@
             this.comboBoxTypesClient.Name = "comboBoxTypesClient";
             this.comboBoxTypesClient.Size = new System.Drawing.Size(193, 24);
             this.comboBoxTypesClient.TabIndex = 28;
-            // 
-            // dataGridViewUtil
-            // 
-            this.dataGridViewUtil.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewUtil.Location = new System.Drawing.Point(333, 347);
-            this.dataGridViewUtil.Name = "dataGridViewUtil";
-            this.dataGridViewUtil.Size = new System.Drawing.Size(10, 10);
-            this.dataGridViewUtil.TabIndex = 27;
-            this.dataGridViewUtil.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewUtil_CellClick);
             // 
             // label12
             // 
@@ -509,6 +501,15 @@
             this.txtNumeroClient.Name = "txtNumeroClient";
             this.txtNumeroClient.Size = new System.Drawing.Size(180, 26);
             this.txtNumeroClient.TabIndex = 0;
+            // 
+            // dataGridViewUtil
+            // 
+            this.dataGridViewUtil.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewUtil.Location = new System.Drawing.Point(333, 347);
+            this.dataGridViewUtil.Name = "dataGridViewUtil";
+            this.dataGridViewUtil.Size = new System.Drawing.Size(10, 10);
+            this.dataGridViewUtil.TabIndex = 27;
+            this.dataGridViewUtil.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewUtil_CellClick);
             // 
             // panelButton
             // 
