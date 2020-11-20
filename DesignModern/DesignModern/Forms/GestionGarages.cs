@@ -134,6 +134,7 @@ namespace DesignModern
         //vide tous les champs de texte, avant une saisie par exemple
         private void remiseAZero()
         {
+            txtNumGarage.Text = "";
             txtCodePostal.Text = "";
             txtAdresse.Text = "";
             txtEmail.Text = "";
@@ -154,6 +155,12 @@ namespace DesignModern
             buttonDebut.Enabled = true;
             buttonFin.Enabled = true;
             buttonPrecedent.Enabled = true;
+            buttonValidAjout.Visible = false;
+
+            label1.Visible = true;
+            txtNumGarage.Visible = true;
+
+            AffecterValeurs(0);
         }
 
         //rempli les champs de texte avec les valeurs en fonction de la position du selecteur dans le data grid
@@ -250,6 +257,7 @@ namespace DesignModern
 
         private void buttonModif_Click(object sender, EventArgs e)
         {
+            buttonAjouterUtil.Visible = false;
             buttonSuivant.Enabled = false;
             buttonDebut.Enabled = false;
             buttonFin.Enabled = false;
@@ -268,17 +276,17 @@ namespace DesignModern
             
             else
             {
-                //int numCmd = int.Parse(txtNumCommande.Text);
-                //int numC = int.Parse(txtNumClient.Text);
-                //int idGarage = int.Parse(txtNumGarage.Text);
                 try
                 {
-                    /*commande uneCommande = db.commande.First(r => r.numCmd == numCmd);
-                    uneCommande.numC = numC;
-                    uneCommande.idGarage = idGarage;
-                    uneCommande.dateCmd = txtDateCommande.Value;
-                    uneCommande.dateLivraisonCmd = txtDateLivraison.Value;
-                    uneCommande.etatCmd = comboEtatCommande.Text;*/
+                    garage unGarage = db.garage.First(g => g.idGarage.ToString() == txtNumGarage.Text);
+                    unGarage.nomG = txtNomGarage.Text;
+                    unGarage.idGarage = Convert.ToInt16(txtNumGarage.Text);
+                    unGarage.telG = txtTelephone.Text;
+                    unGarage.idType = Convert.ToInt16(comboTypeGarage.SelectedValue);
+                    unGarage.adresseG = txtAdresse.Text;
+                    unGarage.cpG = txtCodePostal.Text;
+                    unGarage.emailG = txtEmail.Text;
+
                     db.SaveChanges();
                     chargerDataGrind();
 
@@ -303,6 +311,68 @@ namespace DesignModern
             comboTypeGarage.DataSource = db.type_de_garage.ToList();
             comboTypeGarage.DisplayMember = "libelleType";
             comboTypeGarage.ValueMember = "idType";
+        }
+
+        private void buttonAjouterUtil_Click(object sender, EventArgs e)
+        {
+            remiseAZero();
+            deverouillerVerrouiller();
+
+            txtNumGarage.Visible = false;
+            label1.Visible = false;
+
+            buttonModif.Visible = false;
+            buttonSupprimer.Visible = false;
+            buttonAjouterUtil.Visible = false;
+
+            buttonValidAjout.Visible = true;
+            buttonAnnuler.Visible = true;
+        }
+
+        private void buttonValidAjout_Click(object sender, EventArgs e)
+        {
+            if (Verif() == false)
+            {
+                MessageBox.Show("Veuillez compléter toutes les zones de saisies");
+            }
+            else
+            {
+                try
+                {
+                    garage unGarage = new garage();
+                    unGarage.nomG = txtNomGarage.Text;
+                    unGarage.telG = txtTelephone.Text;
+                    unGarage.idType = Convert.ToInt16(comboTypeGarage.SelectedValue);
+                    unGarage.adresseG = txtAdresse.Text;
+                    unGarage.cpG = txtCodePostal.Text;
+                    unGarage.emailG = txtEmail.Text;
+
+                    db.garage.Add(unGarage);
+                    db.SaveChanges();
+                    chargerDataGrind();
+                    deverouillerVerrouiller();
+
+                    MessageBox.Show("Modification effectuée");
+                    chargerDataGrind();
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                    deverouillerVerrouiller();
+                }
+                //Activation / Désactivation des boutons
+                buttonModif.Visible = true;
+                buttonAjouterUtil.Visible = true;
+                buttonSupprimer.Visible = true;
+                buttonValidAjout.Visible = false;
+                buttonAnnuler.Visible = false;
+
+                AffecterValeurs(0);
+            }
+
+            txtNumGarage.Visible = true;
+            label1.Visible = true;
         }
     }
 }

@@ -62,6 +62,7 @@
             this.buttonUtil = new FontAwesome.Sharp.IconButton();
             this.panelBar = new System.Windows.Forms.Panel();
             this.errorProviderErreur = new System.Windows.Forms.ErrorProvider(this.components);
+            this.buttonValidAjout = new FontAwesome.Sharp.IconButton();
             this.panelGestionUtil.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panelInfoUtil.SuspendLayout();
@@ -208,6 +209,7 @@
             // 
             // comboTypeGarage
             // 
+            this.comboTypeGarage.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboTypeGarage.Enabled = false;
             this.comboTypeGarage.Font = new System.Drawing.Font("Century Gothic", 11.25F);
             this.comboTypeGarage.FormattingEnabled = true;
@@ -362,6 +364,7 @@
             // panelButton
             // 
             this.panelButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelButton.Controls.Add(this.buttonValidAjout);
             this.panelButton.Controls.Add(this.buttonAjouterUtil);
             this.panelButton.Controls.Add(this.buttonAnnuler);
             this.panelButton.Controls.Add(this.buttonValidModif);
@@ -393,6 +396,7 @@
             this.buttonAjouterUtil.Text = " Ajouter";
             this.buttonAjouterUtil.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonAjouterUtil.UseVisualStyleBackColor = true;
+            this.buttonAjouterUtil.Click += new System.EventHandler(this.buttonAjouterUtil_Click);
             // 
             // buttonAnnuler
             // 
@@ -510,6 +514,7 @@
             // 
             // buttonUtil
             // 
+            this.buttonUtil.Enabled = false;
             this.buttonUtil.FlatAppearance.BorderSize = 0;
             this.buttonUtil.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonUtil.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
@@ -539,6 +544,30 @@
             // errorProviderErreur
             // 
             this.errorProviderErreur.ContainerControl = this;
+            // 
+            // buttonValidAjout
+            // 
+            this.buttonValidAjout.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.buttonValidAjout.FlatAppearance.BorderSize = 0;
+            this.buttonValidAjout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonValidAjout.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.buttonValidAjout.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonValidAjout.ForeColor = System.Drawing.Color.Gainsboro;
+            this.buttonValidAjout.IconChar = FontAwesome.Sharp.IconChar.Check;
+            this.buttonValidAjout.IconColor = System.Drawing.Color.Gainsboro;
+            this.buttonValidAjout.IconSize = 38;
+            this.buttonValidAjout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonValidAjout.Location = new System.Drawing.Point(9, 451);
+            this.buttonValidAjout.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.buttonValidAjout.Name = "buttonValidAjout";
+            this.buttonValidAjout.Rotation = 0D;
+            this.buttonValidAjout.Size = new System.Drawing.Size(167, 59);
+            this.buttonValidAjout.TabIndex = 7;
+            this.buttonValidAjout.Text = " Valider ajout";
+            this.buttonValidAjout.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.buttonValidAjout.UseVisualStyleBackColor = true;
+            this.buttonValidAjout.Visible = false;
+            this.buttonValidAjout.Click += new System.EventHandler(this.buttonValidAjout_Click);
             // 
             // GestionGarages
             // 
@@ -601,5 +630,6 @@
         private System.Windows.Forms.TextBox txtAdresse;
         private System.Windows.Forms.TextBox txtNumGarage;
         private System.Windows.Forms.TextBox txtNomGarage;
+        private FontAwesome.Sharp.IconButton buttonValidAjout;
     }
 }
