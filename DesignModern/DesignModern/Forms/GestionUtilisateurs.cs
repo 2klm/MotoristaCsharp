@@ -25,7 +25,7 @@ namespace DesignModern
                 Numero = c.numC,
                 TypeClient = c.type_de_client.typeClient,
                 Nom = c.nomC,
-                Prenom = c.paysC,
+                Prenom = c.prenomC,
                 Adresse = c.adresseC,
                 CP = c.cpC,
                 Ville = c.villeC,
