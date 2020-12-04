@@ -356,6 +356,7 @@ namespace DesignModern.Forms
             this.dataGridPremier.RowTemplate.Height = 24;
             this.dataGridPremier.Size = new System.Drawing.Size(371, 206);
             this.dataGridPremier.TabIndex = 26;
+            this.dataGridPremier.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridPremier_CellClick);
             // 
             // dataGridSecond
             // 
@@ -367,6 +368,7 @@ namespace DesignModern.Forms
             this.dataGridSecond.RowTemplate.Height = 24;
             this.dataGridSecond.Size = new System.Drawing.Size(384, 206);
             this.dataGridSecond.TabIndex = 27;
+            this.dataGridSecond.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridSecond_CellClick);
             // 
             // Comparateur
             // 

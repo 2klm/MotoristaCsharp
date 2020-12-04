@@ -13,7 +13,14 @@ namespace DesignModern.Forms
     public partial class Comparateur : Form
     {
         private motoristaDbContext db;
-        
+
+        //variables qui correspondent aux attributs à comparer des véhicules 1 et 2
+        /*double prixP, prixS;
+        int puissanceP, puissanceS;
+        string boiteVitesseP, boiteVitesseS;
+        string energieP, energieS;
+        int nbPassagersP, nbPassagersS;*/
+
         public Comparateur()
         {
             InitializeComponent();
@@ -22,16 +29,113 @@ namespace DesignModern.Forms
             chargerDataGridSecond();
         }
 
+        //clic sur le bouton comparer
         private void btnComparer_Click(object sender, EventArgs e)
         {
-  
-            
+            AffecterValeursPremier(dataGridPremier.CurrentRow.Index);
+            AffecterValeursSecond(dataGridSecond.CurrentRow.Index);
+
+            comparerVehicules();
         }
 
+        public void comparerVehicules()
+        {
+            int ptsPremier = 0;
+            int ptsSecond = 0;
+
+            if (int.Parse(prixPremier.Text) > int.Parse(prixSecond.Text))
+            {
+                prixPremier.ForeColor = Color.Red;
+                prixSecond.ForeColor = Color.Green;
+                ptsSecond++;
+            }
+
+            else if (int.Parse(prixPremier.Text) < int.Parse(prixSecond.Text))
+            {
+                prixSecond.ForeColor = Color.Red;
+                prixPremier.ForeColor = Color.Green;
+                ptsPremier++;
+            }
+
+            else
+            {
+                prixSecond.ForeColor = Color.Yellow;
+                prixPremier.ForeColor = Color.Yellow;
+            }
+
+            //
+
+            if (int.Parse(puissancePremier.Text) < int.Parse(puissanceSecond.Text))
+            {
+                puissancePremier.ForeColor = Color.Red;
+                puissanceSecond.ForeColor = Color.Green;
+                ptsSecond++;
+            }
+
+            else if (int.Parse(puissancePremier.Text) > int.Parse(puissanceSecond.Text))
+            {
+                puissanceSecond.ForeColor = Color.Red;
+                puissancePremier.ForeColor = Color.Green;
+                ptsPremier++;
+            }
+
+            else
+            {
+                puissanceSecond.ForeColor = Color.Yellow;
+                puissancePremier.ForeColor = Color.Yellow;
+            }
+
+            //
+
+            if (int.Parse(boitePremier.Text) < int.Parse(boiteSecond.Text))
+            {
+                boitePremier.ForeColor = Color.Red;
+                boiteSecond.ForeColor = Color.Green;
+                ptsSecond++;
+            }
+
+            else if (int.Parse(boitePremier.Text) > int.Parse(boiteSecond.Text))
+            {
+                boiteSecond.ForeColor = Color.Red;
+                boitePremier.ForeColor = Color.Green;
+                ptsPremier++;
+            }
+
+            else
+            {
+                boiteSecond.ForeColor = Color.Yellow;
+                boitePremier.ForeColor = Color.Yellow;
+            }
+
+            //
+
+
+
+        }
+
+        public void AffecterValeursPremier(int index)
+        {
+            prixPremier.Text = dataGridPremier.Rows[index].Cells[4].Value.ToString();
+            puissancePremier.Text = dataGridPremier.Rows[index].Cells[2].Value.ToString();
+            boitePremier.Text = dataGridPremier.Rows[index].Cells[5].Value.ToString();
+            energiePremier.Text = dataGridPremier.Rows[index].Cells[3].Value.ToString();
+            passagersPremier.Text = dataGridPremier.Rows[index].Cells[1].Value.ToString();
+        }
+
+        public void AffecterValeursSecond(int index)
+        {
+            prixSecond.Text = dataGridSecond.Rows[index].Cells[4].Value.ToString();
+            puissanceSecond.Text = dataGridSecond.Rows[index].Cells[2].Value.ToString();
+            boiteSecond.Text = dataGridSecond.Rows[index].Cells[5].Value.ToString();
+            energieSecond.Text = dataGridSecond.Rows[index].Cells[3].Value.ToString();
+            passagersSecond.Text = dataGridSecond.Rows[index].Cells[1].Value.ToString();
+        }
+
+        //charger le premier data grid et applique de thème des couleurs
         private void chargerDataGridPremier()
         {
             dataGridPremier.DataSource = db.voiture.ToList();
-
+            //chargement des données dans le data grid
             dataGridPremier.DataSource = db.voiture.Select(c => new
             {
                 Modele = c.modele.nomModele,
@@ -45,6 +149,7 @@ namespace DesignModern.Forms
             dataGridPremier.Rows[0].Selected = true;
             dataGridPremier.CurrentCell = dataGridPremier.Rows[0].Cells[0];
 
+            //applique les couleurs
             dataGridPremier.BorderStyle = BorderStyle.None;
             dataGridPremier.AlternatingRowsDefaultCellStyle.BackColor = Color.Gray;
             dataGridPremier.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
@@ -52,37 +157,67 @@ namespace DesignModern.Forms
             dataGridPremier.EnableHeadersVisualStyles = false;
             dataGridPremier.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dataGridPremier.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-
         }
 
+        //charger le deuxième data grid et applique de thème des couleurs
         private void chargerDataGridSecond()
         {
             dataGridSecond.DataSource = db.voiture.ToList();
-
+            //chargement des données dans le data grid
             dataGridSecond.DataSource = db.voiture.Select(c => new
             {
-                idVoitureD = c.idVoiture,
-                idGarageD = c.idGarage,
-                idTypeD = c.idTypeV,
-                ModeleD = c.modele.idModele,
-                numSerieD = c.numSerieV,
-                nbPassagersD = c.nbPassagerV,
-                nbKmD = c.nbKmV,
-                puissanceD = c.puissanceV,
-                couleurD = c.couleurV,
-                energieD = c.energieV,
-                prixD = c.prixVenteV,
-                boitevitesseD = c.boiteDeVitesseV
+                Modele = c.modele.nomModele,
+                Passagers = c.nbPassagerV,
+                Puissance = c.puissanceV,
+                Energie = c.energieV,
+                Prix = c.prixVenteV,
+                Vitesses = c.boiteDeVitesseV,
 
             }).ToList();
 
             dataGridSecond.Rows[0].Selected = true;
-            dataGridSecond.CurrentCell = dataGridSecond.Rows[0].Cells[0];            
+            dataGridSecond.CurrentCell = dataGridSecond.Rows[0].Cells[0];
+
+            //applique les couleurs
+            dataGridSecond.BorderStyle = BorderStyle.None;
+            dataGridSecond.AlternatingRowsDefaultCellStyle.BackColor = Color.Gray;
+            dataGridSecond.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            dataGridSecond.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            dataGridSecond.EnableHeadersVisualStyles = false;
+            dataGridSecond.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataGridSecond.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
         }
 
+        //executé au chargement du formulaire
         private void Comparateur_Load(object sender, EventArgs e)
         {
+            dataGridPremier.Rows[0].Selected = true;
+            dataGridSecond.Rows[0].Selected = true;
         }
 
+        private void dataGridPremier_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                dataGridPremier.Rows[e.RowIndex].Selected = true;
+            }
+            catch 
+            { 
+                //
+            } 
+              
+        }
+
+        private void dataGridSecond_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                dataGridSecond.Rows[e.RowIndex].Selected = true;
+            }
+            catch
+            {
+                //
+            }
+        }
     }
 }
