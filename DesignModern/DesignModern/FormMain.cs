@@ -1,4 +1,5 @@
-﻿using FontAwesome.Sharp;
+﻿using DesignModern.Forms;
+using FontAwesome.Sharp;
 using System;
 using System.Drawing;
 using System.Runtime.InteropServices;
@@ -118,7 +119,7 @@ namespace DesignModern
         private void buttonCustomers_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color4);
-            //OpenChildForm(new Customers());
+            OpenChildForm(new Comparateur());
         }
 
         private void buttonMarketing_Click(object sender, EventArgs e)

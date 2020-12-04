@@ -171,6 +171,12 @@
     <Compile Include="commande.cs">
       <DependentUpon>ModelMotorista.tt</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Comparateur.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Comparateur.Designer.cs">
+      <DependentUpon>Comparateur.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\GestionGarages.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -248,6 +254,9 @@
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Comparateur.resx">
+      <DependentUpon>Comparateur.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\GestionGarages.resx">
       <DependentUpon>GestionGarages.cs</DependentUpon>
     </EmbeddedResource>
@@ -317,6 +326,7 @@
       <DependentUpon>ModelMotorista.edmx</DependentUpon>
       <LastGenOutput>ModelMotorista.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\vs.png" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
