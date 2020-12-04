@@ -108,8 +108,92 @@ namespace DesignModern.Forms
             }
 
             //
+            if (int.Parse(passagersPremier.Text) > int.Parse(passagersSecond.Text))
+            {
+                passagersPremier.ForeColor = Color.Green;
+                passagersSecond.ForeColor = Color.Red;
+                ptsPremier++;
+            }
+            else if (int.Parse(passagersPremier.Text) < int.Parse(passagersSecond.Text))
+            {
+                passagersPremier.ForeColor = Color.Red;
+                passagersSecond.ForeColor = Color.Green;
+                ptsSecond++;
+            }
+            else
+            {
+                passagersPremier.ForeColor = Color.Yellow;
+                passagersSecond.ForeColor = Color.Yellow;
+            }
 
+            //
 
+            switch (energiePremier.Text)
+            {
+                case "hybride" when energieSecond.Text == "essence":
+                    energiePremier.ForeColor = Color.Green;
+                    energieSecond.ForeColor = Color.Red;
+                    ptsPremier++;
+                    break;
+                case "electrique" when energieSecond.Text == "essence":
+                    energiePremier.ForeColor = Color.Green;
+                    energieSecond.ForeColor = Color.Red;
+                    ptsPremier++;
+                    break;
+                case "electrique" when energieSecond.Text == "hybride":
+                    energiePremier.ForeColor = Color.Green;
+                    energieSecond.ForeColor = Color.Red;
+                    ptsPremier++;
+                    break;
+                case "essence" when energieSecond.Text == "hybride":
+                    energiePremier.ForeColor = Color.Red;
+                    energieSecond.ForeColor = Color.Green;
+                    ptsSecond++;
+                    break;
+                case "essence" when energieSecond.Text == "electrique":
+                    energiePremier.ForeColor = Color.Red;
+                    energieSecond.ForeColor = Color.Green;
+                    ptsSecond++;
+                    break;
+                case "hybride" when energieSecond.Text == "electrique":
+                    energiePremier.ForeColor = Color.Red;
+                    energieSecond.ForeColor = Color.Green;
+                    ptsSecond++;
+                    break;
+                case "hybride" when energieSecond.Text == "hybride":
+                    energiePremier.ForeColor = Color.Yellow;
+                    energieSecond.ForeColor = Color.Yellow;
+                    break;
+                case "essence" when energieSecond.Text == "essence":
+                    energiePremier.ForeColor = Color.Yellow;
+                    energieSecond.ForeColor = Color.Yellow;
+                    break;
+                case "electrique" when energieSecond.Text == "electrique":
+                    energiePremier.ForeColor = Color.Yellow;
+                    energieSecond.ForeColor = Color.Yellow;
+                    break;
+                default:
+                    break;
+            }
+
+            if((ptsPremier != 0) && (ptsSecond != 0))
+            {
+               if(ptsPremier > ptsSecond)
+                {
+                    resultat.Text = "Le meilleur véhicule d'après notre comparateur est le véhicule numéro 1 avec un score de : " + ptsPremier;
+                    resultat.ForeColor = Color.Green;
+                }
+                else
+                {
+                    resultat.Text = "Le meilleur véhicule d'après notre comparateur est le véhicule numéro 2 avec un score de : " + ptsSecond;
+                    resultat.ForeColor = Color.Green;
+                }
+            }
+            else
+            {
+                resultat.Text = "Il semblerait que vous ayez tester le même vehicule !" + "\n" + "Veuillez choisir deux véhicule différents afin d'obtenir un résulat concluent !";
+                resultat.ForeColor = Color.Red;
+            }
 
         }
 
